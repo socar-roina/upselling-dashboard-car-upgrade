@@ -140,7 +140,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출 회원 중 결제 수락</div><div class="num green">8.6<span class="unit">%</span></div><div class="sub">수락 59명 / 노출 688명. 기대 5%보다 통계적으로 유의하게 높음</div></div>
+    <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출 회원 중 결제 수락</div><div class="num green">8.6<span class="unit">%</span></div><div class="sub">수락 59명 / 노출 688명. 통계적으로 유의 (z=4.3, 우연 아님)</div></div>
     <div class="kpi"><div class="lbl">옵션 선택율<br>노출 중 상위 차급 카드 선택</div><div class="num blue">36.5<span class="unit">%</span></div><div class="sub">251 / 688</div></div>
     <div class="kpi"><div class="lbl">고객 추가매출<br>결제 건 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65건</div></div>
   </div>
@@ -148,37 +148,15 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">지금까지 평가 (실험 진행 중)</div>
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
-      <b style="font-size:14px">결론: 현재까지 긍정적</b><br>
-      노출군(B)이 대조군(A)에는 없는 상위 차종 판매를 만듦: 6일간 65건 업그레이드, 매출 +64만원 (A군은 차종UP 옵션이 없어 0)<br>
-      수락률 8.6%로 기대 5%보다 통계적으로 유의하게 높음 (z=4.3, 신뢰구간 6.5~10.7%, 우연 아님)<br>
-      가드레일: 노출이 기존 예약 전환을 떨어뜨리지 않음 (부작용 체크, 통과)<br>
-      6일치라 매출 규모는 초기 수준, 누적되며 증가 예상
+      <b style="font-size:14px">결론: 현재까지 긍정적 (6일 PoC 중간)</b><br>
+      실험 성패를 가르는 두 축이 통계적으로 확인됨<br>
+      1) 수요 있음 (수락률이 우연이 아님) 2) 부작용 없음 (기존 예약 안 깨짐)<br>
+      단 "유휴 상위 차로 회사가 순이익을 봤는지"는 6일 규모로 아직 측정 불가 (아래 한계)
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
-      <b style="color:#111827">핵심 성과 (A 대비 순증)</b> &nbsp; 노출군(B)이 대조군(A)에는 없는 상위 차종 판매를 만듦. 6일간 65건을 하위에서 상위 차종으로 전환(유휴 상위 차량 가동) + 매출 64만원. A군은 차종UP 옵션이 없어 이 전환과 매출이 0<br>
-      <b style="color:#111827">수요</b> &nbsp; 노출 회원의 8.6% 수락, 기대 5% 대비 z=4.3으로 통계적으로 유의(우연 아님). 9,900원 추가에 차종 변경까지 필요한 허들을 감안하면 수요 확인됨<br>
-      <b style="color:#111827">비용</b> &nbsp; 건당 회사 차액 부담 약 2만원. 상위 차종도 유휴 상태였다면 공헌이익 관점에서 손해로 보기 어려움. 비용 대부분이 건단위라 추가 판매 자체가 순증이므로 회사 부담은 전면 지표에서 제외<br>
-      <b style="color:#111827">가드레일 (부작용 체크, 통과)</b> &nbsp; 차종UP을 띄워도 기존 예약 전환이 떨어지지 않는지 확인용. A/B 취소율 26.84% vs 26.83%로 통계적으로 유의한 차이 없음. 단 A군도 B군도 같은 바텀시트를 거치므로 전환율이 비슷한 것은 어느 정도 예상된 결과이며, 핵심 성과는 위의 A 대비 순증<br>
-      <b style="color:#111827">한계</b> &nbsp; 수락률(기대 대비)과 취소율(대조군 대비)은 통계적으로 검증됨. 다만 매출 순증분은 결제 65건으로 표본이 작아 규모 추정에는 추가 관찰 필요
-    </div>
-  </div>
-
-  <div class="section-label">A 대비 순증 (차종UP이 만든 것) <span class="tag tag-fact">A/B 비교</span></div>
-  <div class="card">
-    <div class="card-sub">차종UP을 제공한 B 노출군과, 제공하지 않은 A 대조군의 비교. 차종UP은 A군에 옵션 자체가 없어 A는 0이며, B가 만든 전부가 곧 A 대비 순증</div>
-    <table class="data-table">
-      <thead><tr><th>지표</th><th class="num">A 대조군 (미제공)</th><th class="num">B 노출군 (제공)</th><th class="num">A 대비 순증</th></tr></thead>
-      <tbody>
-        <tr><td class="dt">상위 차종 업그레이드</td><td class="num">0건</td><td class="num">65건</td><td class="num">+65건</td></tr>
-        <tr><td class="dt">고객 추가 매출</td><td class="num">0원</td><td class="num">643,500원</td><td class="num">+643,500원</td></tr>
-        <tr><td class="dt">유휴 상위 차량 가동</td><td class="num">0대</td><td class="num">65대</td><td class="num">+65대</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.9;color:#374151">
-      <b>순증 = 수락 매출 − 전환율 하락 손실</b> (시간연장 실험과 동일한 순증 공식)<br>
-      차종UP 수락 매출 +643,500원 − 전환율 하락 손실 0원(가드레일에서 A=B 확인) = <b>순증 +643,500원</b><br>
-      <span style="color:#9ca3af;font-size:12px">수락은 B 노출군에서만 발생하므로 A는 0(시간연장도 동일 방식). 단 "차종UP을 제안 안 했어도 그 사람이 상위 차종을 샀을지"라는 반사실 기대값은 시간연장과 마찬가지로 직접 측정이 불가능하며, 이는 6일 모수에서의 구조적 한계</span>
-    </div>
+      <b style="color:#111827">수요 — 통계적으로 유의</b> &nbsp; 노출 회원의 8.6%(59/688)가 차종UP 결제. z=4.3, 95% 신뢰구간 6.5~10.7%로 우연이 아님. 9,900원에 차종까지 바꿔야 하는데도 제안이 고객을 상위 차종으로 움직인다는 것이 확인됨<br>
+      <b style="color:#111827">부작용 없음 — 통계적으로 유의</b> &nbsp; 노출군과 대조군의 예약 취소율 차이가 없음(26.84% vs 26.83%, 표본 각 3.3만 건). 차종UP을 띄워도 기존 예약을 깨지 않음 (아래 가드레일)<br>
+      <b style="color:#111827">아직 못 보는 것 — 진짜 순이익</b> &nbsp; "그 상위 차종이 차종UP 없었어도 다른 고객에게 나갔을지"는 차량 단위 반사실이라 회원 A/B로는 직접 측정이 불가능. 1인당 매출 증분(935원)을 따로 검정하려면 그룹당 9.5만 명이 필요해 6일 규모로는 못 봄. 시간연장도 같은 구조적 한계로 이 부분은 못 봤음. 즉 "수요·부작용까지는 통계로 확정, 회사 순이익 규모는 모수가 쌓이며 추정"</div>
   </div>
 
   <div class="section-label">일별 추이 <span class="tag tag-fact">실측</span></div>
