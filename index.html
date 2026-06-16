@@ -109,7 +109,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="period-inner">
     <div class="period-block"><div class="lbl">노출 (B군)</div><div class="val">688명</div><div class="sub">바텀시트 view</div></div>
     <div class="period-block"><div class="lbl">업그레이드 옵션 선택</div><div class="val">251명</div><div class="sub">노출 중 36.5%</div></div>
-    <div class="period-block"><div class="lbl">결제 수락</div><div class="val">59명</div><div class="sub">결제 65건, 환불 0</div></div>
+    <div class="period-block"><div class="lbl">결제 수락</div><div class="val">59명</div><div class="sub">환불 0</div></div>
     <div class="period-block"><div class="lbl">고객 추가 매출</div><div class="val">643,500원</div><div class="sub">9,900원 x 65예약</div></div>
   </div>
 </div>
@@ -132,7 +132,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <div class="bar-pct">선택율 36.5%</div>
       </div>
       <div class="bar-row final">
-        <div class="bar-label">결제 수락<span class="sub">차종UP 결제 완료, 수락 59명 / 결제 65건 (환불 0)</span></div>
+        <div class="bar-label">결제 수락 (사람)<span class="sub">차종UP 결제 완료한 회원, 환불 0</span></div>
         <div class="bar-track"><div class="bar-fill" style="width:8.6%;background:#059669">59</div></div>
         <div class="bar-pct">수락률 8.6%</div>
       </div>
@@ -170,7 +170,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="card">
     <table class="data-table">
       <thead><tr>
-        <th>날짜</th><th class="num">노출(회원)</th><th class="num">옵션 선택</th><th class="num">결제 수락(예약)</th>
+        <th>날짜</th><th class="num">노출(회원)</th><th class="num">옵션 선택</th><th class="num">결제 건수</th>
         <th class="num">고객 추가매출</th>
       </tr></thead>
       <tbody>
@@ -286,7 +286,7 @@ new Chart(ctx, {
     datasets: [
       { label: '노출(회원)', data: [95,119,157,127,92,139], backgroundColor: '#bfdbfe' },
       { label: '옵션 선택(회원)', data: [38,42,60,43,32,40], backgroundColor: '#818cf8' },
-      { label: '결제 수락(예약)', data: [13,9,14,11,6,12], backgroundColor: '#059669' }
+      { label: '결제 건수', data: [13,9,14,11,6,12], backgroundColor: '#059669' }
     ]
   },
   options: {
