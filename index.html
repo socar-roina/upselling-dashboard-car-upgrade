@@ -140,7 +140,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출된 회원 중 결제 수락</div><div class="num green">8.4<span class="unit">%</span></div><div class="sub">58명 / 688명 (기대치 5% 상회)</div></div>
+    <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출된 회원 중 결제 수락</div><div class="num green">8.4<span class="unit">%</span></div><div class="sub">58명 / 688명. 기대 5%보다 통계적으로 유의하게 높음</div></div>
     <div class="kpi"><div class="lbl">옵션 선택율<br>노출 중 상위 차급 카드 선택</div><div class="num blue">36.5<span class="unit">%</span></div><div class="sub">251 / 688</div></div>
     <div class="kpi"><div class="lbl">고객 추가매출<br>수락 예약 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65예약 (59명)</div></div>
   </div>
@@ -149,15 +149,15 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
       <b style="font-size:14px">결론: 현재까지 긍정적</b><br>
-      노출 회원의 8.4%가 업그레이드 결제 (기대 5% 상회)<br>
-      노출군 예약 취소율이 대조군과 동일, 기존 예약 전환 저하 없음<br>
-      6일치 초기 데이터로 통계적 유의성은 추가 모수 필요
+      수락률 8.4%, 기대 5%보다 통계적으로 유의하게 높음 (노출자 688명)<br>
+      노출군/대조군 예약 취소율 차이가 통계적으로 유의하지 않음, 기존 예약 전환 저하 없음 (표본 각 3.3만)<br>
+      매출 순증분 규모만 표본(수락 65건)이 작아 추가 관찰 필요
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
       <b style="color:#111827">수요</b> &nbsp; 노출 회원의 8.4%가 차종 업그레이드 수락 (기대치 5% 상회). 9,900원 추가에 차종 변경까지 필요한 허들을 감안하면 수요 확인됨<br>
       <b style="color:#111827">비용</b> &nbsp; 건당 회사 차액 부담 약 2만원. 상위 차종도 유휴 상태였다면 공헌이익 관점에서 손해로 보기 어려움. 비용 대부분이 건단위라 추가 판매 자체가 순증이므로 회사 부담은 전면 지표에서 제외<br>
       <b style="color:#111827">가드레일 (통과)</b> &nbsp; 노출이 결제를 방해하지 않으면서 추가 매출이 발생하는지가 실험 성공의 정의. A/B 대조군 예약 취소율 26.84%(A) vs 26.83%(B)로 사실상 동일. 노출자 97.7% 결제 완료. 노출이 기존 예약을 해치지 않음 확인<br>
-      <b style="color:#111827">한계</b> &nbsp; 6일치 초기 데이터(수락 59명). 방향성은 긍정이나 통계적 유의성 확보에는 추가 모수 필요. 시간연장도 같은 이유로 방향성까지만 확인
+      <b style="color:#111827">한계</b> &nbsp; 수락률(기대 대비)과 취소율(대조군 대비)은 통계적으로 검증됨. 다만 매출 순증분은 수락 65건으로 표본이 작아 규모 추정에는 추가 관찰 필요
     </div>
   </div>
 
@@ -200,7 +200,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </table>
     <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
       <b>가드레일 통과</b><br>
-      예약 취소율이 A 26.84% vs B 26.83%로 거의 같음(차이 0.01%p). 여기에 B 노출자는 97.7%(672/688)가 결제를 완료. 즉 차종UP 바텀시트를 띄워도 기존 예약 전환을 떨어뜨리지 않음<br>
+      예약 취소율 A 26.84% vs B 26.83%, 차이가 통계적으로 유의하지 않음(표본 각 3.3만 예약이라 신뢰 가능). B 노출자는 97.7%(672/688)가 결제 완료. 차종UP 바텀시트를 띄워도 기존 예약 전환을 떨어뜨리지 않음<br>
       <span style="color:#6b7280;font-size:12px">버킷팅 공식은 서버 코드(socar-common Testing.kt)로 확인: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 기준 50 미만이 노출군. 노출자 688명 전원 노출군에 속함을 BQ로 검증</span>
     </div>
   </div>
