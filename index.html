@@ -110,7 +110,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div class="period-block"><div class="lbl">노출 (B군)</div><div class="val">688명</div><div class="sub">바텀시트 view</div></div>
     <div class="period-block"><div class="lbl">업그레이드 옵션 선택</div><div class="val">251명</div><div class="sub">노출 중 36.5%</div></div>
     <div class="period-block"><div class="lbl">결제 수락</div><div class="val">59명</div><div class="sub">환불 0</div></div>
-    <div class="period-block"><div class="lbl">고객 추가 매출</div><div class="val">643,500원</div><div class="sub">9,900원 x 65예약</div></div>
+    <div class="period-block"><div class="lbl">고객 추가 매출</div><div class="val">643,500원</div><div class="sub">9,900원 x 65건</div></div>
   </div>
 </div>
 
@@ -142,7 +142,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="kpi-row">
     <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출 회원 중 결제 수락</div><div class="num green">8.6<span class="unit">%</span></div><div class="sub">수락 59명 / 노출 688명. 기대 5%보다 통계적으로 유의하게 높음</div></div>
     <div class="kpi"><div class="lbl">옵션 선택율<br>노출 중 상위 차급 카드 선택</div><div class="num blue">36.5<span class="unit">%</span></div><div class="sub">251 / 688</div></div>
-    <div class="kpi"><div class="lbl">고객 추가매출<br>수락 예약 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65예약 (59명)</div></div>
+    <div class="kpi"><div class="lbl">고객 추가매출<br>결제 건 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65건</div></div>
   </div>
 
   <div class="section-label">지금까지 평가 (실험 진행 중)</div>
@@ -236,7 +236,7 @@ SELECT dt,
   COUNT(DISTINCT reservation_id)*9900 AS customer_rev,
   SUM(amount) AS company_discount
 FROM cu_paid GROUP BY dt ORDER BY dt
--- 결과: 6/10~6/15 수락 65예약, 고객매출 643,500, 회사부담 1,357,390 (환불 0)</div>
+-- 결과: 6/10~6/15 수락 65건, 고객매출 643,500, 회사부담 1,357,390 (환불 0)</div>
   </details>
   <details>
     <summary>3. 가드레일 A/B 예약 취소율 (버킷팅 + 헤비 계정 제외)</summary>
