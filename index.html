@@ -35,7 +35,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .card { background: white; border-radius: 12px; border: 1px solid #e5e7eb; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 16px; }
 .card-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 6px; }
 .card-sub { font-size: 12px; color: #6b7280; margin-bottom: 16px; line-height: 1.7; }
-.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
 .kpi { background: white; border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
 .kpi .lbl { font-size: 12px; font-weight: 700; color: #6b7280; margin-bottom: 8px; line-height: 1.5; min-height: 36px; }
 .kpi .num { font-size: 28px; font-weight: 900; line-height: 1; color: #111827; }
@@ -142,17 +142,16 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="kpi-row">
     <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출된 회원 중 결제 수락</div><div class="num green">8.4<span class="unit">%</span></div><div class="sub">58명 / 688명 (기대치 5% 상회)</div></div>
     <div class="kpi"><div class="lbl">옵션 선택율<br>노출 중 상위 차급 카드 선택</div><div class="num blue">36.5<span class="unit">%</span></div><div class="sub">251 / 688</div></div>
-    <div class="kpi"><div class="lbl">시간연장 대비<br>둘 다 노출 회원 중 수락</div><div class="num">8.4<span class="unit">%</span> <span style="font-size:15px;color:#9ca3af;font-weight:700">vs 27.4%</span></div><div class="sub">시간연장은 노출 930명 중 255명 수락. 차종UP은 차종 변경에 9,900원까지 더 내야 해 더 낮음</div></div>
     <div class="kpi"><div class="lbl">고객 추가매출<br>수락 예약 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65예약 (59명)</div></div>
   </div>
 
   <div class="section-label">지금까지 평가 (실험 진행 중)</div>
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
-      <b style="font-size:14px">한 줄 결론</b> &nbsp; <b>현재까지 ABT 긍정적</b>. 추가 매출 수요는 기대 이상(노출 회원의 8.4% 수락, 기대 5% 상회)이고, 노출이 기존 예약을 해치지도 않음(A/B 예약 취소율 26.84% vs 26.83%로 동일, B 노출자 97.7% 결제 완료). 즉 추가 매출을 만들면서 기존 예약 전환을 떨어뜨리지 않음. 단 6일 표본이라 통계적 유의성까지는 모수가 더 쌓여야 최종 확정
+      <b style="font-size:14px">한 줄 결론</b> &nbsp; <b>지금까지는 긍정적.</b> 차종 업그레이드를 본 사람 중 8.4%가 추가로 결제했고(기대 5%보다 높음), 그러면서 기존 예약을 취소하게 만들지도 않았음. 단 아직 6일치 데이터라 "성공"이라고 확정하긴 일러서 더 지켜봐야 함
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
-      <b style="color:#111827">수요</b> &nbsp; 노출된 회원의 8.4%가 차종 업그레이드를 수락(기대치 5% 상회). 같은 방식으로 잰 시간연장(노출 회원 중 27.4% 수락)보다는 낮음. 9,900원을 더 내고 차종까지 바꿔야 하는 허들이 더 크기 때문<br>
+      <b style="color:#111827">수요</b> &nbsp; 노출된 회원의 8.4%가 차종 업그레이드를 수락(기대치 5% 상회). 9,900원을 더 내고 차종까지 바꿔야 하는 허들을 감안하면 수요는 확인된 셈<br>
       <b style="color:#111827">비용</b> &nbsp; 건당 회사 차액 부담은 약 2만원이나, 상위 차종도 어차피 유휴였다면 공헌이익 관점에서 손해로 보기 어려움. 비용 대부분이 건단위라 추가 판매 자체가 순증이고, 회사 부담을 전면 지표로 두지 않음<br>
       <b style="color:#111827">가드레일 (통과)</b> &nbsp; 노출이 결제를 방해하지 않으면서 추가 매출이 붙는지가 실험 성공의 정의. A/B 대조군 예약 취소율이 26.84%(A) vs 26.83%(B)로 사실상 동일하고 노출자 97.7%가 결제를 완료해, 노출이 기존 예약을 해치지 않음을 확인<br>
       <b style="color:#111827">한계</b> &nbsp; 6일치 초기 데이터(수락 59명). 방향은 긍정이나, 통계적 유의성(우연이 아니라고 단정)까지는 모수가 더 쌓여야 함. 시간연장도 같은 이유로 방향성까지만 확인했음
