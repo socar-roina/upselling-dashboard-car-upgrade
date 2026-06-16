@@ -149,13 +149,13 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">지금까지 평가 (실험 진행 중)</div>
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
-      <b style="font-size:14px">한 줄 결론</b> &nbsp; 추가 매출 <b>수요는 기대 이상</b>(노출 회원의 8.4% 수락, 기대 5% 상회). 다만 <b>ABT 성패는 아직 판정 보류</b>. 노출이 기존 예약 전환을 해치지 않으면서 순증인지는 대조군(A군) 전환율 비교가 필요한데, A군은 미노출이라 비교 데이터가 부족하고 6일 모수로는 유의성이 안 나옴. <b>현재 단계 = 수요가 확인된 긍정 신호</b>이며, 최종 성공 여부는 모수가 쌓인 뒤 대조군 대비로 판정
+      <b style="font-size:14px">한 줄 결론</b> &nbsp; <b>현재까지 ABT 긍정적</b>. 추가 매출 수요는 기대 이상(노출 회원의 8.4% 수락, 기대 5% 상회)이고, 노출이 기존 예약을 해치지도 않음(A/B 예약 취소율 26.84% vs 26.83%로 동일, B 노출자 97.7% 결제 완료). 즉 추가 매출을 만들면서 기존 예약 전환을 떨어뜨리지 않음. 단 6일 표본이라 통계적 유의성까지는 모수가 더 쌓여야 최종 확정
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
       <b style="color:#111827">수요</b> &nbsp; 노출된 회원의 8.4%가 차종 업그레이드를 수락(기대치 5% 상회). 같은 방식으로 잰 시간연장(노출 회원 중 27.4% 수락)보다는 낮음. 9,900원을 더 내고 차종까지 바꿔야 하는 허들이 더 크기 때문<br>
       <b style="color:#111827">비용</b> &nbsp; 건당 회사 차액 부담은 약 2만원이나, 상위 차종도 어차피 유휴였다면 공헌이익 관점에서 손해로 보기 어려움. 비용 대부분이 건단위라 추가 판매 자체가 순증이고, 회사 부담을 전면 지표로 두지 않음<br>
-      <b style="color:#111827">ABT 성패를 가르는 것</b> &nbsp; 노출이 결제를 방해하지 않으면서(예약 전환 저하 없이) 추가 매출이 붙는지. 이게 실험 성공의 정의이고, A/B 대조군 전환율 비교로만 답이 나옴(현재 미산출)<br>
-      <b style="color:#111827">한계</b> &nbsp; 6일치 초기 데이터(수락 59명). 시간연장도 모수 부족으로 유의성은 못 봤고 방향성만 확인했음. 차종UP도 노출 조건을 넓혀 모수를 키워야 대조군 대비 순증분과 성패를 확인할 수 있음
+      <b style="color:#111827">가드레일 (통과)</b> &nbsp; 노출이 결제를 방해하지 않으면서 추가 매출이 붙는지가 실험 성공의 정의. A/B 대조군 예약 취소율이 26.84%(A) vs 26.83%(B)로 사실상 동일하고 노출자 97.7%가 결제를 완료해, 노출이 기존 예약을 해치지 않음을 확인<br>
+      <b style="color:#111827">한계</b> &nbsp; 6일치 초기 데이터(수락 59명). 방향은 긍정이나, 통계적 유의성(우연이 아니라고 단정)까지는 모수가 더 쌓여야 함. 시간연장도 같은 이유로 방향성까지만 확인했음
     </div>
   </div>
 
@@ -183,6 +183,24 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 노출된 회원 중 수락 8.4%(58명 / 688명). 전체 수락은 59명, 65예약이며 그중 58명이 노출 로그 확인(1명은 웹 이벤트 누락). 매출은 예약 기준(9,900원 x 65예약)</div>
+  </div>
+
+  <div class="section-label">가드레일: 노출이 예약을 방해했나? <span class="tag tag-fact">A/B 비교</span></div>
+  <div class="card">
+    <div class="card-title">A 대조군 vs B 노출군 예약 취소율</div>
+    <div class="card-sub">차종UP은 A/B 테스트(노출군 B 50% / 대조군 A 50%, 버킷은 farmhash 기준 50:50). 노출이 기존 예약을 해쳤는지 두 군의 예약 취소율을 비교 (법인·대량 계정 제외, 6/10~6/15 대상 차급 + 가지러가기 예약)</div>
+    <table class="data-table">
+      <thead><tr><th>구분</th><th class="num">예약</th><th class="num">회원</th><th class="num">취소</th><th class="num">취소율</th></tr></thead>
+      <tbody>
+        <tr><td class="dt">A 대조군 (미노출)</td><td class="num">33,212</td><td class="num">21,937</td><td class="num">8,914</td><td class="num">26.84%</td></tr>
+        <tr><td class="dt">B 노출군</td><td class="num">33,453</td><td class="num">21,960</td><td class="num">8,977</td><td class="num">26.83%</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
+      <b>가드레일 통과</b><br>
+      예약 취소율이 A 26.84% vs B 26.83%로 거의 같음(차이 0.01%p). 여기에 B 노출자는 97.7%(672/688)가 결제를 완료. 즉 차종UP 바텀시트를 띄워도 기존 예약 전환을 떨어뜨리지 않음<br>
+      <span style="color:#6b7280;font-size:12px">버킷팅 공식은 서버 코드(socar-common Testing.kt)로 확인: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 기준 50 미만이 노출군. 노출자 688명 전원 노출군에 속함을 BQ로 검증</span>
+    </div>
   </div>
 
   <div class="section-label">검증용 실제 쿼리 <span class="tag tag-info">BigQuery</span></div>
@@ -217,6 +235,29 @@ SELECT dt,
   SUM(amount) AS company_discount
 FROM cu_paid GROUP BY dt ORDER BY dt
 -- 결과: 6/10~6/15 수락 65예약, 고객매출 643,500, 회사부담 1,357,390 (환불 0)</div>
+  </details>
+  <details>
+    <summary>3. 가드레일 A/B 예약 취소율 (버킷팅 + 헤비 계정 제외)</summary>
+    <div class="query-block">-- 버킷: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') % 100 이 50 미만이면 노출군(B)
+-- (서버 코드 socar-common Testing.kt 의 ABTesting 공식. 노출자 688명 전원 B로 검증됨)
+-- 법인/대량 계정(6일 20건 이상)은 A쪽에 쏠려 예약수를 왜곡하므로 제외
+WITH heavy AS (
+  SELECT member_id FROM `socar-data.tianjin_replica.reservation_info`
+  WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-15' AND member_id > 0
+  GROUP BY member_id HAVING COUNT(*) >= 20
+)
+SELECT
+  MOD(ABS(FARM_FINGERPRINT(CAST(member_id AS STRING)||'UPSELLING_CAR_UPGRADE')),100) < 50 AS is_b,
+  COUNT(*) AS rsv,
+  COUNT(DISTINCT member_id) AS members,
+  ROUND(COUNTIF(cancel_at IS NOT NULL)/COUNT(*)*100, 2) AS cancel_rate
+FROM `socar-data.tianjin_replica.reservation_info`
+WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-15'
+  AND member_id > 0 AND member_id NOT IN (SELECT member_id FROM heavy)
+  AND zone_id = end_zone_id
+  AND car_class_id IN (차종UP 대상 차급 id 목록)
+GROUP BY is_b
+-- 결과: A(대조) 33,212예약 26.84% vs B(노출) 33,453예약 26.83% (취소율 거의 동일 = 노출이 예약 방해 안 함)</div>
   </details>
 
   <div class="foot-note">
