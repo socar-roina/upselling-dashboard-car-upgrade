@@ -223,14 +223,13 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <tr><td class="dt">자기부담금 5만원</td><td class="num">20</td><td class="num">4</td><td class="num">20.0%</td><td><div style="display:flex;align-items:center;gap:6px"><div style="background:#cbd5e1;height:14px;width:100%;border-radius:3px"></div><span style="font-size:11px;color:#9ca3af;white-space:nowrap">표본 20명</span></div></td></tr>
         <tr><td class="dt">자기부담금 30만원</td><td class="num">208</td><td class="num">21</td><td class="num">10.1%</td><td><div style="background:#3b82f6;height:14px;width:50%;border-radius:3px"></div></td></tr>
         <tr><td class="dt">자기부담금 70만원 (최소면책)</td><td class="num">221</td><td class="num">10</td><td class="num">4.5%</td><td><div style="background:#ef4444;height:14px;width:22%;border-radius:3px"></div></td></tr>
-        <tr class="total"><td class="dt">전체</td><td class="num">688</td><td class="num">58</td><td class="num">8.4%</td><td></td></tr>
       </tbody>
     </table>
     <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
       <b>보험을 두껍게 든 고객일수록 차종UP을 더 함</b><br>
       자기부담금 0원, 30만원(두꺼운 보험) 고객은 9.6~10.1%로 수락. 반면 자기부담금 70만원(가장 얇은 보험) 고객은 4.5%로 절반 이하. 70만원 가입자와 나머지(0원+30만원)의 차이는 통계적으로 유의함(z=2.4)<br>
       <span style="color:#3730a3">사고 위험에 대비해 보험에 더 지불하는 고객이 차종 업그레이드라는 추가 지출에도 더 적극적이라는 해석. 자기부담금 5만원(20%)은 노출이 20명뿐이라 신뢰하기 이름</span><br>
-      <span style="color:#6b7280;font-size:12px">보험별 분류는 바텀시트 분석 로그가 있는 수락자 58명 기준. 서버 결제 기준 수락은 59명인데, 1명(member 7507462, 결제 2건)은 앱이 바텀시트 분석 로그를 안 보내 보험 종류를 못 붙임. 결제 자체는 정상 완료</span>
+      <span style="color:#6b7280;font-size:12px">보험별 노출과 수락은 바텀시트 분석 로그(노출 688명) 기준으로 나눈 값. 헤드라인 수락 59명 중 1명(결제 2건)은 앱이 바텀시트 로그를 안 보내 노출과 보험 분류 양쪽에서 빠졌고, 결제는 서버에 정상 기록됨</span>
     </div>
   </div>
 
