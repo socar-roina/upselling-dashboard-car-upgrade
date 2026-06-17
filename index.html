@@ -82,9 +82,9 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </div>
   </div>
   <div class="updated">
-    최종 갱신: <b>2026-06-16 KST</b><br>
+    최종 갱신: <b>2026-06-17 KST</b><br>
     <span>차종UP 오픈 2026-06-10 (release/CR-10867)</span><br>
-    <span style="color:#9ca3af">웹 이벤트 6/15까지 집계(D+1 적재)<br>결제는 실시간 적재(6/16 진행중)</span>
+    <span style="color:#9ca3af">웹 이벤트 6/15까지 집계(6/16분 적재 지연)<br>결제 6/16까지 마감, 6/17 결제 아직 없음</span>
   </div>
 </div>
 
@@ -171,7 +171,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">일별 추이 <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">일별 노출, 옵션 선택, 결제 수락</div>
-    <div class="card-sub">웹 이벤트는 6/15까지 집계(D+1), 결제는 실시간이라 6/16은 진행중</div>
+    <div class="card-sub">웹 이벤트는 6/15까지 집계(6/16분 적재 지연), 결제는 6/16까지 마감</div>
     <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
   </div>
   <div class="card">
@@ -188,7 +188,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <tr><td class="dt">6/14</td><td class="num">92</td><td class="num">32</td><td class="num">6</td><td class="num">59,400</td></tr>
         <tr><td class="dt">6/15</td><td class="num">139</td><td class="num">40</td><td class="num">12</td><td class="num">118,800</td></tr>
         <tr class="total"><td class="dt">누계</td><td class="num">688</td><td class="num">251</td><td class="num">65</td><td class="num">643,500</td></tr>
-        <tr class="live"><td class="dt">6/16</td><td class="num">진행중</td><td class="num">진행중</td><td class="num">6</td><td class="num">59,400</td></tr>
+        <tr class="live"><td class="dt">6/16</td><td class="num">적재 대기</td><td class="num">적재 대기</td><td class="num">7</td><td class="num">69,300</td></tr>
       </tbody>
     </table>
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 59명 / 노출 688명 = 8.6%. 결제 건수는 65건(일부 회원이 2건 결제). 매출은 건당 9,900원 x 65건</div>
