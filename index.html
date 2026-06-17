@@ -148,7 +148,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">지금까지 평가 (실험 진행 중)</div>
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
-      <b style="font-size:14px">결론: 현재까지 긍정적 (6일 PoC 중간)</b><br>
+      <b style="font-size:14px">결론: 현재까지 긍정적 (ABT 6일차 중간)</b><br>
       실험 성패를 가르는 두 축이 통계적으로 확인됨<br>
       1) 수요 있음 (수락률이 우연이 아님) 2) 부작용 없음 (기존 예약 안 깨짐)<br>
       단 "유휴 상위 차로 회사가 순이익을 봤는지(그 차가 어차피 나갔을지)"는 현재 모수가 부족해 아직 못 봄. 노출 조건 넓혀 모수 키우면 대조군 대비로 측정 가능 (아래 한계)
@@ -156,9 +156,16 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div style="line-height:2.1;color:#374151;font-size:13px">
       <b style="color:#111827">수요 (통계적으로 유의)</b> &nbsp; 노출 회원의 8.6%(59/688)가 차종UP 결제. z=4.3, 95% 신뢰구간 6.5~10.7%로 우연이 아님. 9,900원에 차종까지 바꿔야 하는데도 제안이 고객을 상위 차종으로 움직인다는 것이 확인됨<br>
       <b style="color:#111827">부작용 없음 (통계적으로 유의)</b> &nbsp; 노출군과 대조군의 예약 취소율 차이가 없음(26.84% vs 26.83%, 표본 각 3.3만 건). 차종UP을 띄워도 기존 예약을 깨지 않음 (아래 가드레일)<br>
-      <b style="color:#111827">아직 못 보는 것 (진짜 순이익, 모수 부족)</b> &nbsp; "그 상위 차종이 차종UP 없었어도 나갔을지"는 대조군(A) 대비로 측정 가능. ABT가 회원을 무작위로 A/B 나누므로 A군이 "제안 안 했을 때"를 대표하고, B군 매출에서 A군 매출을 빼면 차량이 어차피 나갔을지까지 반영된 순증이 나옴.<br>
-      <span style="color:#6b7280">[직접 측정 결과, 헤비 제외 6/10~6/15]</span> 차종UP 영향 차급(원본+제안) 전체로 보면 A 평균 객단가 59,328원 vs B 58,949원으로 차이 -379원(B가 오히려 낮음), 아직 통계 noise. 차종UP 추가매출 643,500원이 영향 차급 총매출(약 10.9억)의 0.06%라 이 넓은 단위에서는 효과가 묻힘.<br>
-      검정 단위를 노출 대상으로 좁히면 효과가 살아남. 1인당 증분 935원(9,900원×65예약÷노출 688명), 실측 객단가 분산 SD 52,371원(원본 차급 풀)으로 계산하면 그룹당 약 4.9만 명 필요(2×7.84×SD²÷효과²). 현재 노출 약 115명/일이라 그룹당 4.9만 채우는 데 약 14개월. 노출 조건을 넓혀 일일 노출을 늘리면 그만큼 단축됨 (시간연장도 동일하게 모수가 부족했던 부분)</div>
+      <b style="color:#111827">아직 못 보는 것 (회사 진짜 순이익)</b> &nbsp; 지금 보이는 643,500원은 "고객이 더 낸 돈"임. 회사 입장의 진짜 순이익은 "그 상위 차종이 차종UP 없었어도 어차피 나갔을지"까지 빼야 나옴. 이건 차종UP을 켠 쪽(B)과 끈 쪽(A)의 전체 매출을 비교하면 측정됨. ABT가 회원을 무작위로 반반 나눠놔서 A군이 "제안 안 했을 때"를 그대로 대표하기 때문</div>
+      <div style="margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #f59e0b;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#7c2d12">
+        <b>왜 아직 안 보이나</b><br>
+        실제로 6일치 A vs B 전체 매출을 재보면 A 평균 59,328원 vs B 58,949원으로, 차이가 오히려 -379원(B가 살짝 낮음). 차종UP이 만든 추가매출(64만원)이 비교 대상 전체 매출(약 10.9억)의 0.06%밖에 안 돼서, 예약 한두 건 차이로 생기는 일상적 매출 출렁임에 완전히 묻혀버림.<br>
+        <span style="color:#9a3412">비유하면 수영장에 물 한 컵 붓고 수위가 올랐는지 재는 격. 효과가 없어서가 아니라, 측정 단위가 너무 커서 안 보이는 것.</span><br><br>
+        <b>어떻게 하면 보이나</b><br>
+        1) 비교 범위를 "차종UP 노출되는 사람"으로 좁히면 신호가 진해짐(1인당 935원). 이 좁힌 비교에서 B가 A보다 확실히 높다고 말하려면 통계적으로 그룹당 약 4.9만 명이 필요(실측 객단가 분산 기준).<br>
+        2) 현재 노출이 하루 약 115명이라 4.9만 명을 모으는 데 약 14개월. 노출 조건(대상 차급, 존, 리드타임)을 넓혀 하루 노출 수를 늘리면 그만큼 빨리 도달함.<br>
+        <span style="color:#9a3412">결론: "측정 불가"가 아니라 "표본이 더 쌓이면 보이는" 문제. 노출을 키우는 게 순이익을 확인하는 길 (2차 시간연장도 같은 이유로 모수가 부족했음).</span>
+      </div>
   </div>
 
   <div class="section-label">일별 추이 <span class="tag tag-fact">실측</span></div>
@@ -202,6 +209,28 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       <b>가드레일 통과</b><br>
       예약 취소율 A 26.84% vs B 26.83%, 차이가 통계적으로 유의하지 않음(표본 각 3.3만 예약이라 신뢰 가능). B 노출자는 97.7%(672/688)가 결제 완료. 차종UP 바텀시트를 띄워도 기존 예약 전환을 떨어뜨리지 않음<br>
       <span style="color:#6b7280;font-size:12px">버킷팅 공식은 서버 코드(socar-common Testing.kt)로 확인: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 기준 50 미만이 노출군. 노출자 688명 전원 노출군에 속함을 BQ로 검증</span>
+    </div>
+  </div>
+
+  <div class="section-label">누가 더 많이 업그레이드하나: 가입 보험별 <span class="tag tag-fact">실측 6/10~6/15</span></div>
+  <div class="card">
+    <div class="card-title">원래 가입한 면책(보험)상품별 차종UP 수락률</div>
+    <div class="card-sub">예약 시점에 회원이 적용 중이던 면책상품(자기부담금 한도)별로 차종UP 노출 대비 수락률을 나눔. 면책상품은 노출 로그 form_data의 pf값(서버 protection_fee 자기부담금 유형)으로 식별. 자기부담금이 낮을수록 면책료가 비싼 두꺼운 보험</div>
+    <table class="data-table">
+      <thead><tr><th>가입 보험(자기부담금)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
+      <tbody>
+        <tr><td class="dt">자기부담금 0원 (완전면책+견인)</td><td class="num">239</td><td class="num">23</td><td class="num">9.6%</td><td><div style="background:#3b82f6;height:14px;width:48%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">자기부담금 5만원</td><td class="num">20</td><td class="num">4</td><td class="num">20.0%</td><td><div style="display:flex;align-items:center;gap:6px"><div style="background:#cbd5e1;height:14px;width:100%;border-radius:3px"></div><span style="font-size:11px;color:#9ca3af;white-space:nowrap">표본 20명</span></div></td></tr>
+        <tr><td class="dt">자기부담금 30만원</td><td class="num">208</td><td class="num">21</td><td class="num">10.1%</td><td><div style="background:#3b82f6;height:14px;width:50%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">자기부담금 70만원 (최소면책)</td><td class="num">221</td><td class="num">10</td><td class="num">4.5%</td><td><div style="background:#ef4444;height:14px;width:22%;border-radius:3px"></div></td></tr>
+        <tr class="total"><td class="dt">전체</td><td class="num">688</td><td class="num">58</td><td class="num">8.4%</td><td></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
+      <b>보험을 두껍게 든 고객일수록 차종UP을 더 함</b><br>
+      자기부담금 0원, 30만원(두꺼운 보험) 고객은 9.6~10.1%로 수락. 반면 자기부담금 70만원(가장 얇은 보험) 고객은 4.5%로 절반 이하. 70만원 가입자와 나머지(0원+30만원)의 차이는 통계적으로 유의함(z=2.4)<br>
+      <span style="color:#3730a3">사고 위험에 대비해 보험에 더 지불하는 고객이 차종 업그레이드라는 추가 지출에도 더 적극적이라는 해석. 자기부담금 5만원(20%)은 노출이 20명뿐이라 신뢰하기 이름</span><br>
+      <span style="color:#6b7280;font-size:12px">전체 수락률 8.4%는 노출 로그가 확인된 수락자 58명 기준(결제 수락 59명 중 1명은 웹 노출 로그 누락)</span>
     </div>
   </div>
 
@@ -260,6 +289,33 @@ WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-15'
   AND car_class_id IN (차종UP 대상 차급 id 목록)
 GROUP BY is_b
 -- 결과: A(대조) 33,212예약 26.84% vs B(노출) 33,453예약 26.83% (취소율 거의 동일 = 노출이 예약 방해 안 함)</div>
+  </details>
+  <details>
+    <summary>4. 가입 보험(면책 자기부담금)별 차종UP 수락률</summary>
+    <div class="query-block">-- form_data pf = 진입 시점 적용 중인 면책상품(서버 protection_fee_info.deductible_type, 자기부담금 한도)
+-- form_data가 비이스케이프({pf:30..})와 이스케이프({\pf\:\30..}) 두 형태라 둘 다 잡는 정규식 사용
+WITH exp AS (
+  SELECT member_id, REGEXP_EXTRACT(form_data, r'pf\\?:\\?([0-9A-Za-z_]+)') AS pf
+  FROM `socar-data.app_web_log.socar_app_web_log`
+  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-15'
+    AND page_name='upsell_bottomsheet' AND event_name='view'
+    AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0
+),
+exp1 AS (SELECT member_id, ANY_VALUE(pf) AS pf FROM exp GROUP BY member_id),
+acc AS (
+  SELECT DISTINCT ri.member_id
+  FROM `socar-data.tianjin_replica.paid_meta_info` pmi
+  JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
+  JOIN `socar-data.tianjin_replica.reservation_info` ri ON ri.id = pi.reservation_id
+  WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
+    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-15'
+)
+SELECT e.pf,
+  COUNT(DISTINCT e.member_id) AS exposed,
+  COUNT(DISTINCT IF(a.member_id IS NOT NULL, e.member_id, NULL)) AS accepted
+FROM exp1 e LEFT JOIN acc a USING(member_id)
+GROUP BY e.pf ORDER BY exposed DESC
+-- 결과: 0_TOW(자기부담0원) 239명/23 9.6%, 30만원 208/21 10.1%, 70만원 221/10 4.5%, 5만원 20/4 20%(표본적음)</div>
   </details>
 
   <div class="foot-note">
