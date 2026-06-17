@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta name="robots" content="noindex, nofollow, noarchive">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>업셀링 차종 업그레이드 모니터링</title>
@@ -82,9 +83,9 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </div>
   </div>
   <div class="updated">
-    최종 갱신: <b>2026-06-17 KST</b><br>
+    최종 갱신: <b>2026-06-16 KST</b><br>
     <span>차종UP 오픈 2026-06-10 (release/CR-10867)</span><br>
-    <span style="color:#9ca3af">웹 이벤트 6/15까지 집계(6/16분 적재 지연)<br>결제 6/16까지 마감, 6/17 결제 아직 없음</span>
+    <span style="color:#9ca3af">웹 이벤트 6/15까지 집계(D+1 적재)<br>결제는 실시간 적재(6/16 진행중)</span>
   </div>
 </div>
 
@@ -145,33 +146,33 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div class="kpi"><div class="lbl">고객 추가매출<br>결제 건 기준</div><div class="num">643,500<span class="unit">원</span></div><div class="sub">9,900원 x 65건</div></div>
   </div>
 
-  <div class="section-label">지금까지 결과 해석 <span class="tag tag-fact">실험 6일차</span></div>
+  <div class="section-label">지금까지 결과, 어떻게 보고 있나 <span class="tag tag-fact">실험 6일차</span></div>
   <div class="card">
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#065f46">
-      <b style="font-size:14px">현재까지 긍정적 (실험 6일차)</b><br>
-      제안이 잘 되는지 보는 핵심 두 가지가 모두 양호함<br>
-      1) 살 의향(수요) 있음 &nbsp; 2) 기존 예약 방해 없음<br>
-      단, 회사 진짜 이득("그 상위 차가 차종UP 없었어도 어차피 나갔을지")은 6일치로는 아직 안 보임. 노출 더 늘리면 확인 가능 (아래 설명)
+      <b style="font-size:14px">지금까지는 긍정적이에요 (실험 6일차)</b><br>
+      이 제안이 잘 먹히는지 보려면 두 가지를 확인해야 하는데, 둘 다 좋게 나왔어요.<br>
+      1) 사겠다는 수요가 있다 &nbsp; 2) 기존 예약을 방해하지 않는다<br>
+      딱 하나, "고객이 올라탄 상위 차가 차종UP 없었어도 어차피 나갔을지(회사 진짜 이득)"는 아직 6일치로는 가려지지 않아요. 노출을 더 늘리면 볼 수 있고요 (아래 설명)
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
-      <b style="color:#111827">수요 있음</b> &nbsp; 노출 회원의 8.6%(59/688)가 차종UP 결제. 9,900원 더 내고 차종까지 바꿔야 하는데도 움직인 것이라, 우연으로 보기 어려운 수준(z=4.3, 95% 신뢰구간 6.5~10.7%)<br>
-      <b style="color:#111827">기존 예약 방해 없음</b> &nbsp; 차종UP 본 쪽(B)과 안 본 쪽(A)의 예약 취소율 거의 동일(27.12% vs 27.27%). 시트를 띄워도 원래 예약이 깨지지 않음 (아래 가드레일)<br>
-      <b style="color:#111827">아직 못 보는 것: 회사 진짜 이득</b> &nbsp; 지금 보이는 643,500원은 "고객이 더 낸 돈". 회사 진짜 이득은 "그 상위 차가 차종UP 없었어도 어차피 나갔을지"까지 빼야 나옴. 차종UP 켠 쪽(B)과 끈 쪽(A)의 전체 매출을 비교하면 확인 가능. 실험이 회원을 무작위로 반반 나눠놔서, A가 "제안 안 했을 때"를 그대로 보여주기 때문</div>
+      <b style="color:#111827">수요가 있다</b> &nbsp; 노출된 회원의 8.6%(59명 / 688명)가 실제로 차종UP을 결제했어요. 9,900원 더 내고 차종까지 바꿔야 하는데도 움직였다는 거라, 우연으로 보기 어려운 수준이에요(z=4.3, 95% 신뢰구간 6.5~10.7%).<br>
+      <b style="color:#111827">기존 예약을 방해하지 않는다</b> &nbsp; 차종UP을 본 쪽(B)과 안 본 쪽(A)의 예약 취소율이 거의 같아요(27.12% vs 27.27%). 시트를 띄워도 원래 예약이 깨지지 않는다는 뜻이에요 (아래 가드레일).<br>
+      <b style="color:#111827">아직 못 보는 것: 회사 진짜 이득</b> &nbsp; 지금 보이는 643,500원은 "고객이 더 낸 돈"이에요. 회사 입장의 진짜 이득은 "그 상위 차가 차종UP 없었어도 어차피 나갔을지"까지 빼야 나와요. 이건 차종UP을 켠 쪽(B)과 끈 쪽(A)의 전체 매출을 비교하면 알 수 있어요. 실험이 회원을 무작위로 반반 나눠놔서, A가 "제안을 안 했을 때"를 그대로 보여주거든요.</div>
       <div style="margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #f59e0b;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#7c2d12">
         <b>왜 아직 안 보이나</b><br>
-        6일치로 B(켠 쪽)와 A(끈 쪽)의 전체 매출을 비교하면 오히려 B가 평균 379원 낮음(사실상 차이 없음). 차종UP이 만든 추가 매출(64만원)이 비교 대상 전체 매출(약 10.9억)의 0.06%라, 예약 한두 건 차이로 생기는 평소 매출 출렁임에 묻힘.<br>
-        <span style="color:#9a3412">수영장에 물 한 컵 붓고 수위가 올랐나 재는 격. 효과가 없어서가 아니라 보는 범위가 너무 커서 안 보이는 것.</span><br><br>
+        6일치로 B(켠 쪽)와 A(끈 쪽)의 전체 매출을 비교해보면 오히려 B가 평균 379원 낮게 나와요(사실상 차이 없음). 차종UP이 만든 추가 매출(64만원)이 비교 대상 전체 매출(약 10.9억)의 0.06%밖에 안 되거든요. 그래서 예약 한두 건 차이로 생기는 평소 매출 출렁임에 묻혀버려요.<br>
+        <span style="color:#9a3412">수영장에 물 한 컵 붓고 수위가 올랐나 재는 것과 같아요. 효과가 없어서가 아니라, 보는 범위가 너무 커서 안 보이는 거예요.</span><br><br>
         <b>어떻게 하면 보이나</b><br>
-        1) 비교 대상을 "차종UP 본 사람"만으로 좁히면 효과가 또렷해짐(한 명당 약 935원). 이 비교에서 B가 A보다 확실히 높다고 하려면 한 그룹당 약 4.9만 명 필요.<br>
-        2) 지금은 하루 약 115명 노출이라 4.9만 명 모으려면 약 14개월. 노출 조건(대상 차급, 지역, 예약 시점) 넓혀 하루 노출 늘리면 그만큼 단축.<br>
-        <span style="color:#9a3412">영영 못 보는 게 아니라 데이터가 더 쌓이면 보이는 문제. 노출을 늘리는 게 회사 이득을 확인하는 길 (시간연장 실험도 같은 이유로 데이터 부족).</span>
+        1) 비교 대상을 "차종UP을 본 사람"만으로 좁히면 효과가 또렷해져요(한 명당 약 935원). 이 좁힌 비교에서 B가 A보다 확실히 높다고 말하려면 한 그룹당 약 4.9만 명이 모여야 해요.<br>
+        2) 지금은 하루에 약 115명이 보니까, 4.9만 명을 모으려면 약 14개월 걸려요. 노출 조건(대상 차급, 지역, 예약 시점)을 넓혀 하루 노출을 늘리면 그만큼 빨라져요.<br>
+        <span style="color:#9a3412">즉 "영영 못 본다"가 아니라 "데이터가 더 쌓이면 보인다"예요. 노출을 늘리는 게 회사 이득을 확인하는 길이고요 (시간연장 실험도 같은 이유로 데이터가 부족했어요).</span>
       </div>
   </div>
 
   <div class="section-label">일별 추이 <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">일별 노출, 옵션 선택, 결제 수락</div>
-    <div class="card-sub">웹 이벤트는 6/15까지 집계(6/16분 적재 지연), 결제는 6/16까지 마감</div>
+    <div class="card-sub">웹 이벤트는 6/15까지 집계(D+1), 결제는 실시간이라 6/16은 진행중</div>
     <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
   </div>
   <div class="card">
@@ -188,7 +189,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <tr><td class="dt">6/14</td><td class="num">92</td><td class="num">32</td><td class="num">6</td><td class="num">59,400</td></tr>
         <tr><td class="dt">6/15</td><td class="num">139</td><td class="num">40</td><td class="num">12</td><td class="num">118,800</td></tr>
         <tr class="total"><td class="dt">누계</td><td class="num">688</td><td class="num">251</td><td class="num">65</td><td class="num">643,500</td></tr>
-        <tr class="live"><td class="dt">6/16</td><td class="num">적재 대기</td><td class="num">적재 대기</td><td class="num">7</td><td class="num">69,300</td></tr>
+        <tr class="live"><td class="dt">6/16</td><td class="num">진행중</td><td class="num">진행중</td><td class="num">6</td><td class="num">59,400</td></tr>
       </tbody>
     </table>
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 59명 / 노출 688명 = 8.6%. 결제 건수는 65건(일부 회원이 2건 결제). 매출은 건당 9,900원 x 65건</div>
