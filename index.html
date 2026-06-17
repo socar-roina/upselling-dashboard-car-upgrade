@@ -155,7 +155,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </div>
     <div style="line-height:2.1;color:#374151;font-size:13px">
       <b style="color:#111827">수요 (통계적으로 유의)</b> &nbsp; 노출 회원의 8.6%(59/688)가 차종UP 결제. z=4.3, 95% 신뢰구간 6.5~10.7%로 우연이 아님. 9,900원에 차종까지 바꿔야 하는데도 제안이 고객을 상위 차종으로 움직인다는 것이 확인됨<br>
-      <b style="color:#111827">부작용 없음 (통계적으로 유의)</b> &nbsp; 노출군과 대조군의 예약 취소율 차이가 없음(26.84% vs 26.83%, 표본 각 3.3만 건). 차종UP을 띄워도 기존 예약을 깨지 않음 (아래 가드레일)<br>
+      <b style="color:#111827">부작용 없음</b> &nbsp; 노출군과 대조군의 예약 취소율 차이가 없음(27.12% vs 27.27%, z=0.44, 표본 각 3.3만 건). 차종UP을 띄워도 기존 예약을 깨지 않음 (아래 가드레일)<br>
       <b style="color:#111827">아직 못 보는 것 (회사 진짜 순이익)</b> &nbsp; 지금 보이는 643,500원은 "고객이 더 낸 돈"임. 회사 입장의 진짜 순이익은 "그 상위 차종이 차종UP 없었어도 어차피 나갔을지"까지 빼야 나옴. 이건 차종UP을 켠 쪽(B)과 끈 쪽(A)의 전체 매출을 비교하면 측정됨. ABT가 회원을 무작위로 반반 나눠놔서 A군이 "제안 안 했을 때"를 그대로 대표하기 때문</div>
       <div style="margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #f59e0b;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#7c2d12">
         <b>왜 아직 안 보이나</b><br>
@@ -197,17 +197,17 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">가드레일: 노출이 예약을 방해했나? <span class="tag tag-fact">A/B 비교</span></div>
   <div class="card">
     <div class="card-title">A 대조군 vs B 노출군 예약 취소율</div>
-    <div class="card-sub">차종UP은 A/B 테스트(노출군 B 50% / 대조군 A 50%, 버킷은 farmhash 기준 50:50). 노출이 기존 예약을 해쳤는지 두 군의 예약 취소율을 비교 (법인/대량 계정 제외, 6/10~6/15 대상 차급 + 가지러가기 예약)</div>
+    <div class="card-sub">차종UP은 A/B 테스트(노출군 B 50% / 대조군 A 50%, 버킷은 farmhash 기준 50:50). 노출이 기존 예약을 해쳤는지 두 군의 예약 취소율을 비교 (법인/대량 계정 제외, 6/10~6/15 차종UP 원본 차급 + 같은 존 반납 예약). 예약 수와 취소 수는 reservation 데이터라 취소가 시간에 따라 누적되어 재집계 시점마다 소폭 변동</div>
     <table class="data-table">
       <thead><tr><th>구분</th><th class="num">예약</th><th class="num">회원</th><th class="num">취소</th><th class="num">취소율</th></tr></thead>
       <tbody>
-        <tr><td class="dt">A 대조군 (미노출)</td><td class="num">33,212</td><td class="num">21,937</td><td class="num">8,914</td><td class="num">26.84%</td></tr>
-        <tr><td class="dt">B 노출군</td><td class="num">33,453</td><td class="num">21,960</td><td class="num">8,977</td><td class="num">26.83%</td></tr>
+        <tr><td class="dt">A 대조군 (미노출)</td><td class="num">33,681</td><td class="num">22,150</td><td class="num">9,133</td><td class="num">27.12%</td></tr>
+        <tr><td class="dt">B 노출군</td><td class="num">33,940</td><td class="num">22,157</td><td class="num">9,257</td><td class="num">27.27%</td></tr>
       </tbody>
     </table>
     <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
       <b>가드레일 통과</b><br>
-      예약 취소율 A 26.84% vs B 26.83%, 차이가 통계적으로 유의하지 않음(표본 각 3.3만 예약이라 신뢰 가능). B 노출자는 97.7%(672/688)가 결제 완료. 차종UP 바텀시트를 띄워도 기존 예약 전환을 떨어뜨리지 않음<br>
+      예약 취소율 A 27.12% vs B 27.27%, 차이가 통계적으로 유의하지 않음(2-proportion z=0.44, 표본 각 3.3만 예약). B 노출자 688명 중 634명(92.2%)이 예약을 취소 없이 유지. 차종UP 바텀시트를 띄워도 기존 예약을 깨지 않음<br>
       <span style="color:#6b7280;font-size:12px">버킷팅 공식은 서버 코드(socar-common Testing.kt)로 확인: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 기준 50 미만이 노출군. 노출자 688명 전원 노출군에 속함을 BQ로 검증</span>
     </div>
   </div>
@@ -272,7 +272,15 @@ FROM cu_paid GROUP BY dt ORDER BY dt
     <div class="query-block">-- 버킷: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') % 100 이 50 미만이면 노출군(B)
 -- (서버 코드 socar-common Testing.kt 의 ABTesting 공식. 노출자 688명 전원 B로 검증됨)
 -- 법인/대량 계정(6일 20건 이상)은 A쪽에 쏠려 예약수를 왜곡하므로 제외
-WITH heavy AS (
+-- 대상 차급 = 차종UP 노출에서 실제 원본(co)으로 제안된 차급을 로그에서 직접 추출(하드코딩 없이 재현)
+WITH co_list AS (
+  SELECT DISTINCT SAFE_CAST(REGEXP_EXTRACT(form_data, r'co\\?:\\?([0-9]+)') AS INT64) AS cid
+  FROM `socar-data.app_web_log.socar_app_web_log`
+  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-15'
+    AND page_name='upsell_bottomsheet' AND event_name='view'
+    AND REGEXP_CONTAINS(form_data, r'cu')
+),
+heavy AS (
   SELECT member_id FROM `socar-data.tianjin_replica.reservation_info`
   WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-15' AND member_id > 0
   GROUP BY member_id HAVING COUNT(*) >= 20
@@ -286,9 +294,9 @@ FROM `socar-data.tianjin_replica.reservation_info`
 WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-15'
   AND member_id > 0 AND member_id NOT IN (SELECT member_id FROM heavy)
   AND zone_id = end_zone_id
-  AND car_class_id IN (차종UP 대상 차급 id 목록)
+  AND car_class_id IN (SELECT cid FROM co_list WHERE cid IS NOT NULL)
 GROUP BY is_b
--- 결과: A(대조) 33,212예약 26.84% vs B(노출) 33,453예약 26.83% (취소율 거의 동일 = 노출이 예약 방해 안 함)</div>
+-- 결과: A(대조) 33,681예약 27.12% vs B(노출) 33,940예약 27.27% (취소율 거의 동일, z=0.44 = 노출이 예약 방해 안 함)</div>
   </details>
   <details>
     <summary>4. 가입 보험(면책 자기부담금)별 차종UP 수락률</summary>
