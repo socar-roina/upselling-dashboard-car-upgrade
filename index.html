@@ -266,24 +266,24 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </div>
   </div>
 
-  <div class="section-label">누가 더 많이 업그레이드하나: 가입 보험별 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/18</span></div>
+  <div class="section-label">원래 가입한 면책상품별 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-info">탐색</span> <span class="tag tag-fact">실측 6/10~6/18</span></div>
   <div class="card">
-    <div class="card-title">원래 가입한 면책(보험)상품별 차종UP 수락률</div>
-    <div class="card-sub">기획 지표 외 추가로 살펴본 탐색 분석. 예약 시점에 회원이 적용 중이던 면책상품(자기부담금 한도)별로 차종UP 노출 대비 수락률을 나눔. 면책상품은 노출 로그 form_data의 pf값(서버 protection_fee 자기부담금 유형)으로 식별. 자기부담금이 낮을수록 면책료가 비싼 두꺼운 보험</div>
+    <div class="card-title">원래 가입한 면책상품별 차종UP 수락률</div>
+    <div class="card-sub">기획 지표 외 추가로 살펴본 탐색 분석. 예약 시점에 회원이 적용 중이던 면책상품별로 차종UP 노출 대비 수락률을 나눔. 면책상품은 노출 로그 form_data의 pf값(서버 protection_fee_info 자기부담금 유형)으로 식별. 자기부담금이 낮은 면책상품일수록 면책료가 비싸고 사고 시 본인부담이 적음</div>
     <table class="data-table">
-      <thead><tr><th>가입 보험(자기부담금)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
+      <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
       <tbody>
-        <tr><td class="dt">자기부담금 0원 (완전면책+견인)</td><td class="num">374</td><td class="num">33</td><td class="num">8.8%</td><td><div style="background:#3b82f6;height:14px;width:44%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">자기부담금 5만원</td><td class="num">26</td><td class="num">4</td><td class="num">15.4%</td><td><div style="display:flex;align-items:center;gap:6px"><div style="background:#cbd5e1;height:14px;width:100%;border-radius:3px"></div><span style="font-size:11px;color:#9ca3af;white-space:nowrap">표본 26명</span></div></td></tr>
-        <tr><td class="dt">자기부담금 30만원</td><td class="num">294</td><td class="num">25</td><td class="num">8.5%</td><td><div style="background:#3b82f6;height:14px;width:42%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">자기부담금 70만원 (최소면책)</td><td class="num">314</td><td class="num">19</td><td class="num">6.1%</td><td><div style="background:#ef4444;height:14px;width:30%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">374</td><td class="num">33</td><td class="num">8.8%</td><td><div style="background:#3b82f6;height:14px;width:44%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">5만원면책</td><td class="num">26</td><td class="num">4</td><td class="num">15.4%</td><td><div style="display:flex;align-items:center;gap:6px"><div style="background:#cbd5e1;height:14px;width:100%;border-radius:3px"></div><span style="font-size:11px;color:#9ca3af;white-space:nowrap">표본 26명</span></div></td></tr>
+        <tr><td class="dt">30만원면책</td><td class="num">294</td><td class="num">25</td><td class="num">8.5%</td><td><div style="background:#3b82f6;height:14px;width:42%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">70만원면책</td><td class="num">314</td><td class="num">19</td><td class="num">6.1%</td><td><div style="background:#ef4444;height:14px;width:30%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
     <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>보험 두껍게 든 고객일수록 더 하는 경향 (아직 단정 불가)</b><br>
-      자기부담금 0원, 30만원(두꺼운 보험) 고객은 8.5~8.8%로 수락. 반면 자기부담금 70만원(가장 얇은 보험) 고객은 6.1%로 더 낮음. 다만 70만원 가입자와 나머지(0원+30만원)의 차이는 아직 표본이 적어 단정하긴 이름(방향성 참고 수준)<br>
-      <span style="color:#3730a3">사고 위험에 대비해 보험에 더 지불하는 고객이 차종 업그레이드라는 추가 지출에도 더 적극적일 수 있다는 해석. 자기부담금 5만원(15.4%)은 노출이 26명뿐이라 신뢰하기 이름</span><br>
-      <span style="color:#6b7280;font-size:12px">이 표는 앱에서 바텀시트를 본 웹 기록(노출 1008명)을 기준으로 나눈 분석이라, 수락도 같은 기준 81명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 82명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 보험은 웹 기록에만 남는 값이라 이 1명은 보험 구분이 안 됨</span>
+      <b>자기부담금 낮은 면책상품 가입자일수록 더 하는 경향 (아직 단정 불가)</b><br>
+      완전면책(자기부담금 0원), 30만원면책 가입자는 8.5~8.8%로 수락. 반면 70만원면책(자기부담금 가장 큼) 가입자는 6.1%로 더 낮음. 다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 아직 표본이 적어 단정하긴 이름(방향성 참고 수준)<br>
+      <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드라는 추가 지출에도 더 적극적일 수 있다는 해석. 5만원면책(15.4%)은 노출이 26명뿐이라 신뢰하기 이름</span><br>
+      <span style="color:#6b7280;font-size:12px">이 표는 앱에서 바텀시트를 본 웹 기록(노출 1008명)을 기준으로 나눈 분석이라, 수락도 같은 기준 81명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 82명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 면책상품은 웹 기록에만 남는 값이라 이 1명은 면책상품 구분이 안 됨</span>
     </div>
   </div>
 
@@ -362,7 +362,7 @@ GROUP BY rsv.is_b
 --       세 지표 모두 차이 통계적 유의하지 않음 (취소 z=0.43, ARPU z=1.06)</div>
   </details>
   <details>
-    <summary>4. 가입 보험(면책 자기부담금)별 차종UP 수락률</summary>
+    <summary>4. 가입 면책상품별 차종UP 수락률</summary>
     <div class="query-block">-- form_data pf = 진입 시점 적용 중인 면책상품(서버 protection_fee_info.deductible_type, 자기부담금 한도)
 -- form_data가 비이스케이프({pf:30..})와 이스케이프({\pf\:\30..}) 두 형태라 둘 다 잡는 정규식 사용
 WITH exp AS (
