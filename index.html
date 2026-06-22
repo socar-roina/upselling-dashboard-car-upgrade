@@ -110,7 +110,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="period-inner">
     <div class="period-block"><div class="lbl">업그레이드 전환 (B vs A)</div><div class="val">+8.1%p</div><div class="sub">A 0% vs B 8.1% (표본 1008명)</div></div>
     <div class="period-block"><div class="lbl">추가 매출 (9일)</div><div class="val">910,800원</div><div class="sub">업그레이드 92건</div></div>
-    <div class="period-block"><div class="lbl">가드레일</div><div class="val">통과</div><div class="sub">취소율, 매출 차이 없음</div></div>
+    <div class="period-block"><div class="lbl">가드레일</div><div class="val">통과</div><div class="sub">예약 취소율 차이 없음</div></div>
     <div class="period-block"><div class="lbl">노출 모수</div><div class="val">일 112명</div><div class="sub">노출 조건이 좁아 천천히 쌓임</div></div>
   </div>
 </div>
@@ -145,16 +145,15 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   </div>
 
   <div class="card">
-    <div class="card-title">가드레일: 기존 지표를 해치지 않았나 <span style="color:#059669;font-size:13px;font-weight:700">모두 통과</span></div>
-    <div class="card-sub">차종UP 노출이 기존 예약과 매출에 손해를 줬는지 두 군을 비교. 두 지표 모두 차이 없음</div>
+    <div class="card-title">가드레일: 노출이 기존 예약을 해치지 않았나 <span style="color:#059669;font-size:13px;font-weight:700">통과</span></div>
+    <div class="card-sub">차종UP 바텀시트를 띄운 게 기존 예약을 깨뜨리지 않았는지 두 군의 예약 취소율로 확인. 차이 없음</div>
     <table class="data-table">
       <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
       <tbody>
         <tr><td class="dt">예약 취소율</td><td class="num">28.07%</td><td class="num">28.19%</td><td class="num">+0.12%p</td><td>차이 없음</td></tr>
-        <tr><td class="dt">인당 매출</td><td class="num">201,475원</td><td class="num">203,189원</td><td class="num">+1,714원</td><td>차이 없음</td></tr>
       </tbody>
     </table>
-    <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">모수: A 미노출 31,813명(52,517예약) / B 노출 31,564명(52,761예약). 버킷은 서버 코드 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B, 노출자 1008명 전원 B로 검증. 예약과 취소는 시간에 따라 누적되어 재집계 시점마다 소폭 변동. 인당 매출은 전 결제수단 합(쿠폰과 크레딧 포함)</div>
+    <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">모수: A 미노출 31,813명(52,517예약) / B 노출 31,564명(52,761예약). 버킷은 서버 코드 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B, 노출자 1008명 전원 B로 검증. 예약과 취소는 시간에 따라 누적되어 재집계 시점마다 소폭 변동</div>
   </div>
 
   <div class="section-label">결과 해석과 한계 <span class="tag tag-fact">실험 9일차</span></div>
@@ -166,7 +165,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
 
     <div style="margin-bottom:18px">
       <div style="font-weight:700;color:#111827;margin-bottom:6px">전체 매출에서 별도로 드러나지 않는 이유</div>
-      <div style="line-height:1.9;color:#374151;font-size:13px">차종UP 추가매출 910,800원은 비교 대상 전체 매출(군당 약 64억) 대비 비중이 작아 전체 매출 그래프에서 단독으로 식별되지 않음. 효과 측정은 전체 매출 비교가 아니라 업그레이드 수락 건수와 추가 매출로 직접 집계</div>
+      <div style="line-height:1.9;color:#374151;font-size:13px">차종UP 추가매출 910,800원은 비교 대상 전체 매출(군당 약 64억) 대비 비중이 작아 전체 매출 그래프에서 단독으로 식별되지 않음. 효과 측정은 전체 매출 비교가 아니라 업그레이드 수락 건수와 추가 매출로 직접 집계<br>참고로 인당 매출도 A 약 20.1만원 vs B 약 20.3만원으로 비슷함. 차종UP이 1인당 더한 약 29원(91만원을 노출군 3만여 명으로 나눈 값)은 사람마다 다른 렌트 금액 차이에 묻히는 크기라 전체 매출로는 안 보임</div>
     </div>
 
     <div style="margin-bottom:18px">
@@ -174,7 +173,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       <ul style="line-height:1.9;color:#374151;font-size:13px;margin:0;padding-left:18px">
         <li>일 노출 약 112명. 노출 조건(지역, 대상 차급, 빈 슬롯)이 좁게 걸려 표본이 천천히 쌓임</li>
         <li>업그레이드 수요 확인(수락률)에는 충분</li>
-        <li>제안 차종별 세그먼트 분석은 차급별 표본 부족으로 방향성 수준</li>
+        <li>제안 차종별은 차급으로 묶으면 방향성 확인 가능(개별 차종은 표본 부족)</li>
         <li>노출 조건(지역, 대상 차급) 완화 시 모수 확대 가능</li>
       </ul>
     </div>
@@ -184,7 +183,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       <div style="line-height:2;color:#374151;font-size:13px">
         <b>상위 차량 가동률 자체</b>: 두 군이 같은 차량 재고를 공유해 군별로 나눠 측정 불가, 수요측 업그레이드율로 갈음<br>
         <b>차종UP의 순수 증가분</b> (그 상위차가 원래도 나갔을지): 추가매출이 전체 매출 대비 작아 직접 비교로 분리 불가, 빈 슬롯에만 제안하는 설계와 추후 홀드아웃으로 보완<br>
-        <b>제안 차종별 정밀 수락률</b>: 차급별 표본 수십 명이라 정밀 검정 불가, 방향성만 확인
+        <b>개별 차종 단위 정밀 수락률</b>: 차종마다 표본 수십 명 이하라, 차급으로 묶어 방향성만 확인(아래 제안 차종별 섹션)
       </div>
     </div>
   </div>
@@ -210,6 +209,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <div class="bar-pct">수락률 8.1%</div>
       </div>
     </div>
+    <div style="margin-top:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.8;color:#374151"><b>이탈은 결제 단계에서 더 큼</b> &nbsp; 상위 차급을 고른 359명 중 82명(22.8%)만 결제. 노출에서 옵션을 고를 때보다(약 64% 이탈) 고르고도 결제 안 하는 비율(약 77%)이 더 큼. 관심을 보인 뒤 가격에서 망설이는 구간</div>
   </div>
 
   <div class="kpi-row">
@@ -247,10 +247,29 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 82명 / 노출 1008명 = 8.1%. 결제 건수는 92건(일부 회원이 2건 결제). 매출은 건당 9,900원 x 92건</div>
   </div>
 
+  <div class="section-label">어떤 차급 제안이 잘 먹히나: 제안 차종별 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/18</span></div>
+  <div class="card">
+    <div class="card-title">제안한 상위 차급별 수락률</div>
+    <div class="card-sub">차종UP이 제안한 상위 차급(웹 로그 cu값=제안 차종의 carClass)별로 노출 대비 수락률 비교. 제품화 때 어떤 차급을 먼저 제안할지 우선순위 근거. 표본이 충분한 상위 3개 차급만 표기(개별 차종은 수십 명 이하라 차급으로 묶음)</div>
+    <table class="data-table">
+      <thead><tr><th>제안 차급 (대표 차종)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
+      <tbody>
+        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">156</td><td class="num">22</td><td class="num">14.1%</td><td><div style="background:#059669;height:14px;width:88%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">172</td><td class="num">13</td><td class="num">7.6%</td><td><div style="background:#3b82f6;height:14px;width:47%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">634</td><td class="num">41</td><td class="num">6.5%</td><td><div style="background:#3b82f6;height:14px;width:41%;border-radius:3px"></div></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
+      <b>준대형 세단 제안이 가장 잘 먹힘</b><br>
+      준대형 세단 수락률 14.1%로 준중형 SUV(6.5%)의 2배 이상이고, 표본도 충분해 우연으로 보기 어려움. 그런데 정작 노출은 준중형 SUV에 가장 많이(634명) 나가고 있음<br>
+      <span style="color:#3730a3">제품화 때 준대형 세단 제안에 노출 우선순위를 주면 전체 수락률을 끌어올릴 여지. 어떤 원래 차급에서 준대형 세단으로 올릴 수 있는지는 후속 분석 필요</span>
+    </div>
+  </div>
+
   <div class="section-label">누가 더 많이 업그레이드하나: 가입 보험별 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/18</span></div>
   <div class="card">
     <div class="card-title">원래 가입한 면책(보험)상품별 차종UP 수락률</div>
-    <div class="card-sub">예약 시점에 회원이 적용 중이던 면책상품(자기부담금 한도)별로 차종UP 노출 대비 수락률을 나눔. 면책상품은 노출 로그 form_data의 pf값(서버 protection_fee 자기부담금 유형)으로 식별. 자기부담금이 낮을수록 면책료가 비싼 두꺼운 보험</div>
+    <div class="card-sub">기획 지표 외 추가로 살펴본 탐색 분석. 예약 시점에 회원이 적용 중이던 면책상품(자기부담금 한도)별로 차종UP 노출 대비 수락률을 나눔. 면책상품은 노출 로그 form_data의 pf값(서버 protection_fee 자기부담금 유형)으로 식별. 자기부담금이 낮을수록 면책료가 비싼 두꺼운 보험</div>
     <table class="data-table">
       <thead><tr><th>가입 보험(자기부담금)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
       <tbody>
@@ -368,6 +387,34 @@ SELECT e.pf,
 FROM exp1 e LEFT JOIN acc a USING(member_id)
 GROUP BY e.pf ORDER BY exposed DESC
 -- 결과: 0_TOW(자기부담0원) 374명/33 8.8%, 30만원 294/25 8.5%, 70만원 314/19 6.1%, 5만원 26/4 15.4%(표본적음)</div>
+  </details>
+  <details>
+    <summary>5. 제안 차종(차급)별 수락률</summary>
+    <div class="query-block">-- cu = 제안된 상위 차종의 carClass id. car_class에 조인해 차급(car_model)으로 묶음
+WITH exp AS (
+  SELECT member_id, REGEXP_EXTRACT(form_data, r'cu\\?:\\?([0-9]+)') AS cu
+  FROM `socar-data.app_web_log.socar_app_web_log`
+  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-18'
+    AND page_name='upsell_bottomsheet' AND event_name='view'
+    AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0
+),
+exp1 AS (SELECT member_id, ANY_VALUE(cu) AS cu FROM exp GROUP BY member_id),
+acc AS (
+  SELECT DISTINCT ri.member_id
+  FROM `socar-data.tianjin_replica.paid_meta_info` pmi
+  JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
+  JOIN `socar-data.tianjin_replica.reservation_info` ri ON ri.id = pi.reservation_id
+  WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
+    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-18'
+)
+SELECT cc.car_model AS car_class,
+  COUNT(DISTINCT e.member_id) AS exposed,
+  COUNT(DISTINCT IF(a.member_id IS NOT NULL, e.member_id, NULL)) AS accepted
+FROM exp1 e
+LEFT JOIN acc a USING(member_id)
+LEFT JOIN `socar-data.tianjin_replica.car_class` cc ON cc.id = SAFE_CAST(e.cu AS INT64)
+GROUP BY car_class ORDER BY exposed DESC
+-- 결과(상위 표본): 준대형 세단 156명/22 14.1%, 중형SUV 172/13 7.6%, 준중형SUV 634/41 6.5%</div>
   </details>
 
   <div class="foot-note">
