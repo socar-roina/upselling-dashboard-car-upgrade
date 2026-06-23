@@ -125,7 +125,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div style="display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap">
       <div>
         <div style="font-size:46px;font-weight:900;color:#059669;line-height:1">8.8<span style="font-size:24px">%</span></div>
-        <div style="font-size:12px;color:#6b7280;margin-top:8px;line-height:1.7">제안 본 1,381명 중 122명 수락<br>표본이 적어 약간의 오차는 있지만, 가장 낮게 잡아도 7.3%로 실제 수요 확인</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:8px;line-height:1.75">제안 본 1,381명 중 122명 수락 (수락률 8.8%)<br>95% 신뢰구간 7.3~10.3% (실제 수락률이 이 사이일 가능성이 큼, 표본 1,381명이라 추정이 안정적)<br>9,900원 더 내는 유료 전환인데도 10명 중 1명 가까이 움직여 수요는 분명</div>
       </div>
       <div style="display:flex;gap:28px;padding-bottom:6px">
         <div><div style="font-size:24px;font-weight:800;color:#111827">137건</div><div style="font-size:12px;color:#6b7280;margin-top:4px">업그레이드 결제</div></div>
@@ -136,7 +136,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
 
   <div class="card">
     <div class="card-title">2. 기존 예약과 매출에 영향을 줬는가 <span style="background:#d1fae5;color:#065f46;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px">영향 없음</span></div>
-    <div class="card-sub">제안 본 그룹(B)과 안 본 그룹(A)의 전체 지표 비교. 안 본 그룹이 제안 없었을 때의 기준</div>
+    <div class="card-sub">제안 본 그룹(B)과 안 본 그룹(A)의 전체 지표 비교. 두 그룹이 같아야 차종UP이 기존 장사를 안 해친 것 (차이 없음 = 통과)</div>
     <table class="data-table">
       <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
       <tbody>
@@ -145,29 +145,26 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="margin-top:14px;font-size:12px;color:#6b7280;line-height:1.85">
-      차종UP은 그 시점에 비어있는 상위차에만 제안해, 원래 안 나갈 차를 채우는 구조<br>
-      두 그룹의 1인당 결제액이 같아 전체적으로 손해는 없음<br>
-      한 건씩 100% 순증인지의 정밀 측정만 효과 규모가 작아 추후 홀드아웃으로 확인
+      1인당 결제액이 같다는 건 차종UP이 기존 결제를 깎지 않았다는 뜻이고, 차종UP 자체 매출은 위 1번의 추가 137건(약 136만원)으로 따로 잡힘<br>
+      차종UP은 그 시점에 비어있는 상위차에만 제안하므로, 원래 안 나갈 차를 채우는 구조라 손해 위험도 낮음
     </div>
     <details style="margin-top:14px;margin-bottom:0">
       <summary>왜 두 그룹으로 나눠 비교하나</summary>
       <div style="font-size:13px;color:#374151;line-height:2;padding:8px 2px 4px">
-        수락률(8.8%)은 제안 본 그룹만 보면 되는 값<br>
-        안 본 그룹은 제안 자체가 없어 비교 대상이 아님<br>
-        두 그룹으로 나눈 이유는 따로 있음<br>
-        제안 띄운 게 기존 예약과 전체 매출을 해쳤는지 확인하려면 안 띄운 그룹이라는 비교 기준이 필요<br>
-        그 비교가 위 표이며, 두 지표 모두 차이 없어 노출이 기존 장사를 해치지 않은 것으로 확인됨
+        차종UP을 띄운 게 기존 예약이나 매출을 깎았는지 보려면, 안 띄웠을 때와 비교해야 함<br>
+        그래서 회원을 무작위로 반반 나눠, 한쪽(A)은 차종UP을 띄우지 않음<br>
+        이 A가 곧 차종UP이 없었을 때의 기준<br>
+        A와 B의 취소율과 1인당 결제액이 같으면, 차종UP이 기존 장사를 건드리지 않은 것
       </div>
     </details>
-    <div style="font-size:11px;color:#9ca3af;margin-top:12px;line-height:1.6">모수: A 미노출 43,061명(76,094예약) / B 노출 42,821명(76,410예약). 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외). 버킷은 서버 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B</div>
+    <div style="font-size:11px;color:#9ca3af;margin-top:12px;line-height:1.6">모수: A 미노출 43,061명(76,094예약) / B 노출 42,821명(76,410예약). 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외). 버킷은 서버 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B<br>취소율 차이는 2-proportion z=1.35로 통계적으로 유의하지 않음 (95% 기준 1.96 미달)</div>
   </div>
 
   <div class="card" style="border-left:4px solid #059669">
     <div style="font-weight:800;font-size:14px;color:#065f46;margin-bottom:8px">종합: 긍정적</div>
     <div style="line-height:2;color:#374151;font-size:13px">
       업그레이드 수요 확인 (제안 본 회원 8.8% 수락, 13일간 137건, 약 136만원)<br>
-      기존 예약과 전체 매출에 영향 없음 (1인당 결제액과 취소율 두 그룹 차이 없음)<br>
-      수요와 영향이 확인됐고 바꿀 가격이나 조건이 없어, 계획된 14일로 종료
+      기존 예약과 전체 매출에 영향 없음 (1인당 결제액과 취소율 두 그룹 차이 없음)
     </div>
   </div>
 
@@ -193,10 +190,10 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </div>
     </div>
     <div style="margin-top:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.9;color:#374151">
-      <b>이탈은 결제 단계에서 더 큼</b><br>
-      상위 차급을 고른 500명 중 결제까지 간 회원은 122명(24.4%)<br>
-      노출에서 옵션 선택 단계 이탈 약 64%, 옵션 선택에서 결제 단계 이탈 약 76%<br>
-      관심을 보인 뒤 가격 단계에서 이탈하는 비중이 더 큼
+      <b>옵션 선택 후 결제 단계 이탈이 더 큼</b><br>
+      상위 차급을 고른 500명 중 결제까지 간 회원은 122명 (24.4%)<br>
+      노출에서 옵션 선택까지 약 64% 이탈, 옵션 선택에서 결제까지 약 76% 이탈<br>
+      이탈 사유는 이 데이터로는 알 수 없음 (가격, 차종 비선호 등 여러 요인 가능)
     </div>
   </div>
 
@@ -267,11 +264,12 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>자기부담금 낮은 면책상품 가입자의 수락률이 높은 경향 (아직 단정 불가)</b><br>
+      <b>자기부담금 낮은 면책상품 가입자의 수락률이 높은 경향 (방향성 참고용)</b><br>
       완전면책(자기부담금 0원), 30만원면책 가입자는 8.7~10.3%로 수락<br>
       반면 자기부담금이 가장 큰 70만원면책 가입자는 6.8%로 더 낮음<br>
-      다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 표본이 적어 아직 단정 어려움 (방향성 참고 수준)<br>
-      <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출 29명으로 표본이 작아 신뢰 어려움</span><br>
+      다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 통계적으로 유의하지 않음 (2-proportion z=1.6으로 95% 기준 1.96에 못 미침)<br>
+      표본이 더 쌓이면 사라질 수도 있는 차이라, 단정하지 않고 방향성만 참고<br>
+      <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출 29명뿐이라 수치 신뢰 어려움</span><br>
       <span style="color:#6b7280;font-size:12px">이 표는 앱에서 바텀시트를 본 웹 기록(노출 1381명)을 기준으로 나눈 분석이라, 수락도 같은 기준 121명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 122명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 면책상품은 웹 기록에만 남는 값이라 이 1명은 면책상품 구분이 안 됨</span>
     </div>
   </div>
