@@ -207,8 +207,9 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div class="card-sub">표는 6/22까지 들어온 데이터 기준 (6/23분은 아직 적재 전)</div>
     <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
   </div>
-  <div class="card">
-    <table class="data-table">
+  <details class="card">
+    <summary>일자별 상세 수치 (펼쳐 보기)</summary>
+    <table class="data-table" style="margin-top:12px">
       <thead><tr>
         <th>날짜</th><th class="num">노출(회원)</th><th class="num">옵션 선택</th><th class="num">결제 건수</th>
         <th class="num">고객 추가매출</th>
@@ -231,7 +232,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 122명 / 노출 1381명 = 8.8%. 결제 건수는 137건(일부 회원이 여러 건 결제). 매출은 건당 9,900원 x 137건</div>
-  </div>
+  </details>
 
   <div class="section-label">제안 차급별 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
   <div class="card">
