@@ -108,61 +108,62 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
 
 <div class="period-banner">
   <div class="period-inner">
-    <div class="period-block"><div class="lbl">업그레이드 전환 (B vs A)</div><div class="val">+8.8%p</div><div class="sub">A 0% vs B 8.8% (표본 1381명)</div></div>
+    <div class="period-block"><div class="lbl">업그레이드 수락률</div><div class="val">8.8%</div><div class="sub">제안 본 1,381명 중 122명 수락</div></div>
     <div class="period-block"><div class="lbl">추가 매출 (13일)</div><div class="val">1,356,300원</div><div class="sub">업그레이드 137건</div></div>
-    <div class="period-block"><div class="lbl">가드레일</div><div class="val">통과</div><div class="sub">예약 취소율 차이 없음</div></div>
+    <div class="period-block"><div class="lbl">기존 예약과 매출 영향</div><div class="val">없음</div><div class="sub">1인당 결제액과 취소율 두 그룹 차이 없음</div></div>
     <div class="period-block"><div class="lbl">노출 모수</div><div class="val">일 106명</div><div class="sub">노출 조건이 좁아 천천히 쌓임</div></div>
   </div>
 </div>
 
 <div class="main">
 
-  <div class="section-label">차종UP 노출군(B) vs 미노출군(A) <span class="tag tag-fact">A/B 실측 6/10~6/22</span></div>
+  <div class="section-label">차종UP 실험 결과 <span class="tag tag-fact">A/B 실측 6/10~6/22</span></div>
 
   <div class="card">
-    <div class="card-title">차종UP이 만든 효과</div>
-    <div class="card-sub">회원을 무작위 50:50으로 나눠 차종UP을 본 B군과 안 본 A군을 비교. 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외) 기준</div>
-    <table class="data-table">
-      <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
-      <tbody>
-        <tr><td class="dt">상위 차급 업그레이드 전환</td><td class="num">0%<br><span style="font-weight:500;color:#9ca3af;font-size:11px">제안 없음</span></td><td class="num">8.8%</td><td class="num">+8.8%p</td><td><span style="color:#059669;font-weight:700">효과 있음</span></td></tr>
-        <tr><td class="dt">추가 매출 (13일 누적)</td><td class="num">0원</td><td class="num">1,356,300원</td><td class="num">+1,356,300원</td><td><span style="color:#059669;font-weight:700">증가</span></td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
-      <b>유휴 상위 차급 업그레이드 수요 확인</b><br>
-      차종UP을 본 노출자의 8.8%가 9,900원 추가 결제로 상위 차급 전환<br>
-      미노출군은 제안 자체가 없어 이 전환 경로 없음
-    </div>
-    <details style="margin-top:14px;margin-bottom:0">
-      <summary>판정 기준: '효과 있음'은 어떻게 판단했나</summary>
-      <div style="font-size:13px;color:#374151;line-height:2;padding:8px 2px 4px">
-        <b>실제 결과로 판단</b>: 차종UP을 본 1381명 중 122명이 9,900원을 더 내고 상위 차급으로 바꿈 (수락률 8.8%)<br>
-        <b>오차를 감안해도 확실</b>: 표본이 한정돼 생기는 오차를 넉넉히 잡아도 실제 수락률은 7.3~10.3% 범위. 가장 낮게 봐도 7.3%로 0보다 확실히 높아, 우연이 아니라 노출이 만든 효과<br>
-        <b>전부 노출 덕분</b>: 안 본 A군은 제안 자체가 없어 이 전환이 0. 따라서 8.8%는 모두 노출이 만든 증가분<br>
-        <span style="color:#6b7280;font-size:12px">수락률은 실제 결제 데이터로 집계. 표본이 더 쌓이면 추정 범위가 좁아짐</span>
+    <div class="card-title">1. 사람들이 업그레이드를 사는가 <span style="color:#6b7280;font-size:12px;font-weight:600">수요</span></div>
+    <div class="card-sub">제안을 본 회원(B군) 중 9,900원을 더 내고 상위 차급으로 바꾼 비율입니다. 제안을 받은 사람만의 수치입니다.</div>
+    <div style="display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:46px;font-weight:900;color:#059669;line-height:1">8.8<span style="font-size:24px">%</span></div>
+        <div style="font-size:12px;color:#6b7280;margin-top:8px">제안 본 1,381명 중 122명 수락<br>오차를 넉넉히 잡아도 최소 7.3%로, 우연이 아닌 실제 수요</div>
       </div>
-    </details>
+      <div style="display:flex;gap:28px;padding-bottom:6px">
+        <div><div style="font-size:24px;font-weight:800;color:#111827">137건</div><div style="font-size:12px;color:#6b7280;margin-top:4px">업그레이드 결제</div></div>
+        <div><div style="font-size:24px;font-weight:800;color:#111827">약 136만원</div><div style="font-size:12px;color:#6b7280;margin-top:4px">고객 추가 결제 (건당 9,900원)</div></div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
-    <div class="card-title">가드레일: 노출이 기존 예약을 해치지 않았나 <span style="color:#059669;font-size:13px;font-weight:700">통과</span></div>
-    <div class="card-sub">차종UP 바텀시트를 띄운 게 기존 예약을 깨뜨리지 않았는지 두 군의 예약 취소율로 확인. 차이 없음</div>
+    <div class="card-title">2. 기존 예약과 매출에 영향을 줬는가 <span style="color:#059669;font-size:13px;font-weight:700">영향 없음</span></div>
+    <div class="card-sub">제안을 본 그룹(B)과 안 본 그룹(A)의 전체 지표를 비교합니다. 안 본 그룹이 "제안이 없었을 때"의 기준이 됩니다.</div>
     <table class="data-table">
       <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
       <tbody>
-        <tr><td class="dt">예약 취소율</td><td class="num">27.90%</td><td class="num">28.19%</td><td class="num">+0.29%p</td><td>차이 없음</td></tr>
+        <tr><td class="dt">1인당 결제액</td><td class="num">219,153원</td><td class="num">219,186원</td><td class="num">+33원</td><td>차이 없음</td></tr>
+        <tr><td class="dt">예약 취소율</td><td class="num">27.94%</td><td class="num">28.25%</td><td class="num">+0.31%p</td><td>차이 없음</td></tr>
       </tbody>
     </table>
-    <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">모수: A 미노출 43,061명(76,092예약) / B 노출 42,824명(76,414예약). 버킷은 서버 코드 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B, 노출자 1381명 전원 B로 검증. 예약과 취소는 시간에 따라 누적되어 재집계 시점마다 소폭 변동</div>
+    <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
+      제안을 띄운 그룹과 안 띄운 그룹의 1인당 결제액과 취소율이 같습니다.<br>
+      차종UP 노출이 기존 예약이나 전체 매출을 해치지 않았다는 뜻입니다.
+    </div>
+    <details style="margin-top:14px;margin-bottom:0">
+      <summary>왜 두 그룹으로 나눠 비교하나</summary>
+      <div style="font-size:13px;color:#374151;line-height:2;padding:8px 2px 4px">
+        수락률(8.8%)은 제안을 본 그룹만 보면 되는 값입니다. 안 본 그룹은 제안 자체가 없어 비교 대상이 아닙니다.<br>
+        두 그룹으로 나눈 이유는 따로 있습니다. 제안을 띄운 것이 기존 예약과 전체 매출을 해쳤는지 확인하려면, 안 띄운 그룹이라는 비교 기준이 필요하기 때문입니다.<br>
+        그 비교가 위 표이며, 두 지표 모두 차이가 없어 노출이 기존 장사를 해치지 않은 것으로 확인됐습니다.
+      </div>
+    </details>
+    <div style="font-size:11px;color:#9ca3af;margin-top:12px;line-height:1.6">모수: A 미노출 43,061명(76,094예약) / B 노출 42,821명(76,410예약). 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외). 버킷은 서버 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B</div>
   </div>
 
   <div class="card" style="border-left:4px solid #059669">
     <div style="font-weight:800;font-size:14px;color:#065f46;margin-bottom:8px">종합: 긍정적</div>
     <div style="line-height:2;color:#374151;font-size:13px">
-      유휴 상위 차급으로 업그레이드하려는 수요 확인 (노출자 8.8% 수락)<br>
-      기존 예약과 매출을 해치지 않음 (가드레일 통과)<br>
-      13일간 137건, 1,356,300원 추가 매출<br>
+      업그레이드 수요 확인 (제안 본 회원 8.8% 수락, 13일간 137건, 약 136만원)<br>
+      기존 예약과 전체 매출에 영향 없음 (1인당 결제액과 취소율 두 그룹 차이 없음)<br>
       6/24 실험 종료 예정
     </div>
   </div>
@@ -310,10 +311,9 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <details>
       <summary>추가 실험 없이 종료하는 이유 (시간연장과 차이)</summary>
       <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        차종UP은 가치가 <b>건당 추가매출 9,900원</b>으로 고정돼, 작은 표본에서도 수락률과 가드레일, 건당 매출이 모두 측정됨<br>
-        판단에 필요한 근거가 확보돼 <b>6/24 종료</b><br>
-        시간연장은 가치가 <b>유휴 차량 가동률</b>에 있어 작은 표본에서는 효과가 실현되거나 측정되기 어려움<br>
-        조건 완화로 표본을 키우는 추가 운영이 필요했던 경우로, 차종UP과는 상황이 다름
+        차종UP은 더 돌려도 <b>새로 측정할 항목이 없습니다.</b> 가격(9,900원)도 노출 조건도 바뀌지 않고, 수요와 전체 영향이 이미 확인됐기 때문입니다.<br>
+        남은 한 가지(순수 증분 매출)는 효과 규모가 작아 기간을 늘려도 두 그룹 비교로는 잡히지 않습니다. 이는 지역이나 기간을 나눠 한쪽만 끄고 비교하는 별도 설계가 필요한 항목입니다.<br>
+        시간연장 추가 운영은 <b>12,900원이라는 처음 띄우는 새 가격</b>의 수락 여부를 측정하는 것으로, 더 돌리면 새로 알게 되는 것이 있어 상황이 다릅니다.
       </div>
     </details>
   </div>
