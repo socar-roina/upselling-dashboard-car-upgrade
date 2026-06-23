@@ -125,7 +125,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div style="display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap">
       <div>
         <div style="font-size:46px;font-weight:900;color:#059669;line-height:1">8.8<span style="font-size:24px">%</span></div>
-        <div style="font-size:12px;color:#6b7280;margin-top:8px">제안 본 1,381명 중 122명 수락<br>오차를 넉넉히 잡아도 최소 7.3%로, 우연이 아닌 실제 수요</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:8px;line-height:1.7">제안 본 1,381명 중 122명 수락<br>표본이 한정돼 약간의 오차가 있어도 실제 수락률은 최소 7.3%<br>0보다 확실히 높아 우연이 아닌 실제 수요</div>
       </div>
       <div style="display:flex;gap:28px;padding-bottom:6px">
         <div><div style="font-size:24px;font-weight:800;color:#111827">137건</div><div style="font-size:12px;color:#6b7280;margin-top:4px">업그레이드 결제</div></div>
@@ -147,9 +147,11 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <details style="margin-top:16px;margin-bottom:0">
       <summary>왜 두 그룹으로 나눠 비교하나</summary>
       <div style="font-size:13px;color:#374151;line-height:2;padding:8px 2px 4px">
-        수락률(8.8%)은 제안 본 그룹만 보면 되는 값. 안 본 그룹은 제안 자체가 없어 비교 대상 아님<br>
-        두 그룹으로 나눈 이유는 따로 있음. 제안 띄운 게 기존 예약과 전체 매출을 해쳤는지 확인하려면 안 띄운 그룹이라는 비교 기준이 필요<br>
-        그 비교가 위 표. 두 지표 모두 차이 없어 노출이 기존 장사를 해치지 않은 것으로 확인됨
+        수락률(8.8%)은 제안 본 그룹만 보면 되는 값<br>
+        안 본 그룹은 제안 자체가 없어 비교 대상이 아님<br>
+        두 그룹으로 나눈 이유는 따로 있음<br>
+        제안 띄운 게 기존 예약과 전체 매출을 해쳤는지 확인하려면 안 띄운 그룹이라는 비교 기준이 필요<br>
+        그 비교가 위 표이며, 두 지표 모두 차이 없어 노출이 기존 장사를 해치지 않은 것으로 확인됨
       </div>
     </details>
     <div style="font-size:11px;color:#9ca3af;margin-top:12px;line-height:1.6">모수: A 미노출 43,061명(76,094예약) / B 노출 42,821명(76,410예약). 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외). 버킷은 서버 farmhash(member_id + 'UPSELLING_CAR_UPGRADE') 50 미만이 B</div>
@@ -167,9 +169,16 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="card">
     <div class="card-title">남은 한계와 종료 판단</div>
     <div style="line-height:2;color:#374151;font-size:13px">
-      <b>측정 못한 것</b>: 업그레이드로 내준 상위 차가 원래 다른 손님에게 팔렸을 차인지(순수 증분)는 확인 어려움. 다만 빈 차에만 제안하는 설계와 위 1인당 결제액 차이 없음으로 손해 흔적은 없음. 정밀 확인은 지역이나 기간을 나눠 한쪽만 끄는 별도 설계(홀드아웃)가 필요<br>
-      <b>종료 판단</b>: 차종UP은 더 돌려도 새로 측정할 항목 없음 (가격과 조건 그대로, 수요와 영향 확인 완료). 6/24 종료<br>
-      <b>시간연장과 차이</b>: 시간연장 추가 운영은 12,900원 새 가격의 수락 여부를 처음 측정하는 것이라, 더 돌리면 새로 알게 되는 게 있어 상황이 다름
+      <b>측정 못한 것</b><br>
+      업그레이드로 내준 상위 차가 원래 다른 손님에게 팔렸을 차인지(순수 증분)는 확인 어려움<br>
+      다만 빈 차에만 제안하는 설계와 위 1인당 결제액 차이 없음으로 손해 흔적은 없음<br>
+      정밀 확인은 지역이나 기간을 나눠 한쪽만 끄는 별도 설계(홀드아웃)가 필요<br>
+      <b style="display:inline-block;margin-top:10px">종료 판단</b><br>
+      차종UP은 더 돌려도 새로 측정할 항목 없음 (가격과 조건 그대로, 수요와 영향 확인 완료)<br>
+      6/24 종료<br>
+      <b style="display:inline-block;margin-top:10px">시간연장과 차이</b><br>
+      시간연장 추가 운영은 12,900원 새 가격의 수락 여부를 처음 측정<br>
+      더 돌리면 새로 알게 되는 게 있어 상황이 다름
     </div>
   </div>
 
