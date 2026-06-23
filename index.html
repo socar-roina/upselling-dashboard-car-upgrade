@@ -131,7 +131,8 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     </table>
     <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
       <b>유휴 상위 차급 업그레이드 수요 확인</b><br>
-      차종UP을 본 노출자의 8.8%가 9,900원 추가 결제로 상위 차급 전환. 미노출군은 제안 자체가 없어 이 전환 경로 없음
+      차종UP을 본 노출자의 8.8%가 9,900원 추가 결제로 상위 차급 전환<br>
+      미노출군은 제안 자체가 없어 이 전환 경로 없음
     </div>
     <details style="margin-top:14px;margin-bottom:0">
       <summary>판정 기준: '효과 있음'은 어떻게 판단했나</summary>
@@ -158,7 +159,12 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
 
   <div class="card" style="border-left:4px solid #059669">
     <div style="font-weight:800;font-size:14px;color:#065f46;margin-bottom:8px">종합: 긍정적</div>
-    <div style="line-height:1.9;color:#374151;font-size:13px">차종UP은 기존 예약과 매출을 해치지 않으면서(가드레일 통과) 13일간 137건, 1,356,300원의 추가 매출 발생. 유휴 상위 차급으로 업그레이드하려는 수요 확인(노출자 8.8% 수락). 6/24 실험 종료 예정<br><span style="color:#6b7280;font-size:12px">전체 매출에 안 드러나는 이유, 표본 현황, 측정 범위, 종료 배경은 맨 아래 '해석 시 참고사항'에서 펼쳐 볼 수 있음</span></div>
+    <div style="line-height:2;color:#374151;font-size:13px">
+      유휴 상위 차급으로 업그레이드하려는 수요 확인 (노출자 8.8% 수락)<br>
+      기존 예약과 매출을 해치지 않음 (가드레일 통과)<br>
+      13일간 137건, 1,356,300원 추가 매출<br>
+      6/24 실험 종료 예정
+    </div>
   </div>
 
   <div class="section-label">구매 전환 깔대기 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
@@ -182,7 +188,12 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <div class="bar-pct">수락률 8.8%</div>
       </div>
     </div>
-    <div style="margin-top:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.8;color:#374151"><b>이탈은 결제 단계에서 더 큼</b> &nbsp; 상위 차급을 고른 500명 중 122명(24.4%)만 결제. 노출에서 옵션을 고를 때보다(약 64% 이탈) 고르고도 결제 안 하는 비율(약 76%)이 더 큼. 관심을 보인 뒤 가격에서 망설이는 구간</div>
+    <div style="margin-top:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.9;color:#374151">
+      <b>이탈은 결제 단계에서 더 큼</b><br>
+      상위 차급을 고른 500명 중 결제까지 간 회원은 122명(24.4%)<br>
+      노출에서 옵션 선택 단계 이탈 약 64%, 옵션 선택에서 결제 단계 이탈 약 76%<br>
+      관심을 보인 뒤 가격 단계에서 이탈하는 비중이 더 큼
+    </div>
   </div>
 
   <div class="kpi-row">
@@ -223,7 +234,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
     <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 122명 / 노출 1381명 = 8.8%. 결제 건수는 137건(일부 회원이 여러 건 결제). 매출은 건당 9,900원 x 137건</div>
   </div>
 
-  <div class="section-label">어떤 차급 제안이 잘 먹히나: 제안 차종별 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
+  <div class="section-label">제안 차급별 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
   <div class="card">
     <div class="card-title">제안한 상위 차급별 수락률</div>
     <div class="card-sub">차종UP이 제안한 상위 차급(웹 로그 cu값=제안 차종의 carClass)별로 노출 대비 수락률 비교. 제품화 때 어떤 차급을 먼저 제안할지 우선순위 근거. 표본이 충분한 상위 3개 차급만 표기(개별 차종은 수십 명 이하라 차급으로 묶음)</div>
@@ -236,9 +247,11 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>준대형 세단 제안이 가장 잘 먹힘</b><br>
-      준대형 세단 수락률 13.8%로 준중형 SUV(7.3%)의 약 1.9배이고, 표본도 충분해 우연으로 보기 어려움. 그런데 정작 노출은 준중형 SUV에 가장 많이(892명) 나가고 있음<br>
-      <span style="color:#3730a3">제품화 때 준대형 세단 제안에 노출 우선순위를 주면 전체 수락률을 끌어올릴 여지. 어떤 원래 차급에서 준대형 세단으로 올릴 수 있는지는 후속 분석 필요</span>
+      <b>준대형 세단 제안의 수락률이 가장 높음</b><br>
+      준대형 세단 수락률 13.8%로 준중형 SUV(7.3%)의 약 1.9배<br>
+      표본도 충분해 우연으로 보기 어려움<br>
+      반면 노출은 준중형 SUV에 가장 많이(892명) 집중됨<br>
+      <span style="color:#3730a3">제품화 시 준대형 세단 제안에 노출 우선순위를 두면 전체 수락률 상승 여지. 어떤 원래 차급에서 준대형 세단으로 상향 가능한지는 후속 분석 필요</span>
     </div>
   </div>
 
@@ -256,9 +269,11 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       </tbody>
     </table>
     <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>자기부담금 낮은 면책상품 가입자일수록 더 하는 경향 (아직 단정 불가)</b><br>
-      완전면책(자기부담금 0원), 30만원면책 가입자는 8.7~10.3%로 수락. 반면 자기부담금이 가장 큰 70만원면책 가입자는 6.8%로 더 낮음. 다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 아직 표본이 적어 단정하긴 이름(방향성 참고 수준)<br>
-      <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드라는 추가 지출에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출이 29명뿐이라 신뢰하기 이름</span><br>
+      <b>자기부담금 낮은 면책상품 가입자의 수락률이 높은 경향 (아직 단정 불가)</b><br>
+      완전면책(자기부담금 0원), 30만원면책 가입자는 8.7~10.3%로 수락<br>
+      반면 자기부담금이 가장 큰 70만원면책 가입자는 6.8%로 더 낮음<br>
+      다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 표본이 적어 아직 단정 어려움 (방향성 참고 수준)<br>
+      <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출 29명으로 표본이 작아 신뢰 어려움</span><br>
       <span style="color:#6b7280;font-size:12px">이 표는 앱에서 바텀시트를 본 웹 기록(노출 1381명)을 기준으로 나눈 분석이라, 수락도 같은 기준 121명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 122명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 면책상품은 웹 기록에만 남는 값이라 이 1명은 면책상품 구분이 안 됨</span>
     </div>
   </div>
@@ -266,31 +281,39 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">해석 시 참고사항 <span class="tag tag-info">펼쳐 보기</span></div>
   <div class="card">
     <details>
-      <summary>전체 매출 그래프에는 왜 안 드러나나</summary>
-      <div style="line-height:1.9;color:#374151;font-size:13px;padding:8px 2px 4px">차종UP 추가매출 1,356,300원은 비교 대상 전체 매출(군당 약 94억) 대비 비중이 작아 전체 매출 그래프에서 단독으로 식별되지 않음. 효과 측정은 전체 매출 비교가 아니라 업그레이드 수락 건수와 추가 매출로 직접 집계<br>참고로 인당 매출도 A 약 21.9만원 vs B 약 21.9만원으로 비슷함. 차종UP이 1인당 더한 약 32원(135.6만원을 노출군 4.3만 명으로 나눈 값)은 사람마다 다른 렌트 금액 차이에 묻히는 크기라 전체 매출로는 안 보임</div>
+      <summary>전체 매출 그래프에 추가매출이 드러나지 않는 이유</summary>
+      <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
+        차종UP 추가매출 1,356,300원은 비교 대상 전체 매출(군당 약 94억)의 약 0.01% 규모<br>
+        회원 1인당으로 환산하면 약 32원 (추가매출 135.6만원을 노출군 4.3만 명으로 나눈 값)<br>
+        회원마다 렌트 결제액 차이가 이보다 훨씬 커서 전체 매출 그래프로는 식별되지 않음<br>
+        효과는 전체 매출 비교가 아니라 업그레이드 수락 건수와 추가매출로 직접 집계<br>
+        인당 매출 비교에서도 A 약 21.9만원, B 약 21.9만원으로 차이 없음
+      </div>
     </details>
     <details>
       <summary>표본(모수) 현황</summary>
       <ul style="line-height:1.9;color:#374151;font-size:13px;margin:0;padding:8px 0 4px 20px">
-        <li>일 노출 약 106명. 노출 조건(지역, 대상 차급, 빈 슬롯)이 좁게 걸려 표본이 천천히 쌓임</li>
-        <li>업그레이드 수요 확인(수락률)에는 충분</li>
-        <li>제안 차종별은 차급으로 묶으면 방향성 확인 가능(개별 차종은 표본 부족)</li>
-        <li>노출 조건(지역, 대상 차급) 완화 시 모수 확대 가능</li>
+        <li>일 평균 노출 약 106명 (지역, 대상 차급, 빈 슬롯 조건으로 노출이 제한돼 표본 누적 속도가 느림)</li>
+        <li>수락률 확인에는 충분한 표본</li>
+        <li>제안 차종은 차급으로 묶으면 방향성 확인 가능 (개별 차종은 표본 부족)</li>
+        <li>노출 조건 완화 시 표본 확대 가능</li>
       </ul>
     </details>
     <details>
-      <summary>이번 실험으로 확인 못 하는 것</summary>
+      <summary>이번 실험으로 측정하지 못하는 항목</summary>
       <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        <b>상위 차량 가동률 자체</b>: 두 군이 같은 차량 재고를 공유해 군별로 나눠 측정 불가, 수요측 업그레이드율로 갈음<br>
-        <b>차종UP의 순수 증가분</b> (그 상위차가 원래도 나갔을지): 추가매출이 전체 매출 대비 작아 직접 비교로 분리 불가, 빈 슬롯에만 제안하는 설계와 추후 홀드아웃으로 보완<br>
-        <b>개별 차종 단위 정밀 수락률</b>: 차종마다 표본 수십 명 이하라, 차급으로 묶어 방향성만 확인(위 제안 차종별 섹션)
+        <b>상위 차급 차량 가동률</b>: 두 군이 동일 차량 재고를 공유해 군별 분리 측정 불가 (수요측 업그레이드 전환율로 대체 확인)<br>
+        <b>순수 증분 매출</b> (제안이 없었어도 상위 차급이 판매됐을지): 추가매출 규모가 작아 전체 매출 비교로 분리 불가 (빈 슬롯 한정 제안 설계와 향후 홀드아웃으로 보완)<br>
+        <b>개별 차종 단위 정밀 수락률</b>: 차종별 표본이 작아 차급 단위 방향성만 확인 가능
       </div>
     </details>
     <details>
-      <summary>왜 추가 실험 없이 종료하나 (시간연장과 다른 점)</summary>
+      <summary>추가 실험 없이 종료하는 이유 (시간연장과 차이)</summary>
       <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        차종은 가치가 곧 <b>건당 추가매출 9,900원</b>(고정)이라, 작은 규모에서도 수락률과 가드레일, 건당 매출이 이미 측정됨. 판단에 필요한 근거가 나와 <b>6/24 실험 종료로 매듭</b><br>
-        시간연장처럼 조건을 완화해 기간을 늘려도 결론이 더 또렷해지지 않음. 시간연장은 가치가 <b>유휴 채움(가동률)</b>이라 작은 규모에선 거의 실현되거나 확인되지 않아 추가 운영으로 모수를 키우는 경우로, 차종과 상황이 다름
+        차종UP은 가치가 <b>건당 추가매출 9,900원</b>으로 고정돼, 작은 표본에서도 수락률과 가드레일, 건당 매출이 모두 측정됨<br>
+        판단에 필요한 근거가 확보돼 <b>6/24 종료</b><br>
+        시간연장은 가치가 <b>유휴 차량 가동률</b>에 있어 작은 표본에서는 효과가 실현되거나 측정되기 어려움<br>
+        조건 완화로 표본을 키우는 추가 운영이 필요했던 경우로, 차종UP과는 상황이 다름
       </div>
     </details>
   </div>
