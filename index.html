@@ -120,7 +120,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   <div class="section-label">차종UP 실험 결과 <span class="tag tag-fact">A/B 실측 6/10~6/22</span></div>
 
   <div class="card">
-    <div class="card-title">1. 사람들이 업그레이드를 사는가 <span style="color:#6b7280;font-size:12px;font-weight:600">수요</span></div>
+    <div class="card-title">1. 사람들이 업그레이드를 사는가 <span style="background:#d1fae5;color:#065f46;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px">수요 확인</span></div>
     <div class="card-sub">제안 본 회원(B군) 중 9,900원 더 내고 상위 차급으로 바꾼 비율. 제안 받은 사람만의 수치</div>
     <div style="display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap">
       <div>
@@ -135,7 +135,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
   </div>
 
   <div class="card">
-    <div class="card-title">2. 기존 예약과 매출에 영향을 줬는가 <span style="color:#059669;font-size:13px;font-weight:700">영향 없음</span></div>
+    <div class="card-title">2. 기존 예약과 매출에 영향을 줬는가 <span style="background:#d1fae5;color:#065f46;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px">영향 없음</span></div>
     <div class="card-sub">제안 본 그룹(B)과 안 본 그룹(A)의 전체 지표 비교. 안 본 그룹이 제안 없었을 때의 기준</div>
     <table class="data-table">
       <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
@@ -144,11 +144,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <tr><td class="dt">예약 취소율</td><td class="num">27.94%</td><td class="num">28.25%</td><td class="num">+0.31%p</td><td>차이 없음</td></tr>
       </tbody>
     </table>
-    <div style="margin-top:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#065f46">
-      제안 띄운 그룹과 안 띄운 그룹의 1인당 결제액과 취소율 동일<br>
-      차종UP 노출이 기존 예약이나 전체 매출을 해치지 않음
-    </div>
-    <details style="margin-top:14px;margin-bottom:0">
+    <details style="margin-top:16px;margin-bottom:0">
       <summary>왜 두 그룹으로 나눠 비교하나</summary>
       <div style="font-size:13px;color:#374151;line-height:2;padding:8px 2px 4px">
         수락률(8.8%)은 제안 본 그룹만 보면 되는 값. 안 본 그룹은 제안 자체가 없어 비교 대상 아님<br>
@@ -165,6 +161,15 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       업그레이드 수요 확인 (제안 본 회원 8.8% 수락, 13일간 137건, 약 136만원)<br>
       기존 예약과 전체 매출에 영향 없음 (1인당 결제액과 취소율 두 그룹 차이 없음)<br>
       6/24 실험 종료 예정
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">남은 한계와 종료 판단</div>
+    <div style="line-height:2;color:#374151;font-size:13px">
+      <b>측정 못한 것</b>: 업그레이드로 내준 상위 차가 원래 다른 손님에게 팔렸을 차인지(순수 증분)는 확인 어려움. 다만 빈 차에만 제안하는 설계와 위 1인당 결제액 차이 없음으로 손해 흔적은 없음. 정밀 확인은 지역이나 기간을 나눠 한쪽만 끄는 별도 설계(홀드아웃)가 필요<br>
+      <b>종료 판단</b>: 차종UP은 더 돌려도 새로 측정할 항목 없음 (가격과 조건 그대로, 수요와 영향 확인 완료). 6/24 종료<br>
+      <b>시간연장과 차이</b>: 시간연장 추가 운영은 12,900원 새 가격의 수락 여부를 처음 측정하는 것이라, 더 돌리면 새로 알게 되는 게 있어 상황이 다름
     </div>
   </div>
 
@@ -195,12 +200,6 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
       노출에서 옵션 선택 단계 이탈 약 64%, 옵션 선택에서 결제 단계 이탈 약 76%<br>
       관심을 보인 뒤 가격 단계에서 이탈하는 비중이 더 큼
     </div>
-  </div>
-
-  <div class="kpi-row">
-    <div class="kpi"><div class="lbl">수락률 (핵심)<br>노출 회원 중 결제 수락</div><div class="num green">8.8<span class="unit">%</span></div><div class="sub">수락 122명 / 노출 1381명. 오차 감안해도 최소 7.3% 수락이라 우연 아님</div></div>
-    <div class="kpi"><div class="lbl">옵션 선택율<br>노출 중 상위 차급 카드 선택</div><div class="num blue">36.2<span class="unit">%</span></div><div class="sub">500 / 1381</div></div>
-    <div class="kpi"><div class="lbl">고객 추가매출<br>결제 건 기준</div><div class="num">1,356,300<span class="unit">원</span></div><div class="sub">9,900원 x 137건</div></div>
   </div>
 
   <div class="section-label">일별 추이 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측</span></div>
@@ -306,14 +305,6 @@ summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #374151; pa
         <b>상위 차급 차량 가동률</b>: 두 군이 동일 차량 재고를 공유해 군별 분리 측정 불가 (수요측 업그레이드 전환율로 대체 확인)<br>
         <b>순수 증분 매출</b> (제안이 없었어도 상위 차급이 판매됐을지): 추가매출 규모가 작아 전체 매출 비교로 분리 불가 (빈 슬롯 한정 제안 설계와 향후 홀드아웃으로 보완)<br>
         <b>개별 차종 단위 정밀 수락률</b>: 차종별 표본이 작아 차급 단위 방향성만 확인 가능
-      </div>
-    </details>
-    <details>
-      <summary>추가 실험 없이 종료하는 이유 (시간연장과 차이)</summary>
-      <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        차종UP은 더 돌려도 <b>새로 측정할 항목이 없음.</b> 가격(9,900원)도 노출 조건도 그대로고, 수요와 전체 영향이 이미 확인됨<br>
-        남은 한 가지(순수 증분 매출)는 효과 규모가 작아 기간을 늘려도 두 그룹 비교로는 안 잡힘. 지역이나 기간을 나눠 한쪽만 끄고 비교하는 별도 설계가 필요한 항목<br>
-        시간연장 추가 운영은 <b>12,900원이라는 처음 띄우는 새 가격</b>의 수락 여부 측정. 더 돌리면 새로 알게 되는 게 있어 상황이 다름
       </div>
     </details>
   </div>
