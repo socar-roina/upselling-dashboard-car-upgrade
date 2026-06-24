@@ -143,7 +143,7 @@ summary:hover { color: #2563eb; }
   <div class="updated">
     최종 갱신 <b>2026-06-24 KST</b><br>
     <span>실험 기간 2026-06-10 ~ 06-24 (6/24 00:00 종료)</span><br>
-    <span style="color:#9ca3af">release/CR-10867<br>6/10~6/23 전체 기간 집계 (실험 종료 6/24 00:00)</span>
+    <span style="color:#9ca3af">release/CR-10867<br>6/10~6/23 전체 기간 집계 (실험 종료 6/24 00:00)<br>집계 기준 6/24, 예약 기반 지표(취소율, 문의율)는 이후 소폭 변동 가능</span>
   </div>
 </div>
 
@@ -169,8 +169,8 @@ summary:hover { color: #2563eb; }
           <td class="what">제안 노출의 영향<span class="sub">업셀링 노출이 기존 예약의 취소나 문의를 늘리는가</span></td>
           <td class="res">
             <div class="mlines">
-              <div class="mline"><span class="mn">취소율</span><span class="mv">A 27.8% / B 28.2%</span><span class="mt">차이 없음</span></div>
-              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">A 1.64% / B 1.66%</span><span class="mt">차이 없음</span></div>
+              <div class="mline"><span class="mn">취소율</span><span class="mv">A 27.9% / B 28.2%</span><span class="mt">차이 없음</span></div>
+              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">A 1.66% / B 1.67%</span><span class="mt">차이 없음</span></div>
             </div>
           </td>
           <td class="judge"><span class="ic">✓</span>노출로 인한 부정적 영향 미확인<span class="note">기준: A와 B 간 유의미한 차이 없음</span></td>
@@ -247,19 +247,19 @@ summary:hover { color: #2563eb; }
   <div class="section-label">3. 노출의 기존 예약 영향 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">노출 여부에 따른 예약 행동 차이 비교</div>
-    <div class="card-sub">기준: 제안을 본 전체 예약 (A 안 본 그룹 81,869건, B 본 그룹 82,336건)<br>노출 자체가 취소와 문의를 늘렸는지 보며, 두 막대가 거의 같으면 노출이 예약을 해치지 않는다는 뜻</div>
+    <div class="card-sub">기준: 제안을 본 전체 예약 (A 안 본 그룹 81,868건, B 본 그룹 82,335건)<br>노출 자체가 취소와 문의를 늘렸는지 보며, 두 막대가 거의 같으면 노출이 예약을 해치지 않는다는 뜻</div>
     <div class="ab">
       <div class="ab-row">
         <div class="ab-head"><div class="name">예약 취소율</div><div class="verdict">차이 없음</div></div>
-        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:27.8%"></div></div><div class="val">27.8%</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:27.9%"></div></div><div class="val">27.9%</div></div>
         <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:28.2%"></div></div><div class="val">28.2%</div></div>
       </div>
       <div class="ab-row">
         <div class="ab-head"><div class="name">CS 문의율 <span class="sub">전체 예약 중 고객센터 문의 비율</span></div><div class="verdict">차이 없음</div></div>
-        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:1.64%"></div></div><div class="val">1.64%</div></div>
-        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:1.66%"></div></div><div class="val">1.66%</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:1.66%"></div></div><div class="val">1.66%</div></div>
+        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:1.67%"></div></div><div class="val">1.67%</div></div>
       </div>
-      <div class="ab-note">모수: A 미노출 약 4.5만 명(81,869예약) / B 노출 약 4.5만 명(82,336예약). 양 그룹 간 유의미한 차이는 확인되지 않음</div>
+      <div class="ab-note">모수: A 미노출 약 4.5만 명(81,868예약) / B 노출 약 4.5만 명(82,335예약). 양 그룹 간 유의미한 차이는 확인되지 않음</div>
     </div>
   </div>
 
@@ -318,12 +318,12 @@ summary:hover { color: #2563eb; }
     <table class="data-table">
       <thead><tr><th>제안 차급 (대표 차종)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
       <tbody>
-        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">220</td><td class="num">32</td><td class="num">14.5%</td><td><div style="background:#059669;height:13px;width:90%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">939</td><td class="num">70</td><td class="num">7.5%</td><td><div style="background:#94a3b8;height:13px;width:47%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">236</td><td class="num">17</td><td class="num">7.2%</td><td><div style="background:#94a3b8;height:13px;width:45%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">223</td><td class="num">32</td><td class="num">14.3%</td><td><div style="background:#059669;height:13px;width:90%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">236</td><td class="num">18</td><td class="num">7.6%</td><td><div style="background:#94a3b8;height:13px;width:48%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">935</td><td class="num">69</td><td class="num">7.4%</td><td><div style="background:#94a3b8;height:13px;width:47%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(14.5%). 반면 노출은 준중형 SUV에 가장 많이 집중돼 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
+    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(14.3%). 반면 노출은 준중형 SUV에 가장 많이 집중돼 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
   </div>
 
   <!-- 면책별 -->
@@ -334,13 +334,13 @@ summary:hover { color: #2563eb; }
     <table class="data-table">
       <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
       <tbody>
-        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">520</td><td class="num">46</td><td class="num">8.8%</td><td><div style="background:#94a3b8;height:13px;width:59%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">30만원면책</td><td class="num">408</td><td class="num">43</td><td class="num">10.5%</td><td><div style="background:#94a3b8;height:13px;width:70%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">70만원면책</td><td class="num">483</td><td class="num">31</td><td class="num">6.4%</td><td><div style="background:#94a3b8;height:13px;width:43%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">519</td><td class="num">46</td><td class="num">8.9%</td><td><div style="background:#94a3b8;height:13px;width:59%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">30만원면책</td><td class="num">409</td><td class="num">42</td><td class="num">10.3%</td><td><div style="background:#94a3b8;height:13px;width:68%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">70만원면책</td><td class="num">483</td><td class="num">32</td><td class="num">6.6%</td><td><div style="background:#94a3b8;height:13px;width:44%;border-radius:3px"></div></td></tr>
         <tr><td class="dt">5만원면책 <span style="font-size:11px;color:#9ca3af">표본 30명</span></td><td class="num">30</td><td class="num">6</td><td class="num">20.0%</td><td><div style="background:#e2e8f0;height:13px;width:100%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.7;color:#374151">자기부담금 낮은 상품 가입자의 수락률이 높은 경향은 있으나, 그룹 간 차이(6.4~10.5%)가 각 표본 수(수백 명)에 비해 작아 이 정도는 우연으로도 나올 수 있는 범위임. 표본이 더 쌓이면 사라질 수도 있어 방향성만 참고. 5만원면책(20.0%)은 노출 30명뿐이라 수치 신뢰 어려움</div>
+    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.7;color:#374151">자기부담금 낮은 상품 가입자의 수락률이 높은 경향은 있으나, 그룹 간 차이(6.6~10.3%)가 각 표본 수(수백 명)에 비해 작아 이 정도는 우연으로도 나올 수 있는 범위임. 표본이 더 쌓이면 사라질 수도 있어 방향성만 참고. 5만원면책(20.0%)은 노출 30명뿐이라 수치 신뢰 어려움</div>
   </div>
 
   <!-- 일별 추이 -->
@@ -444,7 +444,7 @@ rsv AS (
 SELECT rsv.is_b, COUNT(*) AS rsv, COUNT(DISTINCT rsv.member_id) AS members,
   ROUND(COUNTIF(rsv.cancel_at IS NOT NULL)/COUNT(*)*100, 2) AS cancel_rate
 FROM rsv GROUP BY rsv.is_b
--- 결과: A 81,869예약 취소 27.84% / B 82,336예약 취소 28.17% (차이 없음), ARPU 양쪽 약 22.4만원</div>
+-- 결과: A 81,868예약 취소 27.88% / B 82,335예약 취소 28.21% (z~1.5, 차이 없음), ARPU 양쪽 약 22.4만원</div>
       </details>
       <details>
         <summary>4. CS 문의율 A/B 비교</summary>
@@ -457,7 +457,7 @@ WITH inq AS (
 SELECT rsv.is_b,
   ROUND(COUNTIF(i.reservation_id IS NOT NULL)/COUNT(*)*100,2) AS inq_rate
 FROM rsv LEFT JOIN inq i USING(reservation_id) GROUP BY rsv.is_b
--- 결과: A 1.64%, B 1.66%, 차종UP 수락 147건 중 문의 2건</div>
+-- 결과: A 1.66%, B 1.67%, 차종UP 수락 147건 중 문의 2건</div>
       </details>
       <details>
         <summary>5. 제안 차급별 수락률</summary>
@@ -481,7 +481,7 @@ SELECT cc.car_model AS car_class,
 FROM exp1 e LEFT JOIN acc a USING(member_id)
 LEFT JOIN `socar-data.tianjin_replica.car_class` cc ON cc.id = SAFE_CAST(e.cu AS INT64)
 GROUP BY car_class ORDER BY exposed DESC
--- 결과: 준대형세단 220/32 14.5%, 중형SUV 236/17 7.2%, 준중형SUV 939/70 7.5%</div>
+-- 결과: 준대형세단 223/32 14.3%, 중형SUV 236/18 7.6%, 준중형SUV 935/69 7.4%</div>
       </details>
     </div>
   </details>
