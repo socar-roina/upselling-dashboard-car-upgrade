@@ -4,395 +4,377 @@
   <meta name="robots" content="noindex, nofollow, noarchive">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>업셀링 차종 업그레이드 실험 결과</title>
+<title>차종 업그레이드 실험 결과</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif; background: #f4f5f7; color: #111827; font-size: 14px; line-height: 1.5; min-width: 1200px; -webkit-font-smoothing: antialiased; }
-.top-bar { background: #fff; color: #111827; border-bottom: 1px solid #e5e7eb; padding: 20px 32px; display: flex; align-items: flex-start; justify-content: space-between; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif; background: #f4f5f7; color: #111827; font-size: 14px; line-height: 1.5; min-width: 1100px; -webkit-font-smoothing: antialiased; }
+.top-bar { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 20px 32px; display: flex; align-items: flex-start; justify-content: space-between; }
 .top-bar h1 { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; }
-.top-bar .meta { font-size: 12px; color: #6b7280; margin-top: 7px; line-height: 1.6; max-width: 900px; }
+.top-bar .meta { font-size: 12px; color: #6b7280; margin-top: 7px; line-height: 1.6; max-width: 760px; }
 .top-bar .updated { font-size: 11px; color: #9ca3af; text-align: right; line-height: 1.8; }
 .top-bar .updated b { color: #111827; font-weight: 700; }
-.experiment-overview { background: #fbfcfe; border-bottom: 1px solid #e8edf3; padding: 18px 32px; }
-.experiment-overview .inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-.experiment-overview .o-block { padding: 2px 0 2px 16px; border-left: 3px solid #cbd5e1; }
-.experiment-overview .o-block .lbl { font-size: 11px; font-weight: 800; color: #64748b; letter-spacing: 0.04em; margin-bottom: 5px; }
-.experiment-overview .o-block .val { font-size: 13px; color: #334155; line-height: 1.7; }
-.main { max-width: 1280px; margin: 0 auto; padding: 8px 32px 48px; }
-.section-label { font-size: 13px; font-weight: 800; color: #1f2937; margin: 28px 0 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; letter-spacing: -0.01em; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* 첫 화면 결론 블록 */
+.hero { margin: 22px auto 0; }
+.q-card { background: #fff; border: 1px solid #e8eaed; border-radius: 14px; padding: 20px 26px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); }
+.q-card .lbl { font-size: 11px; font-weight: 800; color: #6b7280; letter-spacing: 0.05em; margin-bottom: 8px; }
+.q-card .q { font-size: 16px; color: #111827; font-weight: 700; line-height: 1.6; }
+.q-card .q b { color: #2563eb; }
+
+.verify-card { background: #fff; border: 1px solid #e8eaed; border-radius: 14px; padding: 8px 8px 8px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); overflow: hidden; }
+.vt { width: 100%; border-collapse: collapse; }
+.vt th { background: #f8fafc; text-align: left; font-size: 11px; font-weight: 800; color: #475569; letter-spacing: 0.02em; padding: 12px 18px; border-bottom: 1px solid #e5e7eb; }
+.vt td { padding: 16px 18px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+.vt tr:last-child td { border-bottom: none; }
+.vt .what { font-weight: 800; color: #0f172a; font-size: 14px; }
+.vt .what .sub { display: block; font-size: 11px; color: #94a3b8; font-weight: 500; margin-top: 3px; }
+.vt .res { font-size: 14px; color: #111827; font-weight: 700; }
+.vt .res .sub { display: block; font-size: 12px; color: #6b7280; font-weight: 500; margin-top: 3px; }
+.vt .judge { font-size: 13px; color: #047857; font-weight: 700; }
+.vt .judge .note { display: block; font-size: 11px; color: #9ca3af; font-weight: 500; margin-top: 3px; }
+.vt .ic { color: #059669; font-weight: 900; margin-right: 6px; }
+
+.concl { border: 2px solid #059669; border-radius: 14px; background: linear-gradient(135deg,#f0fdf4,#ecfdf5); padding: 22px 26px; box-shadow: 0 2px 8px rgba(5,150,105,0.12); margin-bottom: 8px; }
+.concl .lbl { font-size: 12px; font-weight: 800; color: #059669; letter-spacing: 0.04em; margin-bottom: 10px; }
+.concl .body { font-size: 15px; color: #065f46; line-height: 1.7; font-weight: 600; }
+.concl .decision { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #a7f3d0; }
+.concl .decision .pill { background: #059669; color: #fff; font-size: 12px; font-weight: 800; padding: 5px 13px; border-radius: 999px; white-space: nowrap; }
+.concl .decision .txt { font-size: 18px; font-weight: 900; color: #065f46; }
+
+/* 공통 */
+.group-label { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; margin: 44px 0 12px; padding-bottom: 11px; border-bottom: 2px solid #e2e8f0; }
+.group-label span { font-size: 11px; font-weight: 600; color: #94a3b8; }
+.section-label { font-size: 13px; font-weight: 800; color: #1f2937; margin: 26px 0 13px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .section-label::before { content: ""; display: inline-block; width: 4px; height: 15px; background: #2563eb; border-radius: 2px; }
-.section-label .tag { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: 700; letter-spacing: 0.02em; }
+.tag { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: 700; }
 .tag-fact { background: #dcfce7; color: #15803d; }
 .tag-info { background: #e0edff; color: #1d4ed8; }
-.group-label { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; margin: 46px 0 12px; padding-bottom: 11px; border-bottom: 2px solid #e2e8f0; }
-.group-label span { font-size: 11px; font-weight: 600; color: #94a3b8; }
-.card { background: #fff; border-radius: 14px; border: 1px solid #e8eaed; padding: 24px 26px; box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.05); margin-bottom: 14px; }
-.card-title { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.01em; }
+.tag-wait { background: #fef3c7; color: #b45309; }
+.card { background: #fff; border-radius: 14px; border: 1px solid #e8eaed; padding: 22px 24px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); margin-bottom: 14px; }
+.card-title { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; }
 .card-sub { font-size: 12px; color: #6b7280; margin-bottom: 16px; line-height: 1.7; }
-.purpose-lbl { font-size: 10px; font-weight: 800; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
-.purpose-txt { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 18px; }
-.verdict { display: inline-flex; align-items: center; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 999px; padding: 7px 18px 7px 7px; margin-bottom: 16px; }
-.verdict .pill { background: #059669; color: #fff; font-size: 11px; font-weight: 800; padding: 4px 11px; border-radius: 999px; white-space: nowrap; letter-spacing: 0.02em; }
-.verdict .txt { font-size: 15px; font-weight: 800; color: #047857; }
-.result-line { font-size: 17px; color: #0f172a; font-weight: 700; line-height: 1.55; margin-bottom: 18px; letter-spacing: -0.01em; }
-.evidence { display: flex; gap: 0; flex-wrap: wrap; padding: 0; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 10px; overflow: hidden; }
-.evidence .e { padding: 16px 24px; border-right: 1px solid #eef2f6; flex: 1; min-width: 130px; }
+.evidence { display: flex; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 10px; overflow: hidden; }
+.evidence .e { padding: 16px 22px; border-right: 1px solid #eef2f6; flex: 1; }
 .evidence .e:last-child { border-right: none; }
-.evidence .e .n { font-size: 24px; font-weight: 900; color: #111827; line-height: 1; letter-spacing: -0.02em; }
+.evidence .e .n { font-size: 23px; font-weight: 900; color: #111827; letter-spacing: -0.02em; }
 .evidence .e .n.green { color: #059669; }
-.evidence .e .l { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.45; }
+.evidence .e .l { font-size: 12px; color: #6b7280; margin-top: 7px; line-height: 1.45; }
+
+/* A/B 짝대 막대 */
+.ab { margin-top: 4px; }
+.ab-row { margin-bottom: 18px; }
+.ab-row:last-child { margin-bottom: 0; }
+.ab-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
+.ab-head .name { font-size: 13px; font-weight: 800; color: #334155; }
+.ab-head .name .sub { font-weight: 500; color: #94a3b8; font-size: 11px; margin-left: 6px; }
+.ab-head .verdict { font-size: 12px; font-weight: 800; color: #047857; }
+.ab-bar { display: grid; grid-template-columns: 24px 1fr 66px; align-items: center; gap: 10px; margin-bottom: 5px; }
+.ab-bar .who { font-size: 11px; font-weight: 800; color: #64748b; }
+.ab-bar .track { background: #f1f5f9; border-radius: 5px; height: 18px; overflow: hidden; }
+.ab-bar .fill { height: 100%; border-radius: 5px; }
+.ab-bar .fill.a { background: #94a3b8; }
+.ab-bar .fill.b { background: #3b82f6; }
+.ab-bar .val { font-size: 12px; font-weight: 800; color: #334155; font-variant-numeric: tabular-nums; }
+.ab-note { font-size: 11px; color: #9ca3af; margin-top: 9px; line-height: 1.6; }
+
+/* 사업성 2단 */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.split .col { border-radius: 12px; padding: 18px 20px; }
+.split .col.ok { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.split .col.no { background: #fff7ed; border: 1px solid #fed7aa; }
+.split .col h5 { font-size: 13px; font-weight: 800; margin-bottom: 10px; }
+.split .col.ok h5 { color: #15803d; }
+.split .col.no h5 { color: #c2410c; }
+.split .col ul { list-style: none; }
+.split .col li { font-size: 13px; color: #374151; line-height: 1.5; padding: 5px 0 5px 16px; position: relative; }
+.split .col li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; }
+.split .col.ok li::before { background: #22c55e; }
+.split .col.no li::before { background: #f97316; }
+.why { margin-top: 14px; background: #f8fafc; border: 1px solid #eef2f6; border-left: 4px solid #64748b; border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.85; color: #374151; }
+.why b { color: #111827; }
+.next { margin-top: 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.8; color: #1e3a8a; }
+.next b { color: #1e3a8a; }
+
+/* 표 */
 .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.data-table th { background: #f8fafc; padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 800; color: #475569; letter-spacing: 0.02em; border-bottom: 1px solid #e5e7eb; }
+.data-table th { background: #f8fafc; padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 800; color: #475569; border-bottom: 1px solid #e5e7eb; }
 .data-table th.num { text-align: right; }
-.data-table td { padding: 13px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+.data-table td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; }
 .data-table tr:last-child td { border-bottom: none; }
 .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
 .data-table td.dt { font-weight: 700; color: #334155; }
 .data-table tr.total td { background: #f8fafc; font-weight: 800; }
-.query-block { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; overflow-x: auto; white-space: pre; }
-.chart-wrap { height: 300px; }
-.funnel-bars { display: flex; flex-direction: column; gap: 12px; }
-.bar-row { display: grid; grid-template-columns: 300px 1fr 140px; align-items: center; gap: 14px; }
-.bar-label { font-size: 13px; color: #334155; font-weight: 700; }
-.bar-label .sub { font-size: 11px; color: #94a3b8; font-weight: 500; display: block; margin-top: 2px; }
-.bar-track { background: #f1f5f9; border-radius: 7px; height: 34px; position: relative; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 7px; display: flex; align-items: center; padding: 0 12px; color: white; font-weight: 800; font-size: 14px; min-width: 60px; }
-.bar-pct { font-size: 12px; color: #64748b; font-weight: 700; text-align: right; }
-.bar-row.final .bar-label { color: #047857; font-weight: 800; }
-.foot-note { font-size: 13px; color: #4b5563; margin-top: 24px; padding: 22px 24px; line-height: 2; background: #fff; border-radius: 14px; border: 1px solid #e8eaed; }
-.foot-note h4 { font-size: 13px; font-weight: 800; color: #111827; margin-bottom: 12px; }
-.foot-note .term { display: grid; grid-template-columns: 220px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+.chart-wrap { height: 290px; }
+.funnel { display: flex; flex-direction: column; gap: 10px; }
+.f-row { display: grid; grid-template-columns: 250px 1fr 120px; align-items: center; gap: 14px; }
+.f-label { font-size: 13px; color: #334155; font-weight: 700; }
+.f-label .sub { font-size: 11px; color: #94a3b8; font-weight: 500; display: block; margin-top: 2px; }
+.f-track { background: #f1f5f9; border-radius: 7px; height: 32px; overflow: hidden; }
+.f-fill { height: 100%; border-radius: 7px; display: flex; align-items: center; padding: 0 12px; color: #fff; font-weight: 800; font-size: 14px; min-width: 54px; }
+.f-pct { font-size: 12px; color: #64748b; font-weight: 700; text-align: right; }
+.wait-box { background: #fffbeb; border: 1px dashed #fcd34d; border-radius: 10px; padding: 18px 20px; font-size: 13px; color: #92400e; line-height: 1.7; }
+.wait-box b { color: #78350f; }
+.foot-note { font-size: 13px; color: #4b5563; padding: 22px 24px; line-height: 1.9; background: #fff; border-radius: 14px; border: 1px solid #e8eaed; }
+.foot-note .term { display: grid; grid-template-columns: 200px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
 .foot-note .term:last-child { border-bottom: none; }
 .foot-note .term b { color: #111827; }
-details { margin-bottom: 10px; }
-summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #475569; padding: 10px 2px; transition: color 0.12s; }
+details { margin-bottom: 0; }
+summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #475569; padding: 10px 2px; }
 summary:hover { color: #2563eb; }
-.card > details:last-child, details.card { margin-bottom: 0; }
+.query-block { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; overflow-x: auto; white-space: pre; }
 </style>
 </head>
 <body>
 
 <div class="top-bar">
   <div>
-    <h1>업셀링 차종 업그레이드 실험 결과</h1>
-    <div class="meta">
-      차를 빌릴 때 결제 직전 화면에서 같은 존 상위 차급으로 9,900원에 업그레이드를 제안하는 기능의 A/B 실험 결과
-    </div>
+    <h1>차종 업그레이드 실험 결과</h1>
+    <div class="meta">결제 직전 화면에서 같은 존 상위 차급으로 9,900원에 업그레이드를 제안하는 기능의 A/B 실험 결과</div>
   </div>
   <div class="updated">
-    최종 갱신: <b>2026-06-24 KST</b><br>
-    <span>실험 기간 2026-06-10 ~ 06-24 (계획 14일), 6/24 00:00 종료</span><br>
-    <span style="color:#9ca3af">release/CR-10867<br>최종일(6/23) 웹 이벤트 적재 대기 중이라 노출, 수락률, 매출은 6/22까지 완전 집계 기준<br>가드레일(취소율 등)은 6/24 재집계값</span>
+    최종 갱신 <b>2026-06-24 KST</b><br>
+    <span>실험 기간 2026-06-10 ~ 06-24 (6/24 00:00 종료)</span><br>
+    <span style="color:#9ca3af">release/CR-10867 · 노출·수락·매출은 6/22까지 완전 집계</span>
   </div>
 </div>
 
-<div class="experiment-overview">
-  <div class="inner">
-    <div class="o-block">
-      <div class="lbl">제안 내용</div>
-      <div class="val">결제 직전 화면에서 같은 존 상위 차급 1종 제안<br>고객 추가금 9,900원 고정, 차액은 회사 부담</div>
-    </div>
-    <div class="o-block">
-      <div class="lbl">실험 방식</div>
-      <div class="val">회원을 무작위 절반으로 나눠 한쪽(B)에만 제안 노출<br>나머지(A)는 제안을 안 본 대조군</div>
-    </div>
-    <div class="o-block">
-      <div class="lbl">집계 방식</div>
-      <div class="val">웹 로그로 제안 노출 식별, 결제 데이터로 실제 수락 집계<br>상세 정의와 쿼리는 하단 참고</div>
+<div class="wrap hero">
+
+  <!-- 실험 질문 -->
+  <div class="q-card">
+    <div class="lbl">실험 질문</div>
+    <div class="q">결제 직전 화면에서 9,900원에 상위 차급 업그레이드를 제안하면, 고객은 <b>실제로 돈을 내고 선택하는가</b>, 그리고 그게 <b>기존 예약을 해치는가</b>?</div>
+  </div>
+
+  <!-- 검증 결과 표 -->
+  <div class="verify-card">
+    <table class="vt">
+      <thead><tr><th style="width:30%">무엇을 봤나</th><th style="width:32%">결과</th><th>판단</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="what">고객이 돈 내고 사나<span class="sub">구매 수요</span></td>
+          <td class="res">수락률 8.8%<span class="sub">제안 본 1,381명 중 122명이 결제</span></td>
+          <td class="judge"><span class="ic">✓</span>고객 구매 수요 확인</td>
+        </tr>
+        <tr>
+          <td class="what">노출이 예약을 해치나<span class="sub">취소·문의, 대조군 비교</span></td>
+          <td class="res">A 28.0% / B 28.4%<span class="sub">취소율 차이 없음 · CS 문의율도 동일</span></td>
+          <td class="judge"><span class="ic">✓</span>기존 예약 전환 저해 없음<span class="note">예약 7.6만 건씩이라 문제 있었으면 잡혔을 비교</span></td>
+        </tr>
+        <tr>
+          <td class="what">산 사람이 불편했나<span class="sub">구매 경험</span></td>
+          <td class="res">문의 137건 중 2건 · 환불 0건<span class="sub">2건도 결제수단·부름 관련, 차급 변경 불만 아님</span></td>
+          <td class="judge"><span class="ic">✓</span>차급 변경 불만 없음<span class="note">표본 137건, 방향성 참고</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 결론 -->
+  <div class="concl">
+    <div class="lbl">결론</div>
+    <div class="body">고객은 9,900원을 더 내고 상위 차급을 선택했고, 노출도 구매도 기존 예약 경험을 해치지 않음.</div>
+    <div class="decision">
+      <span class="pill">의사결정</span>
+      <span class="txt">차종 업그레이드 정규화 검토 가능</span>
     </div>
   </div>
+
 </div>
 
-<div style="max-width:1280px;margin:22px auto 0;padding:0 32px">
+<div class="wrap">
 
-  <div style="background:#fff;border:1px solid #e8eaed;border-radius:14px;padding:18px 24px;margin-bottom:14px;box-shadow:0 1px 2px rgba(16,24,40,0.04)">
-    <div style="font-size:11px;font-weight:800;color:#6b7280;letter-spacing:0.05em;margin-bottom:6px">실험 목적</div>
-    <div style="font-size:15px;color:#111827;font-weight:600;line-height:1.6">고객이 9,900원을 추가 결제하고 상위 차급으로 업그레이드할 의향이 있는지 검증</div>
-  </div>
+  <div class="group-label">왜 그렇게 판단했나 <span>위 결론의 근거</span></div>
 
-  <div style="border:2px solid #059669;border-radius:14px;background:linear-gradient(135deg,#f0fdf4,#ecfdf5);padding:22px 26px;box-shadow:0 2px 8px rgba(5,150,105,0.12)">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
-      <div style="font-size:13px;font-weight:800;color:#059669;letter-spacing:0.04em">실험 결과 요약</div>
-      <div style="font-size:21px;font-weight:900;color:#065f46">고객 수요 검증 성공</div>
-      <div style="background:#059669;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px">정규화 검토 가능</div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-      <div style="background:#fff;border:1px solid #a7f3d0;border-radius:10px;padding:14px 16px">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="width:7px;height:7px;border-radius:50%;background:#059669;display:inline-block"></span><div style="font-size:12px;font-weight:800;color:#059669">고객 수요 확인</div></div>
-        <div style="font-size:13px;color:#374151;line-height:1.6">제안 본 고객 100명 중 약 9명이 실제로 결제</div>
-      </div>
-      <div style="background:#fff;border:1px solid #a7f3d0;border-radius:10px;padding:14px 16px">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="width:7px;height:7px;border-radius:50%;background:#059669;display:inline-block"></span><div style="font-size:12px;font-weight:800;color:#059669">기존 예약 영향 없음</div></div>
-        <div style="font-size:13px;color:#374151;line-height:1.6">취소, CS 문의, 이용 시간 모두 미노출군과 동일</div>
-      </div>
-      <div style="background:#fff;border:1px solid #a7f3d0;border-radius:10px;padding:14px 16px">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="width:7px;height:7px;border-radius:50%;background:#059669;display:inline-block"></span><div style="font-size:12px;font-weight:800;color:#059669">추가 매출 약 136만원</div></div>
-        <div style="font-size:13px;color:#374151;line-height:1.6">13일간 업그레이드 137건, 환불 0건</div>
-      </div>
-    </div>
-    <div style="margin-top:18px;padding-top:16px;border-top:1px solid #a7f3d0;font-size:14px;color:#065f46;line-height:1.7">
-      <b>판단</b> &nbsp;차종 업그레이드는 고객 수요와 기존 예약 안정성이 확인되어 정규화 검토 가능. 손익(순이득)은 아직 증명되지 않아 전국 확대 전 별도 검증 권장
-    </div>
-  </div>
-</div>
-
-<div class="main">
-
-  <div class="section-label">수요 검증 <span class="tag tag-fact">A/B 실측 6/10~6/22</span></div>
+  <!-- 수요 근거 -->
+  <div class="section-label">1. 구매 수요 <span class="tag tag-fact">실측 6/10~6/22</span></div>
   <div class="card">
-    <div class="purpose-lbl">확인 목적</div>
-    <div class="purpose-txt">고객이 실제로 돈을 내고 업그레이드를 선택하는지 확인</div>
-    <div class="verdict"><span class="pill">판단</span><span class="txt">고객 수요 확인</span></div>
-    <div class="result-line">제안을 본 고객 100명 중 약 9명이 9,900원을 더 내고 상위 차급으로 업그레이드</div>
+    <div class="card-title">고객이 실제로 돈을 내고 업그레이드를 선택함</div>
+    <div class="card-sub">제안을 본 회원 대비 실제 결제한 회원 비율</div>
     <div class="evidence">
       <div class="e"><div class="n">1,381명</div><div class="l">제안 노출</div></div>
       <div class="e"><div class="n">122명</div><div class="l">실제 결제 수락</div></div>
       <div class="e"><div class="n green">8.8%</div><div class="l">수락률</div></div>
-      <div class="e"><div class="n">137건</div><div class="l">업그레이드 결제</div></div>
+      <div class="e"><div class="n">137건</div><div class="l">업그레이드 결제 (환불 0)</div></div>
     </div>
-    <details style="margin-top:14px;margin-bottom:0">
-      <summary>상세 검증 (표본, 신뢰구간, 집계 방식)</summary>
-      <div style="font-size:13px;color:#374151;line-height:1.95;padding:8px 2px 4px">
-        현재 표본(1,381명) 기준으로 수락률이 안정적으로 관측됨<br>
-        95% 신뢰구간 7.3~10.3%로, 실제 수락률이 이 범위에 있을 가능성이 큼. 가장 낮게 봐도 7.3%로 우연이 아닌 실제 수요<br>
-        집계 방식: 웹 로그(form_data의 co/cu 키)로 노출 회원을 식별하고, 결제 meta(upselling_type=CAR_UPGRADE)로 실제 수락을 집계<br>
-        수락률 = 수락 회원 122명 / 노출 회원 1,381명 = 8.8%<br>
-        결제 건수(137건)는 한 회원이 여러 건 결제할 수 있어 회원 수와 구분
-      </div>
-    </details>
+    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.8;color:#374151">
+      제안 본 1,381명 가운데 500명이 상위 차급 카드를 눌렀고, 그중 122명이 결제까지 감 (카드를 고른 뒤 결제 단계에서 이탈이 더 큼)
+    </div>
   </div>
 
-  <div class="section-label">기존 예약 영향 검증 <span class="tag tag-info">A/B 대조 비교</span></div>
+  <!-- 아이템 비교 -->
+  <div class="section-label">2. 다른 업셀링 아이템과 비교 <span class="tag tag-fact">BQ 실측</span></div>
   <div class="card">
-    <div class="purpose-lbl">확인 목적</div>
-    <div class="purpose-txt">차종UP은 보험만 더하는 PF0나 같은 차를 연장하는 것과 달리 실제 차급을 바꾸는 제안<br>차급이 바뀌는 게 기존 예약을 망치거나 불만을 늘리는지(취소, CS 문의 등) 확인하는 항목</div>
-    <div class="verdict"><span class="pill">판단</span><span class="txt">기존 예약에 영향 없음</span></div>
-    <div class="result-line">제안을 본 그룹과 안 본 그룹이 예약 취소, CS 문의, 이용 시간 모두 똑같음</div>
+    <div class="card-title">8.8%가 업셀링 아이템으로서 낮지 않은 수준인지</div>
+    <div class="card-sub">세 아이템은 운영 기간·모수·가격이 달라 노출·수락 건수로는 직접 비교 불가. 기간·모수와 무관한 수락률로만 비교하며, 수락률이 낮아도 아이템 목적이 다르면 저성과가 아님 (통합·개별 대시보드와 동일 기준)</div>
     <table class="data-table">
-      <thead><tr><th>지표</th><th class="num">A 미노출</th><th class="num">B 노출</th><th class="num">차이</th><th>판정</th></tr></thead>
+      <thead><tr><th>아이템</th><th>고정 추가금</th><th class="num">노출 대비 수락률</th><th>비고</th></tr></thead>
       <tbody>
-        <tr><td class="dt">예약 취소율</td><td class="num">28.02%</td><td class="num">28.39%</td><td class="num">+0.37%p</td><td>차이 없음</td></tr>
-        <tr><td class="dt">CS 문의율<br><span style="font-size:11px;color:#9ca3af;font-weight:500">예약당 고객센터 문의 비율</span></td><td class="num">1.67%</td><td class="num">1.66%</td><td class="num">-0.01%p</td><td>차이 없음</td></tr>
-        <tr><td class="dt">평균 이용 시간</td><td class="num">14.6시간</td><td class="num">14.6시간</td><td class="num">동일</td><td>차이 없음</td></tr>
+        <tr><td class="dt">PF 보험 (PF0 완전면책)</td><td>보험 차액</td><td class="num">12.3%</td><td style="font-size:12px;color:#6b7280">보험 등급 전환이라 성격이 다름</td></tr>
+        <tr><td class="dt">시간연장</td><td>4,900원</td><td class="num">약 29%</td><td style="font-size:12px;color:#6b7280">당일 출발 등 좁은 조건으로 타겟해 구조적으로 높음 (실험 ~6/3)</td></tr>
+        <tr style="background:#f0fdf4"><td class="dt" style="color:#065f46">차종 업그레이드</td><td>9,900원</td><td class="num" style="color:#059669">8.8%</td><td style="font-size:12px;color:#374151">셋 중 가장 비싼 고정 추가금을 넓은 모수에서 받아낸 수치</td></tr>
       </tbody>
     </table>
-    <details style="margin-top:14px;margin-bottom:0">
-      <summary>상세 검증 (모수, 그룹 분리, 통계)</summary>
-      <div style="font-size:13px;color:#374151;line-height:1.95;padding:8px 2px 4px">
-        모수: A 미노출 약 4.3만 명(76,106예약) / B 노출 약 4.3만 명(76,468예약). 같은 조건 예약(대상 차급, 같은 존 반납, 법인과 대량 계정 제외, 차종UP 수락 예약 포함)<br>
-        그룹 분리: 서버 버킷팅 공식(farmhash 기준 50 미만이 B)으로 나눔<br>
-        차종UP 수락은 B 137건 / A 0건으로 두 군이 정상 분리됨을 확인<br>
-        통계: 취소율 차이는 2-proportion z=1.6으로 통계적으로 유의하지 않음(95% 기준 1.96 미달). 즉 우연 범위 안의 차이<br>
-        CS 문의율: online_customer_center.inquiry를 예약 단위로 연결. A 1,269건/76,107예약, B 1,272건/76,471예약<br>
-        차종UP 수락 137건 중 문의는 2건(1.46%)으로 미노출(1.67%)보다 높지 않음. 표본이 작아 방향성 참고이나, 차를 바꿔도 차량 불만이 늘지 않음<br>
-        문의 2건 내용: 1건은 차종UP 결제수단 이슈(업그레이드 수락 시 선호 결제수단이 안 잡힘, 차량 불만 아님), 1건은 부름 배달 장소 등 차종UP 무관. 차급 변경 자체에 대한 불만은 0건
-      </div>
-    </details>
+    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.75;color:#1e3a8a">
+      절대값 순위가 아니라 "유료 업셀링으로서 의미 있는 수요"로 해석. 시간연장(약 29%)은 4,900원에 연장 욕구 큰 고객만 좁게 노출해 수락률이 구조적으로 높고, PF0는 보험 전환이라 잣대가 다름. 차종UP은 가장 비싼 9,900원 고정 추가금을 좁게 타겟하지 않은 넓은 모수에서 8.8% 받아냄.
+      <span style="display:block;margin-top:6px;font-size:12px"><a href="https://socar-roina.github.io/upselling-dashboard-integrated/" target="_blank" style="color:#2563eb">통합 대시보드</a>에서 침투율·단가까지 포함한 전체 비교 확인 가능</span>
+    </div>
   </div>
 
-  <div class="section-label">유료 전환 확인 <span class="tag tag-fact">실측 6/10~6/22</span></div>
+  <div class="group-label">기존 예약 경험에 영향이 없었나 <span>노출 영향과 구매 경험 영향을 구분</span></div>
+
+  <!-- 노출 영향: A/B -->
+  <div class="section-label">3. 노출이 기존 예약을 해치나 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
-    <div class="purpose-lbl">확인 목적</div>
-    <div class="purpose-txt">고객의 업그레이드 의향이 실제 추가 결제로 이어지는지 확인</div>
-    <div class="verdict"><span class="pill">판단</span><span class="txt">실제 유료 전환 발생</span></div>
-    <div class="result-line">실제로 돈을 내고 상위 차급으로 업그레이드한 예약 137건 발생</div>
+    <div class="card-title">제안을 본 그룹(B)과 안 본 그룹(A)이 같은지 비교</div>
+    <div class="card-sub">업셀링 노출 자체가 예약 취소나 고객 불만을 늘리는지 확인. 두 막대가 거의 같으면 노출이 기존 예약을 해치지 않는다는 뜻</div>
+    <div class="ab">
+      <div class="ab-row">
+        <div class="ab-head"><div class="name">예약 취소율</div><div class="verdict">차이 없음</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:70.1%"></div></div><div class="val">28.0%</div></div>
+        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:71.0%"></div></div><div class="val">28.4%</div></div>
+      </div>
+      <div class="ab-row">
+        <div class="ab-head"><div class="name">CS 문의율 <span class="sub">예약당 고객센터 문의 비율</span></div><div class="verdict">차이 없음</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:41.8%"></div></div><div class="val">1.67%</div></div>
+        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:41.5%"></div></div><div class="val">1.66%</div></div>
+      </div>
+      <div class="ab-note">모수: A 미노출 약 4.3만 명(76,106예약) / B 노출 약 4.3만 명(76,468예약). 예약 7.6만 건씩이라 실제로 해로운 차이가 있었으면 잡혔을 비교임. 즉 "못 본 게 아니라 안전하다고 확인된 것"</div>
+    </div>
+  </div>
+
+  <!-- 구매 경험 영향 -->
+  <div class="section-label">4. 실제로 산 사람이 불편했나 <span class="tag tag-info">구매 고객 기준</span> <span class="tag tag-fact">실측</span></div>
+  <div class="card">
+    <div class="card-title">업그레이드를 실제 구매한 고객에서 특이 신호가 있었나</div>
+    <div class="card-sub">노출이 아니라 실제 구매 고객이 차량 변경 과정에서 불편을 겪거나 후회했는지 확인</div>
     <div class="evidence">
-      <div class="e"><div class="n green">137건</div><div class="l">업그레이드 결제 (유료 전환)</div></div>
-      <div class="e"><div class="n">약 136만원</div><div class="l">고객 추가 결제액 (보조 지표, 건당 9,900원)</div></div>
+      <div class="e"><div class="n">2건</div><div class="l">구매 고객 문의 (137건 중)<br>결제수단·부름 관련, 차급 변경 불만 아님</div></div>
+      <div class="e"><div class="n green">0건</div><div class="l">환불<br>구매 후 후회·상품 이슈 없음</div></div>
     </div>
-    <details style="margin-top:14px;margin-bottom:0">
-      <summary>상세 검증 (매출 집계 방식, 회사 손익)</summary>
-      <div style="font-size:13px;color:#374151;line-height:1.95;padding:8px 2px 4px">
-        매출 집계: 추가매출 136만원은 한 그룹 전체 결제액(약 94억원)의 0.01% 수준이라, 개인별 결제액 편차에 묻혀 두 그룹 평균 비교로는 드러나지 않음<br>
-        그래서 매출은 평균 비교가 아니라 실제 수락 건수로 직접 집계<br>
-        회사 손익: 고객이 더 낸 금액(136만원)보다 회사가 부담한 차액(246만원)이 커서 현금만 보면 마이너스<br>
-        다만 그 시간 비어있는 상위차에만 제안하는 설계라, 원래 안 나갈 차를 채운 것이면 순이득<br>
-        이 부분은 정밀 확인이 안 돼 추가 검증 필요
+    <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">표본이 137건이라 통계적 단정이 아니라 방향성 참고. 현재까지 차급 변경 자체에 대한 불만은 확인되지 않음</div>
+  </div>
+
+  <div class="group-label">그래서 사업적으로 이득인가 <span>이번 실험으로 답할 수 있는 것과 없는 것</span></div>
+
+  <div class="section-label">5. 사업성 <span class="tag tag-info">해석</span></div>
+  <div class="card">
+    <div class="split">
+      <div class="col ok">
+        <h5>이번 실험으로 확인한 것</h5>
+        <ul>
+          <li>고객이 9,900원을 더 내는 추가 결제가 실제로 발생함</li>
+          <li>업그레이드를 사려는 고객 수요가 존재함</li>
+        </ul>
       </div>
+      <div class="col no">
+        <h5>이번 실험으로 확인하기 어려운 것</h5>
+        <ul>
+          <li>업그레이드가 회사에 실제 이득이었는지</li>
+          <li>노는 상위차를 채워 차량 가동률이 올랐는지</li>
+        </ul>
+      </div>
+    </div>
+    <div class="why">
+      <b>왜 못 가리나.</b> 이번 실험은 회원을 반으로 나눈 A/B인데, A군과 B군이 <b>같은 차량 재고를 함께 씀.</b>
+      업그레이드로 내준 상위차가 원래 비어 있던 차인지, 어차피 다른 손님에게 정상가로 팔렸을 차인지를 회원을 나눈 실험으로는 구분할 수 없음.
+      이건 표본이나 기간을 늘려서 풀리는 문제가 아니라, 실험 단위를 회원이 아니라 지역·기간으로 바꿔야 답이 나오는 문제임.
+    </div>
+    <div class="next">
+      <b>확대 시 짚어야 할 점.</b> 정규화해서 확대하면 회사가 업그레이드 <b>건당 약 1.8만원 차액을 부담</b>함 (실험 기간 137건에 약 246만원).
+      그 상위차가 원래 노는 차였으면 9,900원이라도 받은 이득, 어차피 팔릴 차였으면 제값 받을 차를 싸게 내준 손해.
+      어느 쪽인지는 <b>일부 지역이나 기간만 기능을 꺼두고, 켜둔 쪽과 차량 가동률·매출을 비교</b>해야 가려짐. 전국 확대 전 이 확인을 권함.
+    </div>
+  </div>
+
+  <div class="group-label">추가 인사이트 <span>성공 판단 근거가 아니라 정규화 이후 운영 최적화용 탐색 분석</span></div>
+
+  <!-- 차급별 -->
+  <div class="section-label">제안 차급별 수락률 <span class="tag tag-info">B 노출군</span> <span class="tag tag-fact">실측</span></div>
+  <div class="card">
+    <div class="card-title">어떤 상위 차급을 제안했을 때 더 잘 사는가</div>
+    <div class="card-sub">제품화 시 어떤 차급을 먼저 제안할지 우선순위 근거. 표본 충분한 상위 3개 차급만 표기</div>
+    <table class="data-table">
+      <thead><tr><th>제안 차급 (대표 차종)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
+      <tbody>
+        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">210</td><td class="num">29</td><td class="num">13.8%</td><td><div style="background:#059669;height:13px;width:86%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">234</td><td class="num">20</td><td class="num">8.5%</td><td><div style="background:#94a3b8;height:13px;width:53%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">892</td><td class="num">65</td><td class="num">7.3%</td><td><div style="background:#94a3b8;height:13px;width:46%;border-radius:3px"></div></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(13.8%). 반면 노출은 준중형 SUV에 가장 많이 쏠려 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
+  </div>
+
+  <!-- 면책별 -->
+  <div class="section-label">가입 면책상품별 수락률 <span class="tag tag-info">B 노출군 · 탐색</span> <span class="tag tag-fact">실측</span></div>
+  <div class="card">
+    <div class="card-title">예약 시점 가입 면책상품별 수락률</div>
+    <div class="card-sub">자기부담금이 낮은(면책료가 비싼) 상품 가입자일수록 업그레이드에 적극적인지 탐색</div>
+    <table class="data-table">
+      <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
+      <tbody>
+        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">494</td><td class="num">43</td><td class="num">8.7%</td><td><div style="background:#94a3b8;height:13px;width:42%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">30만원면책</td><td class="num">400</td><td class="num">41</td><td class="num">10.3%</td><td><div style="background:#94a3b8;height:13px;width:50%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">70만원면책</td><td class="num">458</td><td class="num">31</td><td class="num">6.8%</td><td><div style="background:#94a3b8;height:13px;width:33%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">5만원면책 <span style="font-size:11px;color:#9ca3af">표본 29명</span></td><td class="num">29</td><td class="num">6</td><td class="num">20.7%</td><td><div style="background:#e2e8f0;height:13px;width:100%;border-radius:3px"></div></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.7;color:#374151">자기부담금 낮은 상품 가입자의 수락률이 높은 경향은 있으나 통계적으로 유의하진 않아 방향성만 참고. 5만원면책(20.7%)은 노출 29명뿐이라 수치 신뢰 어려움</div>
+  </div>
+
+  <!-- 일별 추이 -->
+  <div class="section-label">일별 추이 <span class="tag tag-info">B 노출군</span> <span class="tag tag-fact">실측</span></div>
+  <div class="card">
+    <div class="card-title">일별 노출, 차급 선택, 결제</div>
+    <div class="card-sub">6/22까지 들어온 데이터 기준 (6/23분은 적재 전)</div>
+    <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
+    <details style="margin-top:8px">
+      <summary>일자별 상세 수치</summary>
+      <table class="data-table" style="margin-top:10px">
+        <thead><tr><th>날짜</th><th class="num">노출(회원)</th><th class="num">차급 선택</th><th class="num">결제 건수</th></tr></thead>
+        <tbody>
+          <tr><td class="dt">6/10</td><td class="num">95</td><td class="num">38</td><td class="num">13</td></tr>
+          <tr><td class="dt">6/11</td><td class="num">119</td><td class="num">42</td><td class="num">9</td></tr>
+          <tr><td class="dt">6/12</td><td class="num">157</td><td class="num">60</td><td class="num">14</td></tr>
+          <tr><td class="dt">6/13</td><td class="num">127</td><td class="num">43</td><td class="num">11</td></tr>
+          <tr><td class="dt">6/14</td><td class="num">92</td><td class="num">32</td><td class="num">6</td></tr>
+          <tr><td class="dt">6/15</td><td class="num">140</td><td class="num">41</td><td class="num">12</td></tr>
+          <tr><td class="dt">6/16</td><td class="num">115</td><td class="num">27</td><td class="num">7</td></tr>
+          <tr><td class="dt">6/17</td><td class="num">128</td><td class="num">41</td><td class="num">11</td></tr>
+          <tr><td class="dt">6/18</td><td class="num">110</td><td class="num">40</td><td class="num">9</td></tr>
+          <tr><td class="dt">6/19</td><td class="num">119</td><td class="num">40</td><td class="num">9</td></tr>
+          <tr><td class="dt">6/20</td><td class="num">124</td><td class="num">46</td><td class="num">17</td></tr>
+          <tr><td class="dt">6/21</td><td class="num">88</td><td class="num">31</td><td class="num">11</td></tr>
+          <tr><td class="dt">6/22</td><td class="num">102</td><td class="num">32</td><td class="num">8</td></tr>
+          <tr class="total"><td class="dt">누계</td><td class="num">1,381</td><td class="num">500</td><td class="num">137</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#9ca3af;margin-top:8px;line-height:1.6">노출·차급선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음. 누계 수락률 = 수락 122명 / 노출 1,381명 = 8.8%</div>
     </details>
   </div>
 
-  <div class="group-label">세부 분석</div>
+  <div class="group-label">부록 <span>용어와 검증 쿼리</span></div>
 
-  <div class="section-label">구매 전환 단계별 이탈 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
-  <div class="card">
-    <div class="card-title">노출에서 결제 수락까지</div>
-    <div class="card-sub">제안을 본 사람(1,381명) 중 상위 차급 카드를 고른 사람(500명), 실제 결제한 사람(122명)을 단계로 표시<br>모두 회원 수 기준</div>
-    <div class="funnel-bars">
-      <div class="bar-row">
-        <div class="bar-label">제안 노출<span class="sub">차종UP 제안 화면을 본 사람</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:100%;background:#3b82f6">1381</div></div>
-        <div class="bar-pct">기준 100%</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">상위 차급 선택<span class="sub">상위 차급 카드를 고른 사람</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:36.2%;background:#6366f1">500</div></div>
-        <div class="bar-pct">선택율 36.2%</div>
-      </div>
-      <div class="bar-row final">
-        <div class="bar-label">결제 수락<span class="sub">상위 차급으로 결제한 회원, 환불 0</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:8.8%;background:#059669">122</div></div>
-        <div class="bar-pct">수락률 8.8%</div>
-      </div>
-    </div>
-    <div style="margin-top:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.9;color:#374151">
-      <b>상위 차급을 고른 뒤 결제 단계에서 이탈이 더 큼</b> (고른 500명 중 결제 122명, 24.4%)
-      <details style="margin-top:6px;margin-bottom:0">
-        <summary style="color:#374151;padding:6px 0">자세히 보기</summary>
-        <div style="line-height:1.9;padding:2px 0">
-          노출에서 차급 선택까지 약 64% 이탈, 차급 선택에서 결제까지 약 76% 이탈<br>
-          이탈 사유는 이 데이터로는 알 수 없음 (가격, 차종 비선호 등 여러 요인 가능)
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="section-label">일별 추이 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측</span></div>
-  <div class="card">
-    <div class="card-title">일별 노출, 차급 선택, 결제 수락</div>
-    <div class="card-sub">표는 6/22까지 들어온 데이터 기준 (6/23분은 아직 적재 전)</div>
-    <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
-  </div>
-  <details class="card">
-    <summary>일자별 상세 수치 (펼쳐 보기)</summary>
-    <table class="data-table" style="margin-top:12px">
-      <thead><tr>
-        <th>날짜</th><th class="num">노출(회원)</th><th class="num">차급 선택</th><th class="num">결제 건수</th>
-        <th class="num">고객 추가매출</th>
-      </tr></thead>
-      <tbody>
-        <tr><td class="dt">6/10</td><td class="num">95</td><td class="num">38</td><td class="num">13</td><td class="num">128,700</td></tr>
-        <tr><td class="dt">6/11</td><td class="num">119</td><td class="num">42</td><td class="num">9</td><td class="num">89,100</td></tr>
-        <tr><td class="dt">6/12</td><td class="num">157</td><td class="num">60</td><td class="num">14</td><td class="num">138,600</td></tr>
-        <tr><td class="dt">6/13</td><td class="num">127</td><td class="num">43</td><td class="num">11</td><td class="num">108,900</td></tr>
-        <tr><td class="dt">6/14</td><td class="num">92</td><td class="num">32</td><td class="num">6</td><td class="num">59,400</td></tr>
-        <tr><td class="dt">6/15</td><td class="num">140</td><td class="num">41</td><td class="num">12</td><td class="num">118,800</td></tr>
-        <tr><td class="dt">6/16</td><td class="num">115</td><td class="num">27</td><td class="num">7</td><td class="num">69,300</td></tr>
-        <tr><td class="dt">6/17</td><td class="num">128</td><td class="num">41</td><td class="num">11</td><td class="num">108,900</td></tr>
-        <tr><td class="dt">6/18</td><td class="num">110</td><td class="num">40</td><td class="num">9</td><td class="num">89,100</td></tr>
-        <tr><td class="dt">6/19</td><td class="num">119</td><td class="num">40</td><td class="num">9</td><td class="num">89,100</td></tr>
-        <tr><td class="dt">6/20</td><td class="num">124</td><td class="num">46</td><td class="num">17</td><td class="num">168,300</td></tr>
-        <tr><td class="dt">6/21</td><td class="num">88</td><td class="num">31</td><td class="num">11</td><td class="num">108,900</td></tr>
-        <tr><td class="dt">6/22</td><td class="num">102</td><td class="num">32</td><td class="num">8</td><td class="num">79,200</td></tr>
-        <tr class="total"><td class="dt">누계(웹 6/22)</td><td class="num">1381</td><td class="num">500</td><td class="num">137</td><td class="num">1,356,300</td></tr>
-      </tbody>
-    </table>
-    <div style="font-size:11px;color:#9ca3af;margin-top:10px;line-height:1.6">노출, 차급 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음<br>누계 수락률은 수락 회원 122명 / 노출 1381명 = 8.8%. 결제 건수는 137건(일부 회원이 여러 건 결제). 매출은 건당 9,900원 x 137건</div>
+  <details class="foot-note" style="margin-bottom:14px">
+    <summary style="font-size:13px;font-weight:800;color:#111827;padding:0 0 6px">용어 정리</summary>
+    <div class="term"><b>수락률</b><div>제안 화면을 본 회원(1,381명) 중 실제로 결제한 회원(122명) 비율 = 8.8%. 결제 건수(137건)는 한 회원이 여러 건 결제할 수 있어 사람 수와 구분</div></div>
+    <div class="term"><b>A 미노출 / B 노출</b><div>회원을 무작위로 반 나눠, B에만 제안을 보여주고 A는 안 보여준 대조군. 서버 버킷팅 공식으로 분리</div></div>
+    <div class="term"><b>가드레일</b><div>기능이 기존 예약을 해치지 않는지 보는 안전 점검 지표. 여기서는 예약 취소율과 CS 문의율을 A/B로 비교</div></div>
+    <div class="term"><b>ARPU</b><div>회원 1인당 결제액. A 약 21.9만원 / B 약 21.9만원으로 두 그룹 차이 없음</div></div>
+    <div class="term"><b>회사 부담 차액</b><div>상위 차급 차액 중 고객이 낸 9,900원을 빼고 회사가 부담한 금액. 실험 기간 137건에 약 246만원, 건당 약 1.8만원</div></div>
+    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 노출·수락률·매출은 6/22까지 완전 집계, 가드레일은 6/24 재집계</div></div>
   </details>
 
-  <div class="section-label">제안 차급별 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
-  <div class="card">
-    <div class="card-title">제안한 상위 차급별 수락률</div>
-    <div class="card-sub">차종UP이 제안한 상위 차급별로 노출 대비 수락률 비교<br>제품화 때 어떤 차급을 먼저 제안할지 우선순위 근거<br>표본이 충분한 상위 3개 차급만 표기 (개별 차종은 수십 명 이하라 차급으로 묶음)</div>
-    <table class="data-table">
-      <thead><tr><th>제안 차급 (대표 차종)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
-      <tbody>
-        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">210</td><td class="num">29</td><td class="num">13.8%</td><td><div style="background:#059669;height:14px;width:86%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">234</td><td class="num">20</td><td class="num">8.5%</td><td><div style="background:#3b82f6;height:14px;width:53%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">892</td><td class="num">65</td><td class="num">7.3%</td><td><div style="background:#3b82f6;height:14px;width:46%;border-radius:3px"></div></td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>준대형 세단 제안의 수락률이 가장 높음</b> (13.8%, 준중형 SUV의 약 1.9배)
-      <details style="margin-top:6px;margin-bottom:0">
-        <summary style="color:#1e3a8a;padding:6px 0">자세히 보기</summary>
-        <div style="line-height:1.9;padding:2px 0">
-          표본도 충분해 우연으로 보기 어려움<br>
-          반면 노출은 준중형 SUV에 가장 많이(892명) 집중됨<br>
-          <span style="color:#3730a3">제품화 시 준대형 세단 제안에 노출 우선순위를 두면 전체 수락률 상승 여지. 어떤 원래 차급에서 준대형 세단으로 상향 가능한지는 후속 분석 필요</span>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="group-label">탐색 분석</div>
-
-  <div class="section-label">면책 등급별 차종UP 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-info">탐색</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
-  <div class="card">
-    <div class="card-title">가입 면책 등급별 차종UP 수락률</div>
-    <div class="card-sub">기획 지표 외 추가로 살펴본 탐색 분석<br>예약 시점에 회원이 적용 중이던 면책상품별로 차종UP 노출 대비 수락률을 나눔<br>면책상품은 노출 로그 form_data의 pf값(서버 protection_fee_info 자기부담금 유형)으로 식별<br>자기부담금이 낮은 면책상품일수록 면책료가 비싸고 사고 시 본인부담이 적음</div>
-    <table class="data-table">
-      <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
-      <tbody>
-        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">494</td><td class="num">43</td><td class="num">8.7%</td><td><div style="background:#3b82f6;height:14px;width:43%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">5만원면책</td><td class="num">29</td><td class="num">6</td><td class="num">20.7%</td><td><div style="display:flex;align-items:center;gap:6px"><div style="background:#cbd5e1;height:14px;width:100%;border-radius:3px"></div><span style="font-size:11px;color:#9ca3af;white-space:nowrap">표본 29명</span></div></td></tr>
-        <tr><td class="dt">30만원면책</td><td class="num">400</td><td class="num">41</td><td class="num">10.3%</td><td><div style="background:#3b82f6;height:14px;width:51%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">70만원면책</td><td class="num">458</td><td class="num">31</td><td class="num">6.8%</td><td><div style="background:#ef4444;height:14px;width:34%;border-radius:3px"></div></td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:8px;font-size:13px;line-height:1.9;color:#1e3a8a">
-      <b>자기부담금 낮은 면책상품 가입자의 수락률이 높은 경향</b> (통계적으로 유의하진 않아 방향성만 참고)
-      <details style="margin-top:6px;margin-bottom:0">
-        <summary style="color:#1e3a8a;padding:6px 0">자세히 보기</summary>
-        <div style="line-height:1.9;padding:2px 0">
-          완전면책(자기부담금 0원), 30만원면책 가입자는 8.7~10.3%로 수락<br>
-          반면 자기부담금이 가장 큰 70만원면책 가입자는 6.8%로 더 낮음<br>
-          다만 70만원면책과 나머지(완전면책, 30만원면책)의 차이는 통계적으로 유의하지 않음 (2-proportion z=1.6으로 95% 기준 1.96에 못 미침)<br>
-          표본이 더 쌓이면 사라질 수도 있는 차이라, 단정하지 않고 방향성만 참고<br>
-          <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출 29명뿐이라 수치 신뢰 어려움</span><br>
-          <span style="color:#6b7280;font-size:12px">이 표는 앱에서 화면을 본 웹 기록(노출 1381명)을 기준으로 나눈 분석이라, 수락도 같은 기준 121명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 122명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 면책상품은 웹 기록에만 남는 값이라 이 1명은 면책상품 구분이 안 됨</span>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="section-label">다음 단계 <span class="tag tag-info">의사결정</span></div>
-  <div class="card" style="border-left:4px solid #3b82f6">
-    <div style="line-height:2.1;font-size:14px;color:#374151">
-      <b>1. 운영 지속</b> &nbsp;현재 조건으로 운영을 이어가며 수락률과 취소율을 계속 모니터링<br>
-      <b>2. 노출 확대 검토</b> &nbsp;노출 조건을 완화해 더 많은 고객에게 제안 (현재는 지역, 대상 차급, 빈 차 조건으로 노출 모수가 좁음)<br>
-      <b>3. 손익 검증</b> &nbsp;전국 확대 전, 업그레이드로 내준 상위차가 원래 비어있던 차였는지(순이득) 확인. 회원 A/B로는 공용 차량이라 못 가리므로, 일부 지역이나 기간만 차종UP을 끄고 켠 쪽과 비교하는 홀드아웃 방식 권장
-    </div>
-  </div>
-
-  <div class="group-label">상세 검증</div>
-
-  <div class="section-label">해석 시 참고사항 <span class="tag tag-info">펼쳐 보기</span></div>
-  <div class="card">
-    <details>
-      <summary>전체 매출 그래프에 추가매출이 드러나지 않는 이유</summary>
-      <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        차종UP 추가매출 1,356,300원은 비교 대상 전체 매출(군당 약 94억)의 약 0.01% 규모<br>
-        회원 1인당으로 환산하면 약 32원 (추가매출 135.6만원을 노출군 4.3만 명으로 나눈 값)<br>
-        회원마다 렌트 결제액 차이가 이보다 훨씬 커서 전체 매출 그래프로는 식별되지 않음<br>
-        효과는 전체 매출 비교가 아니라 업그레이드 수락 건수와 추가매출로 직접 집계<br>
-        인당 매출 비교에서도 A 약 21.9만원, B 약 21.9만원으로 차이 없음
-      </div>
-    </details>
-    <details>
-      <summary>표본(모수) 현황</summary>
-      <ul style="line-height:1.9;color:#374151;font-size:13px;margin:0;padding:8px 0 4px 20px">
-        <li>일 평균 노출 약 106명 (지역, 대상 차급, 빈 슬롯 조건으로 노출이 제한돼 표본 누적 속도가 느림)</li>
-        <li>수락률 확인에는 충분한 표본</li>
-        <li>제안 차종은 차급으로 묶으면 방향성 확인 가능 (개별 차종은 표본 부족)</li>
-        <li>노출 조건 완화 시 표본 확대 가능</li>
-      </ul>
-    </details>
-    <details>
-      <summary>이번 실험으로 측정하지 못하는 항목</summary>
-      <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        <b>상위 차급 차량이 얼마나 더 굴러갔나 (가동률)</b><br>
-        A/B는 회원을 반으로 나눈 것이지 차를 나눈 게 아님. 상위 차급 차량은 A와 B 회원이 함께 빌리는 공용 재고라, B 덕분에 그 차가 더 굴러갔는지를 그룹별로 떼어 측정할 수 없음<br>
-        대신 회원 단위로 잴 수 있는 수요(수락률 8.8%)로 확인<br>
-        <b style="display:inline-block;margin-top:8px">업그레이드 매출이 순수하게 늘어난 것인가 (순증)</b><br>
-        업그레이드로 내준 상위차가, 제안이 없었어도 어차피 다른 손님에게 팔렸을 차일 수 있음. 그렇다면 제값 받을 차를 9,900원에 내준 셈<br>
-        효과 규모가 작아 두 그룹 평균 매출 비교로는 안 잡힘. 정밀 확인은 홀드아웃이 필요 (일부 지역이나 기간만 차종UP을 끄고, 켠 쪽과 비교)<br>
-        <b style="display:inline-block;margin-top:8px">개별 차종 정밀 수락률</b><br>
-        차종별 표본이 작아 차급 단위 방향성만 확인 가능
-      </div>
-    </details>
-  </div>
-
-  <details class="card">
-    <summary>검증용 실제 쿼리 (BigQuery 5종, 펼쳐 보기)</summary>
+  <details class="card" style="margin-bottom:48px">
+    <summary>검증용 BigQuery 쿼리</summary>
     <div style="margin-top:12px">
-  <details>
-    <summary>1. 노출, 옵션 선택, CTA 퍼널 (웹 이벤트)</summary>
-    <div class="query-block">-- 차종UP은 form_data에 co(원본 차종), cu(제안 차종) 키가 있어 cu 존재로 식별
-SELECT
+      <details>
+        <summary>1. 노출·옵션선택·결제 퍼널 (웹 이벤트)</summary>
+        <div class="query-block">SELECT
   CASE WHEN event_name='view' THEN '1_노출'
        WHEN component_name='car_upgrade_option' THEN '2_옵션선택'
        WHEN component_name='cta_button' THEN '3_CTA' END AS step,
@@ -402,44 +384,36 @@ WHERE page_name='upsell_bottomsheet'
   AND event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
   AND REGEXP_CONTAINS(form_data, r'cu')
 GROUP BY step
--- 결과: 노출 1381, 옵션선택 500, CTA 1350 (전체 기간 distinct. 일자별 distinct 합과는 다름)</div>
-  </details>
-  <details>
-    <summary>2. 결제 수락, 매출 (서버 결제)</summary>
-    <div class="query-block">-- paid_meta_info(meta=CAR_UPGRADE)와 paid_info를 id로 조인
-WITH cu_paid AS (
+-- 결과: 노출 1381, 옵션선택 500, CTA 1350</div>
+      </details>
+      <details>
+        <summary>2. 결제 수락·매출 (서버 결제)</summary>
+        <div class="query-block">WITH cu_paid AS (
   SELECT pi.reservation_id, pi.amount, DATE(pmi.created_at,"Asia/Seoul") AS dt
   FROM `socar-data.tianjin_replica.paid_meta_info` pmi
   JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
   WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
-    AND DATE(pmi.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22'
-)
-SELECT dt,
-  COUNT(DISTINCT reservation_id) AS accept,
+    AND DATE(pmi.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22')
+SELECT COUNT(DISTINCT reservation_id) AS accept,
   COUNT(DISTINCT reservation_id)*9900 AS customer_rev,
   SUM(amount) AS company_discount
-FROM cu_paid GROUP BY dt ORDER BY dt
--- 결과: 6/10~6/22 결제 137건, 고객매출 1,356,300, 회사부담 2,462,850 (환불 0)</div>
-  </details>
-  <details>
-    <summary>3. A/B 핵심 비교 (취소율 + 인당 결제액 + 객단가, 버킷팅 + 헤비 제외)</summary>
-    <div class="query-block">-- 버킷: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') % 100 이 50 미만이면 노출군(B)
--- (서버 코드 socar-common Testing.kt 의 ABTesting 공식. 노출자 1381명 전원 B로 검증됨)
--- 법인/대량 계정(9일 20건 이상)은 A쪽에 쏠려 예약수를 왜곡하므로 제외
--- 대상 차급 = 차종UP 노출에서 실제 원본(co)으로 제안된 차급을 로그에서 직접 추출(하드코딩 없이 재현)
--- 매출 = paid_info.amount 전 결제수단(카드/쿠폰/크레딧 등) 합 = 결제총액(GMV), 두 군 동일 정의
+FROM cu_paid
+-- 결과: 결제 137건, 고객매출 1,356,300, 회사부담 2,462,850 (환불 0)</div>
+      </details>
+      <details>
+        <summary>3. A/B 취소율·인당 결제액 비교 (버킷팅 + 헤비 제외)</summary>
+        <div class="query-block">-- 버킷: farmhash(member_id + 'UPSELLING_CAR_UPGRADE') % 100 < 50 이면 노출군(B)
+-- 법인·대량 계정(9일 20건 이상)은 제외, 대상 차급은 로그의 원본 차종(co)에서 추출
 WITH co_list AS (
   SELECT DISTINCT SAFE_CAST(REGEXP_EXTRACT(form_data, r'co\\?:\\?([0-9]+)') AS INT64) AS cid
   FROM `socar-data.app_web_log.socar_app_web_log`
   WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
     AND page_name='upsell_bottomsheet' AND event_name='view'
-    AND REGEXP_CONTAINS(form_data, r'cu')
-),
+    AND REGEXP_CONTAINS(form_data, r'cu')),
 heavy AS (
   SELECT member_id FROM `socar-data.tianjin_replica.reservation_info`
   WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22' AND member_id > 0
-  GROUP BY member_id HAVING COUNT(*) >= 20
-),
+  GROUP BY member_id HAVING COUNT(*) >= 20),
 rsv AS (
   SELECT ri.id AS reservation_id, ri.member_id, ri.cancel_at,
     MOD(ABS(FARM_FINGERPRINT(CAST(ri.member_id AS STRING)||'UPSELLING_CAR_UPGRADE')),100) < 50 AS is_b
@@ -447,59 +421,33 @@ rsv AS (
   WHERE DATE(ri.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22'
     AND ri.member_id > 0 AND ri.member_id NOT IN (SELECT member_id FROM heavy)
     AND ri.zone_id = ri.end_zone_id
-    AND ri.car_class_id IN (SELECT cid FROM co_list WHERE cid IS NOT NULL)
-),
-pay AS (SELECT reservation_id, SUM(amount) AS rev FROM `socar-data.tianjin_replica.paid_info` GROUP BY reservation_id)
+    AND ri.car_class_id IN (SELECT cid FROM co_list WHERE cid IS NOT NULL))
+SELECT rsv.is_b, COUNT(*) AS rsv, COUNT(DISTINCT rsv.member_id) AS members,
+  ROUND(COUNTIF(rsv.cancel_at IS NOT NULL)/COUNT(*)*100, 2) AS cancel_rate
+FROM rsv GROUP BY rsv.is_b
+-- 결과: A 76,106예약 취소 28.02% / B 76,468예약 취소 28.39% (z~1.6, 차이 없음), ARPU 양쪽 약 21.9만원</div>
+      </details>
+      <details>
+        <summary>4. CS 문의율 A/B 비교</summary>
+        <div class="query-block">-- rsv는 위 3번과 동일. 예약 단위로 문의 연결
+WITH inq AS (
+  SELECT reservation_id, COUNT(*) AS n
+  FROM `socar-data.online_customer_center.inquiry`
+  WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-30'
+    AND reservation_id IS NOT NULL GROUP BY reservation_id)
 SELECT rsv.is_b,
-  COUNT(*) AS rsv,
-  COUNT(DISTINCT rsv.member_id) AS members,
-  ROUND(COUNTIF(rsv.cancel_at IS NOT NULL)/COUNT(*)*100, 2) AS cancel_rate,
-  ROUND(SUM(COALESCE(pay.rev,0))/COUNT(DISTINCT rsv.member_id)) AS arpu,
-  ROUND(SUM(COALESCE(pay.rev,0))/COUNT(*)) AS rev_per_rsv
-FROM rsv LEFT JOIN pay USING(reservation_id)
-GROUP BY rsv.is_b
--- 결과: A(대조) 43,061명/76,092예약 취소27.90% ARPU 219,063
---       B(노출) 42,824명/76,414예약 취소28.19% ARPU 219,169
---       취소율 차이 없음(z~1.3), ARPU 거의 동일
--- (반납율, 대여시간 비교는 return_at, end_at-start_at 컬럼으로 동일 모수에서 추가 집계: A 88.18/14.6h vs B 87.96/14.6h)</div>
-  </details>
-  <details>
-    <summary>4. 가입 면책상품별 차종UP 수락률</summary>
-    <div class="query-block">-- form_data pf = 진입 시점 적용 중인 면책상품(서버 protection_fee_info.deductible_type, 자기부담금 한도)
--- form_data가 비이스케이프({pf:30..})와 이스케이프({\pf\:\30..}) 두 형태라 둘 다 잡는 정규식 사용
-WITH exp AS (
-  SELECT member_id, REGEXP_EXTRACT(form_data, r'pf\\?:\\?([0-9A-Za-z_]+)') AS pf
-  FROM `socar-data.app_web_log.socar_app_web_log`
-  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
-    AND page_name='upsell_bottomsheet' AND event_name='view'
-    AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0
-),
-exp1 AS (SELECT member_id, ANY_VALUE(pf) AS pf FROM exp GROUP BY member_id),
-acc AS (
-  SELECT DISTINCT ri.member_id
-  FROM `socar-data.tianjin_replica.paid_meta_info` pmi
-  JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
-  JOIN `socar-data.tianjin_replica.reservation_info` ri ON ri.id = pi.reservation_id
-  WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
-    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-22'
-)
-SELECT e.pf,
-  COUNT(DISTINCT e.member_id) AS exposed,
-  COUNT(DISTINCT IF(a.member_id IS NOT NULL, e.member_id, NULL)) AS accepted
-FROM exp1 e LEFT JOIN acc a USING(member_id)
-GROUP BY e.pf ORDER BY exposed DESC
--- 결과: 0_TOW(완전면책) 494명/43 8.7%, 30만원 400/41 10.3%, 70만원 458/31 6.8%, 5만원 29/6 20.7%(표본적음)</div>
-  </details>
-  <details>
-    <summary>5. 제안 차종(차급)별 수락률</summary>
-    <div class="query-block">-- cu = 제안된 상위 차종의 carClass id. car_class에 조인해 차급(car_model)으로 묶음
-WITH exp AS (
+  ROUND(COUNTIF(i.reservation_id IS NOT NULL)/COUNT(*)*100,2) AS inq_rate
+FROM rsv LEFT JOIN inq i USING(reservation_id) GROUP BY rsv.is_b
+-- 결과: A 1.67%(1269/76106), B 1.66%(1272/76468), 차종UP 수락 137건 중 문의 2건</div>
+      </details>
+      <details>
+        <summary>5. 제안 차급별 수락률</summary>
+        <div class="query-block">WITH exp AS (
   SELECT member_id, REGEXP_EXTRACT(form_data, r'cu\\?:\\?([0-9]+)') AS cu
   FROM `socar-data.app_web_log.socar_app_web_log`
   WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
     AND page_name='upsell_bottomsheet' AND event_name='view'
-    AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0
-),
+    AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0),
 exp1 AS (SELECT member_id, ANY_VALUE(cu) AS cu FROM exp GROUP BY member_id),
 acc AS (
   SELECT DISTINCT ri.member_id
@@ -507,53 +455,16 @@ acc AS (
   JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
   JOIN `socar-data.tianjin_replica.reservation_info` ri ON ri.id = pi.reservation_id
   WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
-    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-22'
-)
+    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-22')
 SELECT cc.car_model AS car_class,
   COUNT(DISTINCT e.member_id) AS exposed,
   COUNT(DISTINCT IF(a.member_id IS NOT NULL, e.member_id, NULL)) AS accepted
-FROM exp1 e
-LEFT JOIN acc a USING(member_id)
+FROM exp1 e LEFT JOIN acc a USING(member_id)
 LEFT JOIN `socar-data.tianjin_replica.car_class` cc ON cc.id = SAFE_CAST(e.cu AS INT64)
 GROUP BY car_class ORDER BY exposed DESC
--- 결과(상위 표본): 준대형 세단 210명/29 13.8%, 중형SUV 234/20 8.5%, 준중형SUV 892/65 7.3%</div>
-  </details>
-  <details>
-    <summary>6. CS 문의율 A/B 비교 (VOC 가드레일)</summary>
-    <div class="query-block">-- 차종UP 노출/수락이 CS 문의(불만)를 늘렸는지. 예약 단위로 문의 연결
--- co_list, cu_resv, heavy, rsv는 위 3번 쿼리와 동일 (대상 차급 + 차종UP 수락 예약, 헤비 제외)
-WITH inq AS (
-  SELECT reservation_id, COUNT(*) AS n
-  FROM `socar-data.online_customer_center.inquiry`
-  WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-30'
-    AND reservation_id IS NOT NULL
-  GROUP BY reservation_id
-)
-SELECT
-  CASE WHEN rsv.is_cu THEN '차종UP수락'
-       WHEN rsv.is_b THEN 'B노출_비수락' ELSE 'A미노출' END AS grp,
-  COUNT(*) AS resv,
-  COUNTIF(i.reservation_id IS NOT NULL) AS with_inq,
-  ROUND(COUNTIF(i.reservation_id IS NOT NULL)/COUNT(*)*100,2) AS inq_rate
-FROM rsv LEFT JOIN inq i USING(reservation_id)
-GROUP BY grp ORDER BY grp
--- 결과: A미노출 1.67%(1269/76107), B노출_비수락 1.66%(1270/76334), 차종UP수락 1.46%(2/137)
--- 노출, 수락 모두 문의율을 높이지 않음 (차종UP 수락은 오히려 낮으나 표본 137건이라 방향성 참고)</div>
-  </details>
+-- 결과: 준대형세단 210/29 13.8%, 중형SUV 234/20 8.5%, 준중형SUV 892/65 7.3%</div>
+      </details>
     </div>
-  </details>
-
-  <details class="foot-note">
-    <summary style="font-size:13px;font-weight:800;color:#111827;padding:0 0 6px">용어 정리 및 유의사항 (펼쳐 보기)</summary>
-    <div class="term"><b>노출 (view)</b><div>차종UP 제안 화면을 본 B군 회원 수. form_data에 co/cu 키가 있으면 차종UP 노출</div></div>
-    <div class="term"><b>차급 선택</b><div>상위 차급 카드를 실제로 고른 사람(car_upgrade_option click). 원래 차종 유지는 로그가 남지 않음</div></div>
-    <div class="term"><b>결제 수락</b><div>차종UP을 결제 완료한 예약. 결제 meta upselling_type CAR_UPGRADE, 예약 단위 합계 양수만 집계(환불 제외)</div></div>
-    <div class="term"><b>수락률 단위</b><div>수락률은 수락 회원 122명 / 노출 회원 1381명 = 8.8%. 결제 건수와 매출은 건 단위(137건). 한 회원이 여러 번 결제할 수 있어 사람(122)과 건수(137)를 구분</div></div>
-    <div class="term"><b>고객 추가 매출</b><div>고객이 더 낸 금액. 9,900원 고정 x 수락 예약 수</div></div>
-    <div class="term"><b>회사 할인 부담 (참고)</b><div>상위 차급 차액 중 회사가 부담한 금액(paid_info의 upselling_discount 결제행 amount). 공헌이익 관점에서 상위 차종도 유휴였다면 손해로 보기 어려워 전면 지표로 두지 않음</div></div>
-    <div class="term"><b>예약 전환 가드레일</b><div>노출이 기존 예약을 깨는지 B 노출군과 A 대조군의 예약 취소율로 비교. 현재 A 28.02% vs B 28.39%로 사실상 차이 없음(2-proportion z=1.6). 예약 수와 취소 수는 시간에 따라 변동하는 reservation 데이터라 재집계 시점마다 소폭 달라질 수 있음</div></div>
-    <div class="term"><b>CTA vs 차급 선택</b><div>cta_button은 원래 차종으로 결제해도 찍히므로 수락 지표로 쓰지 않음. 실제 수락은 결제 meta로 판정</div></div>
-    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 노출, 수락률, 매출은 6/22까지 완전 집계 기준</div></div>
   </details>
 
 </div>
@@ -566,16 +477,14 @@ new Chart(ctx, {
     labels: ['6/10','6/11','6/12','6/13','6/14','6/15','6/16','6/17','6/18','6/19','6/20','6/21','6/22'],
     datasets: [
       { label: '노출(회원)', data: [95,119,157,127,92,140,115,128,110,119,124,88,102], backgroundColor: '#bfdbfe' },
-      { label: '차급 선택(회원)', data: [38,42,60,43,32,41,27,41,40,40,46,31,32], backgroundColor: '#818cf8' },
+      { label: '차급 선택(회원)', data: [38,42,60,43,32,41,27,41,40,40,46,31,32], backgroundColor: '#94a3b8' },
       { label: '결제 건수', data: [13,9,14,11,6,12,7,11,9,9,17,11,8], backgroundColor: '#059669' }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { position: 'bottom' } },
-    scales: {
-      y: { beginAtZero: true, title: { display: true, text: '인원 / 예약' } }
-    }
+    scales: { y: { beginAtZero: true } }
   }
 });
 </script>
