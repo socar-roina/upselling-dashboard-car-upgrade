@@ -143,7 +143,7 @@ summary:hover { color: #2563eb; }
   <div class="updated">
     최종 갱신 <b>2026-06-24 KST</b><br>
     <span>실험 기간 2026-06-10 ~ 06-24 (6/24 00:00 종료)</span><br>
-    <span style="color:#9ca3af">release/CR-10867<br>노출, 수락, 매출은 6/22까지 완전 집계 (6/23 웹 이벤트 적재 전)</span>
+    <span style="color:#9ca3af">release/CR-10867<br>6/10~6/23 전체 기간 집계 (실험 종료 6/24 00:00)</span>
   </div>
 </div>
 
@@ -158,33 +158,33 @@ summary:hover { color: #2563eb; }
   <!-- 검증 결과 표 -->
   <div class="verify-card">
     <table class="vt">
-      <thead><tr><th style="width:30%">검증 항목</th><th style="width:32%">결과</th><th>판단</th></tr></thead>
+      <thead><tr><th style="width:30%">검증 항목</th><th style="width:33%">결과</th><th>판단</th></tr></thead>
       <tbody>
         <tr>
-          <td class="what">구매 수요<span class="sub">기준: 9,900원 부담에도 자발적 유료 구매가 우연이 아닌 안정적 수준으로 발생</span></td>
-          <td class="res">수락률 8.8%<span class="sub">제안 본 1,381명 중 122명이 결제, 신뢰구간 7.3~10.3%</span></td>
-          <td class="judge"><span class="ic">✓</span>구매 수요 존재 확인</td>
+          <td class="what">구매 수요<span class="sub">제안을 본 고객이 9,900원을 내고 상위 차급을 구매하는가</span></td>
+          <td class="res">수락률 8.9%<span class="sub">1,441명 중 128명, 신뢰구간 7.4~10.4%</span></td>
+          <td class="judge"><span class="ic">✓</span>구매 수요 존재 확인<span class="note">기준: 우연이 아닌 안정적 유료 구매 발생</span></td>
         </tr>
         <tr>
-          <td class="what">제안 노출의 영향<span class="sub">기준: 노출군(B)이 미노출군(A)보다 취소율과 문의율이 유의하게 높지 않음</span></td>
+          <td class="what">제안 노출의 영향<span class="sub">업셀링 노출이 기존 예약의 취소나 문의를 늘리는가</span></td>
           <td class="res">
             <div class="mlines">
-              <div class="mline"><span class="mn">취소율</span><span class="mv">A 28.0% / B 28.4%</span><span class="mt">차이 없음</span></div>
-              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">A 1.67% / B 1.66%</span><span class="mt">차이 없음</span></div>
+              <div class="mline"><span class="mn">취소율</span><span class="mv">A 27.8% / B 28.2%</span><span class="mt">차이 없음</span></div>
+              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">A 1.64% / B 1.66%</span><span class="mt">차이 없음</span></div>
             </div>
           </td>
-          <td class="judge"><span class="ic">✓</span>노출로 인한 부정적 영향 미확인</td>
+          <td class="judge"><span class="ic">✓</span>노출로 인한 부정적 영향 미확인<span class="note">기준: A와 B 간 유의미한 차이 없음</span></td>
         </tr>
         <tr>
-          <td class="what">실제 구매의 영향<span class="sub">기준: 구매 고객이 전체보다 취소율과 문의율이 유의하게 높지 않음</span></td>
+          <td class="what">실제 구매의 영향<span class="sub">업그레이드를 구매한 고객이 더 취소하거나 문의하는가</span></td>
           <td class="res">
             <div class="mlines">
-              <div class="mline"><span class="mn">취소율</span><span class="mv">32% <small style="color:#94a3b8;font-weight:600">(전체 28%)</small></span><span class="mt">비슷</span></div>
-              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">1.5% <small style="color:#94a3b8;font-weight:600">(전체 1.7%)</small></span><span class="mt">더 낮음</span></div>
+              <div class="mline"><span class="mn">취소율</span><span class="mv">33% <small style="color:#94a3b8;font-weight:600">(전체 28%)</small></span><span class="mt">비슷</span></div>
+              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">1.4% <small style="color:#94a3b8;font-weight:600">(전체 1.6%)</small></span><span class="mt">더 낮음</span></div>
             </div>
-            <div style="margin-top:9px;font-size:11px;color:#9ca3af;line-height:1.5">구매 137건 기준. 문의 2건 모두 결제수단이나 부름 관련으로 차종 업그레이드와 직접 관련된 문의는 아님</div>
+            <div style="margin-top:9px;font-size:11px;color:#9ca3af;line-height:1.5">구매 147건 기준. 문의 2건 모두 결제수단이나 부름 관련으로 차종 업그레이드와 직접 관련된 문의는 아님</div>
           </td>
-          <td class="judge"><span class="ic">✓</span>구매 고객 대상 특이 이슈 미확인</td>
+          <td class="judge"><span class="ic">✓</span>구매 고객 대상 특이 이슈 미확인<span class="note">기준: 전체보다 유의하게 높지 않음</span></td>
         </tr>
       </tbody>
     </table>
@@ -207,19 +207,19 @@ summary:hover { color: #2563eb; }
   <div class="group-label">판단 근거 <span>위 결론을 뒷받침하는 지표</span></div>
 
   <!-- 수요 근거 -->
-  <div class="section-label">1. 구매 수요 <span class="tag tag-fact">실측 6/10~6/22</span></div>
+  <div class="section-label">1. 구매 수요 <span class="tag tag-fact">실측 6/10~6/23</span></div>
   <div class="card">
     <div class="card-title">차종 업그레이드 구매 수요 확인</div>
     <div class="card-sub">제안을 본 회원 대비 실제 결제한 회원 비율</div>
     <div class="evidence">
-      <div class="e"><div class="n">1,381명</div><div class="l">제안 노출 (회원)</div></div>
-      <div class="e"><div class="n">500명</div><div class="l">옵션 선택 (회원)<br>상위 차급 카드 클릭</div></div>
-      <div class="e"><div class="n">122명</div><div class="l">결제 수락 (회원)</div></div>
-      <div class="e"><div class="n green">8.8%</div><div class="l">수락률<br>1,381명 중 122명</div></div>
-      <div class="e"><div class="n">137건</div><div class="l">업그레이드 결제 (건)<br>한 회원이 여러 건 가능. 이후 약 44건 취소 환불, 순 약 93건</div></div>
+      <div class="e"><div class="n">1,441명</div><div class="l">제안 노출 (회원)</div></div>
+      <div class="e"><div class="n">532명</div><div class="l">옵션 선택 (회원)<br>상위 차급 카드 클릭</div></div>
+      <div class="e"><div class="n">128명</div><div class="l">결제 수락 (회원)</div></div>
+      <div class="e"><div class="n green">8.9%</div><div class="l">수락률<br>1,441명 중 128명</div></div>
+      <div class="e"><div class="n">147건</div><div class="l">업그레이드 결제 (건)<br>한 회원이 여러 건 가능. 이후 약 49건 취소 환불, 순 약 98건</div></div>
     </div>
     <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.8;color:#374151">
-제안을 본 1,381명 중 500명이 업그레이드 옵션을 눌러봤고, 그중 122명이 실제 구매로 이어짐<br>옵션을 눌렀지만 구매하지 않은 고객은 기존 예약을 그대로 결제한 것이며, 예약 취소나 이탈이 아님
+제안을 본 1,441명 중 532명이 업그레이드 옵션을 눌러봤고, 그중 128명이 실제 구매로 이어짐<br>옵션을 눌렀지만 구매하지 않은 고객은 기존 예약을 그대로 결제한 것이며, 예약 취소나 이탈이 아님
     </div>
   </div>
 
@@ -233,11 +233,11 @@ summary:hover { color: #2563eb; }
       <tbody>
         <tr><td class="dt">PF 보험 (PF0 완전면책)</td><td>면책료 차액<br><span style="font-size:11px;color:#9ca3af">고정 추가금 아님, 변동</span></td><td class="num">약 7.2만명</td><td class="num">12.3%</td><td style="font-size:12px;color:#6b7280">보험 등급을 바꾸는 제안이라 성격이 다르고, 노출 모수가 셋 중 가장 넓음</td></tr>
         <tr><td class="dt">시간연장</td><td>4,900원 고정</td><td class="num">930명</td><td class="num">약 29%</td><td style="font-size:12px;color:#6b7280">더 싸고, 당일 출발 등 연장이 급한 고객만 좁게 노출해 수락률이 구조적으로 높음 (실험 ~6/3)</td></tr>
-        <tr style="background:#f0fdf4"><td class="dt" style="color:#065f46">차종 업그레이드</td><td>9,900원 고정<br><span style="font-size:11px;color:#9ca3af">셋 중 가장 비쌈</span></td><td class="num">1,381명</td><td class="num" style="color:#059669">8.8%</td><td style="font-size:12px;color:#374151">노출 조건(대상 차급, 빈 슬롯)이 좁아 모수는 작은 편이나, 가장 높은 추가 부담금(9,900원)에도 구매 발생</td></tr>
+        <tr style="background:#f0fdf4"><td class="dt" style="color:#065f46">차종 업그레이드</td><td>9,900원 고정<br><span style="font-size:11px;color:#9ca3af">셋 중 가장 비쌈</span></td><td class="num">1,441명</td><td class="num" style="color:#059669">8.9%</td><td style="font-size:12px;color:#374151">노출 조건(대상 차급, 빈 슬롯)이 좁아 모수는 작은 편이나, 가장 높은 추가 부담금(9,900원)에도 구매 발생</td></tr>
       </tbody>
     </table>
     <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.75;color:#1e3a8a">
-      절대값 순위가 아니라 유료 업셀링으로서 의미 있는 수요인지로 해석<br>PF0는 보험 등급 전환이라 잣대가 다르고 노출 모수가 가장 넓으며, 시간연장은 더 싸고 연장이 급한 고객만 좁게 노출해 수락률이 높음<br>차종UP은 노출 조건이 좁아 모수는 작은 편이나, 셋 중 가장 높은 추가 부담금(9,900원)에도 8.8% 구매 발생 (노출 규모는 운영 기간이 달라 참고용)
+      절대값 순위가 아니라 유료 업셀링으로서 의미 있는 수요인지로 해석<br>PF0는 보험 등급 전환이라 잣대가 다르고 노출 모수가 가장 넓으며, 시간연장은 더 싸고 연장이 급한 고객만 좁게 노출해 수락률이 높음<br>차종UP은 노출 조건이 좁아 모수는 작은 편이나, 셋 중 가장 높은 추가 부담금(9,900원)에도 8.9% 구매 발생 (노출 규모는 운영 기간이 달라 참고용)
       <span style="display:block;margin-top:6px;font-size:12px"><a href="https://socar-roina.github.io/upselling-dashboard-integrated/" target="_blank" style="color:#2563eb">통합 대시보드</a>에서 침투율과 단가까지 포함한 전체 비교 확인 가능</span>
     </div>
   </div>
@@ -248,32 +248,32 @@ summary:hover { color: #2563eb; }
   <div class="section-label">3. 노출의 기존 예약 영향 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">노출 여부에 따른 예약 행동 차이 비교</div>
-    <div class="card-sub">기준: 제안을 본 전체 예약 (A 안 본 그룹 76,106건, B 본 그룹 76,468건)<br>노출 자체가 취소와 문의를 늘렸는지 보며, 두 막대가 거의 같으면 노출이 예약을 해치지 않는다는 뜻</div>
+    <div class="card-sub">기준: 제안을 본 전체 예약 (A 안 본 그룹 81,869건, B 본 그룹 82,336건)<br>노출 자체가 취소와 문의를 늘렸는지 보며, 두 막대가 거의 같으면 노출이 예약을 해치지 않는다는 뜻</div>
     <div class="ab">
       <div class="ab-row">
         <div class="ab-head"><div class="name">예약 취소율</div><div class="verdict">차이 없음</div></div>
-        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:28.0%"></div></div><div class="val">28.0%</div></div>
-        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:28.4%"></div></div><div class="val">28.4%</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:27.8%"></div></div><div class="val">27.8%</div></div>
+        <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:28.2%"></div></div><div class="val">28.2%</div></div>
       </div>
       <div class="ab-row">
         <div class="ab-head"><div class="name">CS 문의율 <span class="sub">전체 예약 중 고객센터 문의 비율</span></div><div class="verdict">차이 없음</div></div>
-        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:1.67%"></div></div><div class="val">1.67%</div></div>
+        <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:1.64%"></div></div><div class="val">1.64%</div></div>
         <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:1.66%"></div></div><div class="val">1.66%</div></div>
       </div>
-      <div class="ab-note">모수: A 미노출 약 4.3만 명(76,106예약) / B 노출 약 4.3만 명(76,468예약). 양 그룹 간 유의미한 차이는 확인되지 않음</div>
+      <div class="ab-note">모수: A 미노출 약 4.5만 명(81,869예약) / B 노출 약 4.5만 명(82,336예약). 양 그룹 간 유의미한 차이는 확인되지 않음</div>
     </div>
   </div>
 
   <!-- 구매 경험 영향 -->
-  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">업그레이드 구매 137건 기준</span> <span class="tag tag-fact">실측</span></div>
+  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">업그레이드 구매 147건 기준</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">구매 고객 경험 영향 검증</div>
-    <div class="card-sub">기준: 업그레이드를 결제한 137건. 노출이 아니라 실제로 차를 바꿔 탄 고객의 경험을 전체 예약과 비교</div>
+    <div class="card-sub">기준: 업그레이드를 결제한 147건. 노출이 아니라 실제로 차를 바꿔 탄 고객의 경험을 전체 예약과 비교</div>
     <div class="evidence">
-      <div class="e"><div class="n">약 32%</div><div class="l">예약 취소율 (137건 중 약 44건)<br>전체 28%와 비슷한 수준</div></div>
-      <div class="e"><div class="n">1.5%</div><div class="l">CS 문의율 (137건 중 2건)<br>전체 1.7%보다 낮고, 2건 모두 결제수단이나 부름 관련으로 차종 업그레이드 자체와 직접 관련된 문의는 확인되지 않음</div></div>
+      <div class="e"><div class="n">약 33%</div><div class="l">예약 취소율 (147건 중 약 49건)<br>전체 28%와 비슷한 수준</div></div>
+      <div class="e"><div class="n">1.4%</div><div class="l">CS 문의율 (147건 중 2건)<br>전체 1.6%보다 낮고, 2건 모두 결제수단이나 부름 관련으로 차종 업그레이드 자체와 직접 관련된 문의는 확인되지 않음</div></div>
     </div>
-    <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">취소된 약 44건은 전액 환불돼, 실제 남은 업그레이드는 순 약 93건</div>
+    <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">취소된 약 49건은 전액 환불돼, 실제 남은 업그레이드는 순 약 98건</div>
   </div>
 
   <div class="group-label">사업성 해석 <span>이번 실험으로 답할 수 있는 것과 없는 것</span></div>
@@ -303,9 +303,9 @@ summary:hover { color: #2563eb; }
     </div>
     <div class="next">
       <b>사업성 검증을 위한 후속 과제</b><br>
-      확대 시 회사가 업그레이드 차액을 계속 부담함 (건당 약 1.8만원, 순 약 93건 기준 약 173만원)<br>
+      확대 시 회사가 업그레이드 차액을 계속 부담함 (건당 약 1.9만원, 순 약 98건 기준 약 186만원)<br>
       사업성은 업그레이드 대상 차량의 실제 유휴 여부에 따라 달라질 수 있음<br>
-      전국 확대 전, <b>차량 운영이 비슷한 지역끼리 한쪽만 켜고 끈 뒤 가동률과 매출을 비교</b>하는 검증을 권함
+      이를 가리려면 <b>차량 가동률과 수요가 비슷한 지역을 짝지어, 한 지역은 업그레이드 제안을 켜고 다른 지역은 꺼서 두 지역의 가동률과 매출을 비교</b>하는 검증이 필요함
     </div>
   </div>
 
@@ -319,12 +319,12 @@ summary:hover { color: #2563eb; }
     <table class="data-table">
       <thead><tr><th>제안 차급 (대표 차종)</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
       <tbody>
-        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">210</td><td class="num">29</td><td class="num">13.8%</td><td><div style="background:#059669;height:13px;width:86%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">234</td><td class="num">20</td><td class="num">8.5%</td><td><div style="background:#94a3b8;height:13px;width:53%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">892</td><td class="num">65</td><td class="num">7.3%</td><td><div style="background:#94a3b8;height:13px;width:46%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준대형 세단 (그랜저, K8)</td><td class="num">220</td><td class="num">32</td><td class="num">14.5%</td><td><div style="background:#059669;height:13px;width:90%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">939</td><td class="num">70</td><td class="num">7.5%</td><td><div style="background:#94a3b8;height:13px;width:47%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">중형 SUV (쏘렌토, 싼타페)</td><td class="num">236</td><td class="num">17</td><td class="num">7.2%</td><td><div style="background:#94a3b8;height:13px;width:45%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(13.8%). 반면 노출은 준중형 SUV에 가장 많이 집중돼 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
+    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(14.5%). 반면 노출은 준중형 SUV에 가장 많이 집중돼 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
   </div>
 
   <!-- 면책별 -->
@@ -335,20 +335,20 @@ summary:hover { color: #2563eb; }
     <table class="data-table">
       <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>막대</th></tr></thead>
       <tbody>
-        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">494</td><td class="num">43</td><td class="num">8.7%</td><td><div style="background:#94a3b8;height:13px;width:42%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">30만원면책</td><td class="num">400</td><td class="num">41</td><td class="num">10.3%</td><td><div style="background:#94a3b8;height:13px;width:50%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">70만원면책</td><td class="num">458</td><td class="num">31</td><td class="num">6.8%</td><td><div style="background:#94a3b8;height:13px;width:33%;border-radius:3px"></div></td></tr>
-        <tr><td class="dt">5만원면책 <span style="font-size:11px;color:#9ca3af">표본 29명</span></td><td class="num">29</td><td class="num">6</td><td class="num">20.7%</td><td><div style="background:#e2e8f0;height:13px;width:100%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">완전면책 (자기부담금 0원)</td><td class="num">520</td><td class="num">46</td><td class="num">8.8%</td><td><div style="background:#94a3b8;height:13px;width:59%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">30만원면책</td><td class="num">408</td><td class="num">43</td><td class="num">10.5%</td><td><div style="background:#94a3b8;height:13px;width:70%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">70만원면책</td><td class="num">483</td><td class="num">31</td><td class="num">6.4%</td><td><div style="background:#94a3b8;height:13px;width:43%;border-radius:3px"></div></td></tr>
+        <tr><td class="dt">5만원면책 <span style="font-size:11px;color:#9ca3af">표본 30명</span></td><td class="num">30</td><td class="num">6</td><td class="num">20.0%</td><td><div style="background:#e2e8f0;height:13px;width:100%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.7;color:#374151">자기부담금 낮은 상품 가입자의 수락률이 높은 경향은 있으나, 그룹 간 차이(6.8~10.3%)가 각 표본 수(수백 명)에 비해 작아 이 정도는 우연으로도 나올 수 있는 범위임. 표본이 더 쌓이면 사라질 수도 있어 방향성만 참고. 5만원면책(20.7%)은 노출 29명뿐이라 수치 신뢰 어려움</div>
+    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.7;color:#374151">자기부담금 낮은 상품 가입자의 수락률이 높은 경향은 있으나, 그룹 간 차이(6.4~10.5%)가 각 표본 수(수백 명)에 비해 작아 이 정도는 우연으로도 나올 수 있는 범위임. 표본이 더 쌓이면 사라질 수도 있어 방향성만 참고. 5만원면책(20.0%)은 노출 30명뿐이라 수치 신뢰 어려움</div>
   </div>
 
   <!-- 일별 추이 -->
   <div class="section-label">일별 추이 <span class="tag tag-info">B 노출군</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">일별 노출, 옵션 선택, 결제</div>
-    <div class="card-sub">6/22까지 들어온 데이터 기준 (6/23분은 적재 전)</div>
+    <div class="card-sub">6/10~6/23 전체 기간</div>
     <div class="chart-wrap"><canvas id="dailyChart"></canvas></div>
     <details style="margin-top:8px">
       <summary>일자별 상세 수치</summary>
@@ -367,11 +367,12 @@ summary:hover { color: #2563eb; }
           <tr><td class="dt">6/19</td><td class="num">119</td><td class="num">40</td><td class="num">9</td></tr>
           <tr><td class="dt">6/20</td><td class="num">124</td><td class="num">46</td><td class="num">17</td></tr>
           <tr><td class="dt">6/21</td><td class="num">88</td><td class="num">31</td><td class="num">11</td></tr>
-          <tr><td class="dt">6/22</td><td class="num">102</td><td class="num">32</td><td class="num">8</td></tr>
-          <tr class="total"><td class="dt">누계</td><td class="num">1,381</td><td class="num">500</td><td class="num">137</td></tr>
+          <tr><td class="dt">6/22</td><td class="num">103</td><td class="num">33</td><td class="num">8</td></tr>
+          <tr><td class="dt">6/23</td><td class="num">69</td><td class="num">33</td><td class="num">10</td></tr>
+          <tr class="total"><td class="dt">누계</td><td class="num">1,441</td><td class="num">532</td><td class="num">147</td></tr>
         </tbody>
       </table>
-      <div style="font-size:11px;color:#9ca3af;margin-top:8px;line-height:1.6">노출과 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음. 누계 수락률 = 수락 122명 / 노출 1,381명 = 8.8%</div>
+      <div style="font-size:11px;color:#9ca3af;margin-top:8px;line-height:1.6">노출과 옵션 선택은 일별 distinct 회원이라 누계(전체 기간 distinct)와 단순 합이 다를 수 있음. 누계 수락률 = 수락 128명 / 노출 1,441명 = 8.9%</div>
     </details>
   </div>
 
@@ -379,12 +380,12 @@ summary:hover { color: #2563eb; }
 
   <details class="foot-note" style="margin-bottom:14px">
     <summary style="font-size:13px;font-weight:800;color:#111827;padding:0 0 6px">용어 정리</summary>
-    <div class="term"><b>수락률</b><div>제안 화면을 본 회원(1,381명) 중 실제로 결제한 회원(122명) 비율 = 8.8%. 결제 건수(137건)는 한 회원이 여러 건 결제할 수 있어 사람 수와 구분</div></div>
+    <div class="term"><b>수락률</b><div>제안 화면을 본 회원(1,441명) 중 실제로 결제한 회원(128명) 비율 = 8.9%. 결제 건수(147건)는 한 회원이 여러 건 결제할 수 있어 사람 수와 구분</div></div>
     <div class="term"><b>A 미노출 / B 노출</b><div>회원을 무작위로 반 나눠, B에만 제안을 보여주고 A는 안 보여준 대조군. 서버 버킷팅 공식으로 분리</div></div>
     <div class="term"><b>가드레일</b><div>기능이 기존 예약을 해치지 않는지 보는 안전 점검 지표. 여기서는 예약 취소율과 CS 문의율을 A/B로 비교</div></div>
-    <div class="term"><b>ARPU</b><div>회원 1인당 결제액. A 약 21.9만원 / B 약 21.9만원으로 두 그룹 차이 없음</div></div>
-    <div class="term"><b>회사 부담 차액</b><div>상위 차급 차액 중 고객이 낸 9,900원을 빼고 회사가 부담한 금액. 결제 기준 137건 약 246만원, 취소 환불 제외 순 약 93건 약 173만원, 건당 약 1.8만원</div></div>
-    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 노출, 수락률, 매출은 6/22까지 완전 집계, 가드레일은 6/24 재집계</div></div>
+    <div class="term"><b>ARPU</b><div>회원 1인당 결제액. A 약 22.4만원 / B 약 22.4만원으로 두 그룹 차이 없음</div></div>
+    <div class="term"><b>회사 부담 차액</b><div>상위 차급 차액 중 고객이 낸 9,900원을 빼고 회사가 부담한 금액. 결제 기준 147건 약 267만원, 취소 환불 제외 순 약 98건 약 186만원, 건당 약 1.9만원</div></div>
+    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 6/10~6/23 전체 기간 집계</div></div>
   </details>
 
   <details class="card" style="margin-bottom:48px">
@@ -399,10 +400,10 @@ summary:hover { color: #2563eb; }
   COUNT(DISTINCT member_id) AS uu
 FROM `socar-data.app_web_log.socar_app_web_log`
 WHERE page_name='upsell_bottomsheet'
-  AND event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
+  AND event_date_kst BETWEEN '2026-06-10' AND '2026-06-23'
   AND REGEXP_CONTAINS(form_data, r'cu')
 GROUP BY step
--- 결과: 노출 1381, 옵션선택 500, CTA 1350</div>
+-- 결과: 노출 1441, 옵션선택 532</div>
       </details>
       <details>
         <summary>2. 결제 수락과 매출 (서버 결제)</summary>
@@ -411,13 +412,13 @@ GROUP BY step
   FROM `socar-data.tianjin_replica.paid_meta_info` pmi
   JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
   WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
-    AND DATE(pmi.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22')
+    AND DATE(pmi.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-23')
 SELECT COUNT(DISTINCT reservation_id) AS accept,
   COUNT(DISTINCT reservation_id)*9900 AS customer_rev,
   SUM(amount) AS company_discount
 FROM cu_paid
--- 결과: 결제 137건(gross), 고객매출 1,356,300, 회사부담 2,462,850
--- 이후 약 44건 예약취소 전액환불, 순 약 93건, 고객 순매출 약 92만, 회사 순부담 약 173만</div>
+-- 결과: 결제 147건(gross), 고객매출 1,455,300, 회사부담 2,665,160
+-- 이후 약 49건 예약취소 전액환불, 순 약 98건, 고객 순매출 약 97만, 회사 순부담 약 186만</div>
       </details>
       <details>
         <summary>3. A/B 취소율과 인당 결제액 비교 (버킷팅, 헤비 제외)</summary>
@@ -426,25 +427,25 @@ FROM cu_paid
 WITH co_list AS (
   SELECT DISTINCT SAFE_CAST(REGEXP_EXTRACT(form_data, r'co\\?:\\?([0-9]+)') AS INT64) AS cid
   FROM `socar-data.app_web_log.socar_app_web_log`
-  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
+  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-23'
     AND page_name='upsell_bottomsheet' AND event_name='view'
     AND REGEXP_CONTAINS(form_data, r'cu')),
 heavy AS (
   SELECT member_id FROM `socar-data.tianjin_replica.reservation_info`
-  WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22' AND member_id > 0
+  WHERE DATE(created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-23' AND member_id > 0
   GROUP BY member_id HAVING COUNT(*) >= 20),
 rsv AS (
   SELECT ri.id AS reservation_id, ri.member_id, ri.cancel_at,
     MOD(ABS(FARM_FINGERPRINT(CAST(ri.member_id AS STRING)||'UPSELLING_CAR_UPGRADE')),100) < 50 AS is_b
   FROM `socar-data.tianjin_replica.reservation_info` ri
-  WHERE DATE(ri.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-22'
+  WHERE DATE(ri.created_at,"Asia/Seoul") BETWEEN '2026-06-10' AND '2026-06-23'
     AND ri.member_id > 0 AND ri.member_id NOT IN (SELECT member_id FROM heavy)
     AND ri.zone_id = ri.end_zone_id
     AND ri.car_class_id IN (SELECT cid FROM co_list WHERE cid IS NOT NULL))
 SELECT rsv.is_b, COUNT(*) AS rsv, COUNT(DISTINCT rsv.member_id) AS members,
   ROUND(COUNTIF(rsv.cancel_at IS NOT NULL)/COUNT(*)*100, 2) AS cancel_rate
 FROM rsv GROUP BY rsv.is_b
--- 결과: A 76,106예약 취소 28.02% / B 76,468예약 취소 28.39% (z~1.6, 차이 없음), ARPU 양쪽 약 21.9만원</div>
+-- 결과: A 81,869예약 취소 27.84% / B 82,336예약 취소 28.17% (차이 없음), ARPU 양쪽 약 22.4만원</div>
       </details>
       <details>
         <summary>4. CS 문의율 A/B 비교</summary>
@@ -457,14 +458,14 @@ WITH inq AS (
 SELECT rsv.is_b,
   ROUND(COUNTIF(i.reservation_id IS NOT NULL)/COUNT(*)*100,2) AS inq_rate
 FROM rsv LEFT JOIN inq i USING(reservation_id) GROUP BY rsv.is_b
--- 결과: A 1.67%(1269/76106), B 1.66%(1272/76468), 차종UP 수락 137건 중 문의 2건</div>
+-- 결과: A 1.64%, B 1.66%, 차종UP 수락 147건 중 문의 2건</div>
       </details>
       <details>
         <summary>5. 제안 차급별 수락률</summary>
         <div class="query-block">WITH exp AS (
   SELECT member_id, REGEXP_EXTRACT(form_data, r'cu\\?:\\?([0-9]+)') AS cu
   FROM `socar-data.app_web_log.socar_app_web_log`
-  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-22'
+  WHERE event_date_kst BETWEEN '2026-06-10' AND '2026-06-23'
     AND page_name='upsell_bottomsheet' AND event_name='view'
     AND REGEXP_CONTAINS(form_data, r'cu') AND member_id > 0),
 exp1 AS (SELECT member_id, ANY_VALUE(cu) AS cu FROM exp GROUP BY member_id),
@@ -474,14 +475,14 @@ acc AS (
   JOIN `socar-data.tianjin_replica.paid_info` pi ON pi.id = pmi.id
   JOIN `socar-data.tianjin_replica.reservation_info` ri ON ri.id = pi.reservation_id
   WHERE REGEXP_CONTAINS(pmi.meta, r'CAR_UPGRADE')
-    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-22')
+    AND DATE(pmi.created_at,'Asia/Seoul') BETWEEN '2026-06-10' AND '2026-06-23')
 SELECT cc.car_model AS car_class,
   COUNT(DISTINCT e.member_id) AS exposed,
   COUNT(DISTINCT IF(a.member_id IS NOT NULL, e.member_id, NULL)) AS accepted
 FROM exp1 e LEFT JOIN acc a USING(member_id)
 LEFT JOIN `socar-data.tianjin_replica.car_class` cc ON cc.id = SAFE_CAST(e.cu AS INT64)
 GROUP BY car_class ORDER BY exposed DESC
--- 결과: 준대형세단 210/29 13.8%, 중형SUV 234/20 8.5%, 준중형SUV 892/65 7.3%</div>
+-- 결과: 준대형세단 220/32 14.5%, 중형SUV 236/17 7.2%, 준중형SUV 939/70 7.5%</div>
       </details>
     </div>
   </details>
@@ -493,11 +494,11 @@ const ctx = document.getElementById('dailyChart');
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['6/10','6/11','6/12','6/13','6/14','6/15','6/16','6/17','6/18','6/19','6/20','6/21','6/22'],
+    labels: ['6/10','6/11','6/12','6/13','6/14','6/15','6/16','6/17','6/18','6/19','6/20','6/21','6/22','6/23'],
     datasets: [
-      { label: '노출(회원)', data: [95,119,157,127,92,140,115,128,110,119,124,88,102], backgroundColor: '#bfdbfe' },
-      { label: '옵션 선택(회원)', data: [38,42,60,43,32,41,27,41,40,40,46,31,32], backgroundColor: '#94a3b8' },
-      { label: '결제 건수', data: [13,9,14,11,6,12,7,11,9,9,17,11,8], backgroundColor: '#059669' }
+      { label: '노출(회원)', data: [95,119,157,127,92,140,115,128,110,119,124,88,103,69], backgroundColor: '#bfdbfe' },
+      { label: '옵션 선택(회원)', data: [38,42,60,43,32,41,27,41,40,40,46,31,33,33], backgroundColor: '#94a3b8' },
+      { label: '결제 건수', data: [13,9,14,11,6,12,7,11,9,9,17,11,8,10], backgroundColor: '#059669' }
     ]
   },
   options: {
