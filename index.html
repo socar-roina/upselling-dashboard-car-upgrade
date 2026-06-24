@@ -27,8 +27,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .section-label .tag { font-size: 10px; padding: 3px 9px; border-radius: 20px; font-weight: 700; letter-spacing: 0.02em; }
 .tag-fact { background: #dcfce7; color: #15803d; }
 .tag-info { background: #e0edff; color: #1d4ed8; }
-.group-label { font-size: 12px; font-weight: 800; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; margin: 44px 0 8px; padding-bottom: 10px; border-bottom: 1px solid #e5e7eb; }
-.group-label span { font-size: 11px; font-weight: 600; color: #cbd5e1; letter-spacing: 0; text-transform: none; }
+.group-label { font-size: 16px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; margin: 46px 0 12px; padding-bottom: 11px; border-bottom: 2px solid #e2e8f0; }
+.group-label span { font-size: 11px; font-weight: 600; color: #94a3b8; }
 .card { background: #fff; border-radius: 14px; border: 1px solid #e8eaed; padding: 24px 26px; box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.05); margin-bottom: 14px; }
 .card-title { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.01em; }
 .card-sub { font-size: 12px; color: #6b7280; margin-bottom: 16px; line-height: 1.7; }
@@ -300,9 +300,9 @@ summary:hover { color: #2563eb; }
 
   <div class="group-label">탐색 분석</div>
 
-  <div class="section-label">면책상품별 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-info">탐색</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
-  <details class="card">
-    <summary>면책상품별 차종UP 수락률 (펼쳐 보기)</summary>
+  <div class="section-label">면책 등급별 차종UP 수락률 <span class="tag tag-info">B 노출군 한정</span> <span class="tag tag-info">탐색</span> <span class="tag tag-fact">실측 6/10~6/22</span></div>
+  <div class="card">
+    <div class="card-title">가입 면책 등급별 차종UP 수락률</div>
     <div class="card-sub">기획 지표 외 추가로 살펴본 탐색 분석<br>예약 시점에 회원이 적용 중이던 면책상품별로 차종UP 노출 대비 수락률을 나눔<br>면책상품은 노출 로그 form_data의 pf값(서버 protection_fee_info 자기부담금 유형)으로 식별<br>자기부담금이 낮은 면책상품일수록 면책료가 비싸고 사고 시 본인부담이 적음</div>
     <table class="data-table">
       <thead><tr><th>가입 면책상품</th><th class="num">노출</th><th class="num">수락</th><th class="num">수락률</th><th>수락률 막대</th></tr></thead>
@@ -322,14 +322,14 @@ summary:hover { color: #2563eb; }
       <span style="color:#3730a3">사고 시 본인부담을 줄이려 면책료를 더 내는 고객이 차종 업그레이드에도 더 적극적일 수 있다는 해석. 5만원면책(20.7%)은 노출 29명뿐이라 수치 신뢰 어려움</span><br>
       <span style="color:#6b7280;font-size:12px">이 표는 앱에서 화면을 본 웹 기록(노출 1381명)을 기준으로 나눈 분석이라, 수락도 같은 기준 121명으로 셈(위 4줄 합). 차종UP 결제는 서버 기준 122명인데, 1명은 결제는 정상이지만 웹 기록상 노출이 잡히지 않아 이 표에는 들어가지 않음. 원래 가입 면책상품은 웹 기록에만 남는 값이라 이 1명은 면책상품 구분이 안 됨</span>
     </div>
-  </details>
+  </div>
 
   <div class="section-label">다음 단계 <span class="tag tag-info">의사결정</span></div>
   <div class="card" style="border-left:4px solid #3b82f6">
     <div style="line-height:2.1;font-size:14px;color:#374151">
       <b>1. 운영 지속</b> &nbsp;현재 조건으로 운영을 이어가며 수락률과 취소율을 계속 모니터링<br>
       <b>2. 노출 확대 검토</b> &nbsp;노출 조건을 완화해 더 많은 고객에게 제안 (현재는 지역, 대상 차급, 빈 차 조건으로 노출 모수가 좁음)<br>
-      <b>3. 손익 검증</b> &nbsp;전국 대규모 확대 전, 업그레이드로 내준 상위차가 원래 비어있던 차였는지(순이득)를 지역이나 기간을 나눠 한쪽만 끄고 비교해 확인
+      <b>3. 손익 검증</b> &nbsp;전국 확대 전, 업그레이드로 내준 상위차가 원래 비어있던 차였는지(순이득) 확인. 회원 A/B로는 공용 차량이라 못 가리므로, 일부 지역이나 기간만 차종UP을 끄고 켠 쪽과 비교하는 홀드아웃 방식 권장
     </div>
   </div>
 
@@ -359,14 +359,21 @@ summary:hover { color: #2563eb; }
     <details>
       <summary>이번 실험으로 측정하지 못하는 항목</summary>
       <div style="line-height:2;color:#374151;font-size:13px;padding:8px 2px 4px">
-        <b>상위 차급 차량 가동률</b>: 두 군이 동일 차량 재고를 공유해 군별 분리 측정 불가 (수요측 업그레이드 전환율로 대체 확인)<br>
-        <b>순수 증분 매출</b> (제안이 없었어도 상위 차급이 판매됐을지): 추가매출 규모가 작아 전체 매출 비교로 분리 불가 (빈 슬롯 한정 제안 설계와 향후 홀드아웃으로 보완)<br>
-        <b>개별 차종 단위 정밀 수락률</b>: 차종별 표본이 작아 차급 단위 방향성만 확인 가능
+        <b>상위 차급 차량이 얼마나 더 굴러갔나 (가동률)</b><br>
+        A/B는 회원을 반으로 나눈 것이지 차를 나눈 게 아님. 상위 차급 차량은 A와 B 회원이 함께 빌리는 공용 재고라, B 덕분에 그 차가 더 굴러갔는지를 그룹별로 떼어 측정할 수 없음<br>
+        대신 회원 단위로 잴 수 있는 수요(수락률 8.8%)로 확인<br>
+        <b style="display:inline-block;margin-top:8px">업그레이드 매출이 순수하게 늘어난 것인가 (순증)</b><br>
+        업그레이드로 내준 상위차가, 제안이 없었어도 어차피 다른 손님에게 팔렸을 차일 수 있음. 그렇다면 제값 받을 차를 9,900원에 내준 셈<br>
+        효과 규모가 작아 두 그룹 평균 매출 비교로는 안 잡힘. 정밀 확인은 홀드아웃이 필요 (일부 지역이나 기간만 차종UP을 끄고, 켠 쪽과 비교)<br>
+        <b style="display:inline-block;margin-top:8px">개별 차종 정밀 수락률</b><br>
+        차종별 표본이 작아 차급 단위 방향성만 확인 가능
       </div>
     </details>
   </div>
 
-  <div class="section-label">검증용 실제 쿼리 <span class="tag tag-info">BigQuery</span></div>
+  <details class="card">
+    <summary>검증용 실제 쿼리 (BigQuery 5종, 펼쳐 보기)</summary>
+    <div style="margin-top:12px">
   <details>
     <summary>1. 노출, 옵션 선택, CTA 퍼널 (웹 이벤트)</summary>
     <div class="query-block">-- 차종UP은 form_data에 co(원본 차종), cu(제안 차종) 키가 있어 cu 존재로 식별
@@ -495,6 +502,8 @@ LEFT JOIN acc a USING(member_id)
 LEFT JOIN `socar-data.tianjin_replica.car_class` cc ON cc.id = SAFE_CAST(e.cu AS INT64)
 GROUP BY car_class ORDER BY exposed DESC
 -- 결과(상위 표본): 준대형 세단 210명/29 13.8%, 중형SUV 234/20 8.5%, 준중형SUV 892/65 7.3%</div>
+  </details>
+    </div>
   </details>
 
   <div class="foot-note">
