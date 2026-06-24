@@ -519,8 +519,8 @@ GROUP BY car_class ORDER BY exposed DESC
     </div>
   </details>
 
-  <div class="foot-note">
-    <h4>용어 정리 및 유의사항</h4>
+  <details class="foot-note">
+    <summary style="font-size:13px;font-weight:800;color:#111827;padding:0 0 6px">용어 정리 및 유의사항 (펼쳐 보기)</summary>
     <div class="term"><b>노출 (view)</b><div>차종UP 제안 화면을 본 B군 회원 수. form_data에 co/cu 키가 있으면 차종UP 노출</div></div>
     <div class="term"><b>차급 선택</b><div>상위 차급 카드를 실제로 고른 사람(car_upgrade_option click). 원래 차종 유지는 로그가 남지 않음</div></div>
     <div class="term"><b>결제 수락</b><div>차종UP을 결제 완료한 예약. 결제 meta upselling_type CAR_UPGRADE, 예약 단위 합계 양수만 집계(환불 제외)</div></div>
@@ -529,8 +529,8 @@ GROUP BY car_class ORDER BY exposed DESC
     <div class="term"><b>회사 할인 부담 (참고)</b><div>상위 차급 차액 중 회사가 부담한 금액(paid_info의 upselling_discount 결제행 amount). 공헌이익 관점에서 상위 차종도 유휴였다면 손해로 보기 어려워 전면 지표로 두지 않음</div></div>
     <div class="term"><b>예약 전환 가드레일</b><div>노출이 기존 예약을 깨는지 B 노출군과 A 대조군의 예약 취소율로 비교. 현재 A 28.02% vs B 28.39%로 사실상 차이 없음(2-proportion z=1.6). 예약 수와 취소 수는 시간에 따라 변동하는 reservation 데이터라 재집계 시점마다 소폭 달라질 수 있음</div></div>
     <div class="term"><b>CTA vs 차급 선택</b><div>cta_button은 원래 차종으로 결제해도 찍히므로 수락 지표로 쓰지 않음. 실제 수락은 결제 meta로 판정</div></div>
-    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867). 9일치 초기 데이터라 표본은 아직 작음</div></div>
-  </div>
+    <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 노출, 수락률, 매출은 6/22까지 완전 집계 기준</div></div>
+  </details>
 
 </div>
 
