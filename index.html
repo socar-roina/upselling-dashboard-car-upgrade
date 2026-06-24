@@ -76,7 +76,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .ab-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
 .ab-head .name { font-size: 13px; font-weight: 800; color: #334155; }
 .ab-head .name .sub { font-weight: 500; color: #94a3b8; font-size: 11px; margin-left: 6px; }
-.ab-head .verdict { font-size: 12px; font-weight: 800; color: #047857; }
+.ab-head .verdict { font-size: 11px; font-weight: 700; color: #047857; background: #ecfdf5; border: 1px solid #d1fae5; padding: 2px 9px; border-radius: 999px; }
 .ab-bar { display: grid; grid-template-columns: 24px 1fr 66px; align-items: center; gap: 10px; margin-bottom: 5px; }
 .ab-bar .who { font-size: 11px; font-weight: 800; color: #64748b; }
 .ab-bar .track { background: #f1f5f9; border-radius: 5px; height: 18px; overflow: hidden; }
@@ -302,10 +302,11 @@ summary:hover { color: #2563eb; }
       이건 표본이나 기간을 늘려서 풀리는 문제가 아니라, 실험 단위를 회원이 아니라 지역과 기간으로 바꿔야 답이 나오는 문제임
     </div>
     <div class="next">
-      <b>확대 시 짚어야 할 점.</b> 정규화해서 확대하면 회사가 업그레이드 <b>건당 약 1.8만원 차액을 부담</b>함 (실험 기간 순 약 93건에 약 173만원, 취소 환불 제외)<br>
-      그 상위차가 원래 노는 차였으면 9,900원이라도 받은 이득, 어차피 팔릴 차였으면 제값 받을 차를 싸게 내준 손해<br>
-      이번 회원 A/B로는 A와 B가 같은 차를 써서 이걸 못 가림<br>
-      대신 <b>차량 운영이 비슷한 지역끼리 짝지어, 한쪽만 업그레이드를 끄고 두 지역의 차량 가동률과 매출을 비교</b>하면 가려짐. 지역 자체의 차이가 섞이지 않도록 비슷한 지역끼리 맞춰 비교하는 게 핵심이라, 랜덤하게 아무 지역이나 끄는 게 아님. 전국 확대 전 이 확인을 권함
+      <b>확대 시 짚어야 할 점.</b><br>
+      확대하면 회사가 업그레이드 차액을 계속 부담함 (건당 약 1.8만원, 순 약 93건 기준 약 173만원)<br>
+      이득인지 손해인지는 그 상위차가 원래 비어 있던 차였는지에 달림<br>
+      노는 차를 채웠으면 이득, 어차피 팔릴 차였으면 제값 받을 차를 싸게 내준 손해<br>
+      전국 확대 전, <b>차량 운영이 비슷한 지역끼리 한쪽만 켜고 끈 뒤 가동률과 매출을 비교</b>하는 검증을 권함
     </div>
   </div>
 
