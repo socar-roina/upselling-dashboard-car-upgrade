@@ -37,6 +37,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .vt .judge { font-size: 13px; color: #047857; font-weight: 700; }
 .vt .judge .note { display: block; font-size: 11px; color: #9ca3af; font-weight: 500; margin-top: 3px; }
 .vt .ic { color: #059669; font-weight: 900; margin-right: 6px; }
+.mlines { display: flex; flex-direction: column; gap: 7px; }
+.mline { display: flex; align-items: baseline; gap: 9px; font-size: 13px; }
+.mline .mn { min-width: 62px; font-size: 11px; font-weight: 700; color: #64748b; }
+.mline .mv { font-weight: 800; color: #111827; font-variant-numeric: tabular-nums; }
+.mline .mt { margin-left: auto; font-size: 11px; font-weight: 700; color: #047857; white-space: nowrap; }
 
 .concl { border: 2px solid #059669; border-radius: 14px; background: linear-gradient(135deg,#f0fdf4,#ecfdf5); padding: 22px 26px; box-shadow: 0 2px 8px rgba(5,150,105,0.12); margin-bottom: 8px; }
 .concl .lbl { font-size: 12px; font-weight: 800; color: #059669; letter-spacing: 0.04em; margin-bottom: 10px; }
@@ -161,14 +166,25 @@ summary:hover { color: #2563eb; }
           <td class="judge"><span class="ic">✓</span>고객 구매 수요 확인</td>
         </tr>
         <tr>
-          <td class="what">제안 노출의 영향<span class="sub">제안을 본 전체 고객 기준(A와 B 각 7.6만 건). 보여준 것만으로 취소나 문의가 늘었나</span></td>
-          <td class="res">취소율 A 28.0% / B 28.4%<span class="sub">A와 B 차이 없음. CS 문의율도 A 1.67% / B 1.66%로 동일</span></td>
-          <td class="judge"><span class="ic">✓</span>노출이 예약을 깨지 않음<span class="note">예약 7.6만 건씩이라 문제 있었으면 잡혔을 비교</span></td>
+          <td class="what">제안 노출의 영향<span class="sub">제안을 본 전체 고객 기준 (A와 B 각 7.6만 건)</span></td>
+          <td class="res">
+            <div class="mlines">
+              <div class="mline"><span class="mn">취소율</span><span class="mv">A 28.0% / B 28.4%</span><span class="mt">차이 없음</span></div>
+              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">A 1.67% / B 1.66%</span><span class="mt">차이 없음</span></div>
+            </div>
+          </td>
+          <td class="judge"><span class="ic">✓</span>제안을 봐도 취소나 문의가 늘지 않음<span class="note">양쪽 7.6만 건씩이라 작은 차이도 드러나는 규모인데 거의 같음</span></td>
         </tr>
         <tr>
-          <td class="what">실제 구매의 영향<span class="sub">업그레이드를 결제한 137건 기준. 차를 바꿔 타고 더 취소하거나 문의했나</span></td>
-          <td class="res">취소는 전체와 비슷, 문의는 더 낮음<span class="sub">취소 약 32%(전체 28%), 문의 1.5%(전체 1.7%), 업그레이드만 무른 고객 0명</span></td>
-          <td class="judge"><span class="ic">✓</span>구매 후 특이 신호 없음<span class="note">표본 137건, 방향성 참고</span></td>
+          <td class="what">실제 구매의 영향<span class="sub">업그레이드를 결제한 137건 기준 (제안을 본 사람 중 실제로 산 사람)</span></td>
+          <td class="res">
+            <div class="mlines">
+              <div class="mline"><span class="mn">취소율</span><span class="mv">32% <small style="color:#94a3b8;font-weight:600">(전체 28%)</small></span><span class="mt">비슷</span></div>
+              <div class="mline"><span class="mn">CS 문의율</span><span class="mv">1.5% <small style="color:#94a3b8;font-weight:600">(전체 1.7%)</small></span><span class="mt">더 낮음</span></div>
+              <div class="mline"><span class="mn">업그레이드 무름</span><span class="mv">0명</span><span class="mt">없음</span></div>
+            </div>
+          </td>
+          <td class="judge"><span class="ic">✓</span>차를 바꿔 타도 불만이나 이탈 없음<span class="note">산 137건이라 정확한 수치보다 경향으로 해석</span></td>
         </tr>
       </tbody>
     </table>
