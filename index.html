@@ -161,14 +161,14 @@ summary:hover { color: #2563eb; }
           <td class="judge"><span class="ic">✓</span>고객 구매 수요 확인</td>
         </tr>
         <tr>
-          <td class="what">기존 예약 영향 (노출)<span class="sub">업셀링 노출이 예약 취소·CS 문의를 늘렸나</span></td>
+          <td class="what">기존 예약 영향 (노출)<span class="sub">제안 본 전체 예약 기준(7.6만 건씩), 노출이 취소·문의를 늘렸나</span></td>
           <td class="res">A 28.0% / B 28.4%<span class="sub">취소율 차이 없음 · CS 문의율도 동일</span></td>
           <td class="judge"><span class="ic">✓</span>기존 예약 전환 저해 없음<span class="note">예약 7.6만 건씩이라 문제 있었으면 잡혔을 비교</span></td>
         </tr>
         <tr>
-          <td class="what">구매 경험 영향<span class="sub">업그레이드를 구매한 고객이 불편을 겪거나 후회했나</span></td>
-          <td class="res">문의 137건 중 2건 · 환불 0건<span class="sub">2건도 결제수단·부름 관련, 차급 변경 불만 아님</span></td>
-          <td class="judge"><span class="ic">✓</span>차급 변경 불만 없음<span class="note">표본 137건, 방향성 참고</span></td>
+          <td class="what">구매 경험 영향<span class="sub">업그레이드 산 137건 기준, 차급 바꿔 탄 고객이 불편했나</span></td>
+          <td class="res">취소·문의 전체와 비슷하거나 낮음<span class="sub">취소 약 32%(전체 28%), 문의 1.5%(전체 1.7%), 업그레이드만 무른 고객 0명</span></td>
+          <td class="judge"><span class="ic">✓</span>구매 후 특이 신호 없음<span class="note">표본 137건, 방향성 참고</span></td>
         </tr>
       </tbody>
     </table>
@@ -199,7 +199,7 @@ summary:hover { color: #2563eb; }
       <div class="e"><div class="n">1,381명</div><div class="l">제안 노출</div></div>
       <div class="e"><div class="n">122명</div><div class="l">실제 결제 수락</div></div>
       <div class="e"><div class="n green">8.8%</div><div class="l">수락률</div></div>
-      <div class="e"><div class="n">137건</div><div class="l">업그레이드 결제 (환불 0)</div></div>
+      <div class="e"><div class="n">137건</div><div class="l">업그레이드 결제<br>이후 약 44건 취소·환불, 순 약 93건</div></div>
     </div>
     <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.8;color:#374151">
       제안 본 1,381명 가운데 500명이 상위 차급 카드를 눌렀고, 그중 122명이 결제까지 감 (카드를 고른 뒤 결제 단계에서 이탈이 더 큼)
@@ -231,7 +231,7 @@ summary:hover { color: #2563eb; }
   <div class="section-label">3. 노출의 기존 예약 영향 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">제안을 본 그룹(B)과 안 본 그룹(A)이 같은지 비교</div>
-    <div class="card-sub">업셀링 노출 자체가 예약 취소나 고객 불만을 늘리는지 확인. 두 막대가 거의 같으면 노출이 기존 예약을 해치지 않는다는 뜻</div>
+    <div class="card-sub">기준: 제안을 본 전체 예약 (A 안 본 그룹 76,106건, B 본 그룹 76,468건). 노출 자체가 취소·문의를 늘렸는지 보며, 두 막대가 거의 같으면 노출이 예약을 해치지 않는다는 뜻</div>
     <div class="ab">
       <div class="ab-row">
         <div class="ab-head"><div class="name">예약 취소율</div><div class="verdict">차이 없음</div></div>
@@ -239,7 +239,7 @@ summary:hover { color: #2563eb; }
         <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:71.0%"></div></div><div class="val">28.4%</div></div>
       </div>
       <div class="ab-row">
-        <div class="ab-head"><div class="name">CS 문의율 <span class="sub">예약당 고객센터 문의 비율</span></div><div class="verdict">차이 없음</div></div>
+        <div class="ab-head"><div class="name">CS 문의율 <span class="sub">전체 예약 중 고객센터 문의 비율</span></div><div class="verdict">차이 없음</div></div>
         <div class="ab-bar"><div class="who">A</div><div class="track"><div class="fill a" style="width:41.8%"></div></div><div class="val">1.67%</div></div>
         <div class="ab-bar"><div class="who">B</div><div class="track"><div class="fill b" style="width:41.5%"></div></div><div class="val">1.66%</div></div>
       </div>
@@ -248,15 +248,16 @@ summary:hover { color: #2563eb; }
   </div>
 
   <!-- 구매 경험 영향 -->
-  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">구매 고객 기준</span> <span class="tag tag-fact">실측</span></div>
+  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">업그레이드 산 137건 기준</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
-    <div class="card-title">업그레이드를 실제 구매한 고객에서 특이 신호가 있었나</div>
-    <div class="card-sub">노출이 아니라 실제 구매 고객이 차량 변경 과정에서 불편을 겪거나 후회했는지 확인</div>
+    <div class="card-title">차급을 바꿔 탄 고객이 더 취소·문의·환불했나</div>
+    <div class="card-sub">기준: 업그레이드를 결제한 137건. 노출이 아니라 실제로 차를 바꿔 탄 고객의 경험을 전체 예약과 비교</div>
     <div class="evidence">
-      <div class="e"><div class="n">2건</div><div class="l">구매 고객 문의 (137건 중)<br>결제수단·부름 관련, 차급 변경 불만 아님</div></div>
-      <div class="e"><div class="n green">0건</div><div class="l">환불<br>구매 후 후회·상품 이슈 없음</div></div>
+      <div class="e"><div class="n">약 32%</div><div class="l">예약 취소율 (137건 중 약 44건)<br>전체 28%와 비슷, 여행 자체를 무른 정상 취소</div></div>
+      <div class="e"><div class="n">1.5%</div><div class="l">CS 문의율 (137건 중 2건)<br>전체 1.7%보다 낮음, 2건도 결제수단·부름 관련</div></div>
+      <div class="e"><div class="n green">0명</div><div class="l">업그레이드만 무른 고객<br>차급이 싫어 업그레이드만 취소·환불한 사람 없음</div></div>
     </div>
-    <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">표본이 137건이라 통계적 단정이 아니라 방향성 참고. 현재까지 차급 변경 자체에 대한 불만은 확인되지 않음</div>
+    <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">취소 약 44건은 전액 환불돼 실제 남은 업그레이드는 순 약 93건. 표본 137건이라 통계적 단정이 아닌 방향성 참고이며, 차급 변경 자체에 대한 불만은 확인되지 않음</div>
   </div>
 
   <div class="group-label">사업성 해석 <span>이번 실험으로 답할 수 있는 것과 없는 것</span></div>
@@ -285,7 +286,7 @@ summary:hover { color: #2563eb; }
       이건 표본이나 기간을 늘려서 풀리는 문제가 아니라, 실험 단위를 회원이 아니라 지역·기간으로 바꿔야 답이 나오는 문제임.
     </div>
     <div class="next">
-      <b>확대 시 짚어야 할 점.</b> 정규화해서 확대하면 회사가 업그레이드 <b>건당 약 1.8만원 차액을 부담</b>함 (실험 기간 137건에 약 246만원).
+      <b>확대 시 짚어야 할 점.</b> 정규화해서 확대하면 회사가 업그레이드 <b>건당 약 1.8만원 차액을 부담</b>함 (실험 기간 순 약 93건에 약 173만원, 취소 환불 제외).
       그 상위차가 원래 노는 차였으면 9,900원이라도 받은 이득, 어차피 팔릴 차였으면 제값 받을 차를 싸게 내준 손해.
       어느 쪽인지는 <b>일부 지역이나 기간만 기능을 꺼두고, 켜둔 쪽과 차량 가동률·매출을 비교</b>해야 가려짐. 전국 확대 전 이 확인을 권함.
     </div>
@@ -365,7 +366,7 @@ summary:hover { color: #2563eb; }
     <div class="term"><b>A 미노출 / B 노출</b><div>회원을 무작위로 반 나눠, B에만 제안을 보여주고 A는 안 보여준 대조군. 서버 버킷팅 공식으로 분리</div></div>
     <div class="term"><b>가드레일</b><div>기능이 기존 예약을 해치지 않는지 보는 안전 점검 지표. 여기서는 예약 취소율과 CS 문의율을 A/B로 비교</div></div>
     <div class="term"><b>ARPU</b><div>회원 1인당 결제액. A 약 21.9만원 / B 약 21.9만원으로 두 그룹 차이 없음</div></div>
-    <div class="term"><b>회사 부담 차액</b><div>상위 차급 차액 중 고객이 낸 9,900원을 빼고 회사가 부담한 금액. 실험 기간 137건에 약 246만원, 건당 약 1.8만원</div></div>
+    <div class="term"><b>회사 부담 차액</b><div>상위 차급 차액 중 고객이 낸 9,900원을 빼고 회사가 부담한 금액. 결제 기준 137건 약 246만원, 취소 환불 제외 순 약 93건 약 173만원, 건당 약 1.8만원</div></div>
     <div class="term"><b>데이터 범위</b><div>차종UP 오픈 2026-06-10(CR-10867), 2026-06-24 00:00 종료. 노출·수락률·매출은 6/22까지 완전 집계, 가드레일은 6/24 재집계</div></div>
   </details>
 
@@ -398,7 +399,8 @@ SELECT COUNT(DISTINCT reservation_id) AS accept,
   COUNT(DISTINCT reservation_id)*9900 AS customer_rev,
   SUM(amount) AS company_discount
 FROM cu_paid
--- 결과: 결제 137건, 고객매출 1,356,300, 회사부담 2,462,850 (환불 0)</div>
+-- 결과: 결제 137건(gross), 고객매출 1,356,300, 회사부담 2,462,850
+-- 이후 약 44건 예약취소 전액환불 → 순 약 93건, 고객 순매출 약 92만, 회사 순부담 약 173만</div>
       </details>
       <details>
         <summary>3. A/B 취소율·인당 결제액 비교 (버킷팅 + 헤비 제외)</summary>
