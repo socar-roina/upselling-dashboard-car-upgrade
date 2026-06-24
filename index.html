@@ -37,11 +37,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .vt .judge { font-size: 13px; color: #047857; font-weight: 700; }
 .vt .judge .note { display: block; font-size: 11px; color: #9ca3af; font-weight: 500; margin-top: 3px; }
 .vt .ic { color: #059669; font-weight: 900; margin-right: 6px; }
-.mlines { display: flex; flex-direction: column; gap: 7px; }
-.mline { display: flex; align-items: baseline; gap: 9px; font-size: 13px; }
-.mline .mn { min-width: 62px; font-size: 11px; font-weight: 700; color: #64748b; }
+.mlines { display: flex; flex-direction: column; gap: 8px; }
+.mline { display: flex; align-items: center; gap: 9px; font-size: 13px; }
+.mline .mn { width: 70px; font-size: 11px; font-weight: 700; color: #64748b; }
 .mline .mv { font-weight: 800; color: #111827; font-variant-numeric: tabular-nums; }
-.mline .mt { margin-left: auto; font-size: 11px; font-weight: 700; color: #047857; white-space: nowrap; }
+.mline .mt { margin-left: auto; font-size: 11px; font-weight: 700; color: #047857; background: #ecfdf5; border: 1px solid #d1fae5; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
 
 .concl { border: 2px solid #059669; border-radius: 14px; background: linear-gradient(135deg,#f0fdf4,#ecfdf5); padding: 22px 26px; box-shadow: 0 2px 8px rgba(5,150,105,0.12); margin-bottom: 8px; }
 .concl .lbl { font-size: 12px; font-weight: 800; color: #059669; letter-spacing: 0.04em; margin-bottom: 10px; }
@@ -181,8 +181,8 @@ summary:hover { color: #2563eb; }
             <div class="mlines">
               <div class="mline"><span class="mn">취소율</span><span class="mv">32% <small style="color:#94a3b8;font-weight:600">(전체 28%)</small></span><span class="mt">비슷</span></div>
               <div class="mline"><span class="mn">CS 문의율</span><span class="mv">1.5% <small style="color:#94a3b8;font-weight:600">(전체 1.7%)</small></span><span class="mt">더 낮음</span></div>
-              <div class="mline"><span class="mn">업그레이드 무름</span><span class="mv">0명</span><span class="mt">없음</span></div>
             </div>
+            <div style="margin-top:9px;font-size:11px;color:#9ca3af;line-height:1.5">업그레이드만 따로 취소하거나 환불한 사람 <b style="color:#047857">0명</b></div>
           </td>
           <td class="judge"><span class="ic">✓</span>차를 바꿔 타도 불만이나 이탈 없음<span class="note">산 137건이라 정확한 수치보다 경향으로 해석</span></td>
         </tr>
@@ -270,9 +270,9 @@ summary:hover { color: #2563eb; }
     <div class="card-title">차급을 바꿔 탄 고객이 취소나 문의, 환불을 더 했나</div>
     <div class="card-sub">기준: 업그레이드를 결제한 137건. 노출이 아니라 실제로 차를 바꿔 탄 고객의 경험을 전체 예약과 비교</div>
     <div class="evidence">
-      <div class="e"><div class="n">약 32%</div><div class="l">예약 취소율 (137건 중 약 44건)<br>전체 28%와 비슷, 여행 자체를 무른 정상 취소</div></div>
+      <div class="e"><div class="n">약 32%</div><div class="l">예약 취소율 (137건 중 약 44건)<br>전체 28%와 비슷하며, 여행 예약 자체를 취소한 일반적인 경우</div></div>
       <div class="e"><div class="n">1.5%</div><div class="l">CS 문의율 (137건 중 2건)<br>전체 1.7%보다 낮음, 2건도 결제수단이나 부름 관련</div></div>
-      <div class="e"><div class="n green">0명</div><div class="l">업그레이드만 무른 고객<br>차급이 싫어 업그레이드만 취소하거나 환불한 사람 없음</div></div>
+      <div class="e"><div class="n green">0명</div><div class="l">업그레이드만 취소한 고객<br>업그레이드한 차급에 불만으로 취소하거나 환불한 사람 없음</div></div>
     </div>
     <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">취소 약 44건은 전액 환불돼 실제 남은 업그레이드는 순 약 93건. 표본 137건이라 통계적 단정이 아닌 방향성 참고이며, 차급 변경 자체에 대한 불만은 확인되지 않음</div>
   </div>
@@ -325,7 +325,7 @@ summary:hover { color: #2563eb; }
         <tr><td class="dt">준중형 SUV (투싼, 스포티지)</td><td class="num">892</td><td class="num">65</td><td class="num">7.3%</td><td><div style="background:#94a3b8;height:13px;width:46%;border-radius:3px"></div></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(13.8%). 반면 노출은 준중형 SUV에 가장 많이 쏠려 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
+    <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;padding:13px 16px;border-radius:8px;font-size:13px;line-height:1.7;color:#1e3a8a">준대형 세단 제안의 수락률이 가장 높음(13.8%). 반면 노출은 준중형 SUV에 가장 많이 집중돼 있어, 정규화 시 준대형 세단 제안에 우선순위를 두면 전체 수락률이 오를 여지</div>
   </div>
 
   <!-- 면책별 -->
