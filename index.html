@@ -147,26 +147,26 @@ summary:hover { color: #2563eb; }
   <!-- 실험 질문 -->
   <div class="q-card">
     <div class="lbl">실험 질문</div>
-    <div class="q">결제 직전 화면에서 9,900원에 상위 차급 업그레이드를 제안하면, 고객은 <b>실제로 돈을 내고 선택하는가</b>, 그리고 그게 <b>기존 예약을 해치는가</b>?</div>
+    <div class="q">결제 직전 화면에서 9,900원에 상위 차급 업그레이드를 제안하면, 고객은 <b>실제로 돈을 내고 선택하는가</b>, 그리고 그게 <b>기존 예약에 부정적 영향을 주지는 않는가</b>?</div>
   </div>
 
   <!-- 검증 결과 표 -->
   <div class="verify-card">
     <table class="vt">
-      <thead><tr><th style="width:30%">무엇을 봤나</th><th style="width:32%">결과</th><th>판단</th></tr></thead>
+      <thead><tr><th style="width:30%">검증 항목</th><th style="width:32%">결과</th><th>판단</th></tr></thead>
       <tbody>
         <tr>
-          <td class="what">고객이 돈 내고 사나<span class="sub">구매 수요</span></td>
+          <td class="what">구매 수요<span class="sub">제안을 본 고객이 실제로 돈을 내고 상위 차급을 선택했나</span></td>
           <td class="res">수락률 8.8%<span class="sub">제안 본 1,381명 중 122명이 결제</span></td>
           <td class="judge"><span class="ic">✓</span>고객 구매 수요 확인</td>
         </tr>
         <tr>
-          <td class="what">노출이 예약을 해치나<span class="sub">취소·문의, 대조군 비교</span></td>
+          <td class="what">기존 예약 영향 (노출)<span class="sub">업셀링 노출이 예약 취소·CS 문의를 늘렸나</span></td>
           <td class="res">A 28.0% / B 28.4%<span class="sub">취소율 차이 없음 · CS 문의율도 동일</span></td>
           <td class="judge"><span class="ic">✓</span>기존 예약 전환 저해 없음<span class="note">예약 7.6만 건씩이라 문제 있었으면 잡혔을 비교</span></td>
         </tr>
         <tr>
-          <td class="what">산 사람이 불편했나<span class="sub">구매 경험</span></td>
+          <td class="what">구매 경험 영향<span class="sub">업그레이드를 구매한 고객이 불편을 겪거나 후회했나</span></td>
           <td class="res">문의 137건 중 2건 · 환불 0건<span class="sub">2건도 결제수단·부름 관련, 차급 변경 불만 아님</span></td>
           <td class="judge"><span class="ic">✓</span>차급 변경 불만 없음<span class="note">표본 137건, 방향성 참고</span></td>
         </tr>
@@ -188,7 +188,7 @@ summary:hover { color: #2563eb; }
 
 <div class="wrap">
 
-  <div class="group-label">왜 그렇게 판단했나 <span>위 결론의 근거</span></div>
+  <div class="group-label">판단 근거 <span>위 결론을 뒷받침하는 지표</span></div>
 
   <!-- 수요 근거 -->
   <div class="section-label">1. 구매 수요 <span class="tag tag-fact">실측 6/10~6/22</span></div>
@@ -225,10 +225,10 @@ summary:hover { color: #2563eb; }
     </div>
   </div>
 
-  <div class="group-label">기존 예약 경험에 영향이 없었나 <span>노출 영향과 구매 경험 영향을 구분</span></div>
+  <div class="group-label">기존 예약 경험 영향 <span>노출 영향과 구매 경험 영향을 구분</span></div>
 
   <!-- 노출 영향: A/B -->
-  <div class="section-label">3. 노출이 기존 예약을 해치나 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
+  <div class="section-label">3. 노출의 기존 예약 영향 <span class="tag tag-info">A/B 대조</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">제안을 본 그룹(B)과 안 본 그룹(A)이 같은지 비교</div>
     <div class="card-sub">업셀링 노출 자체가 예약 취소나 고객 불만을 늘리는지 확인. 두 막대가 거의 같으면 노출이 기존 예약을 해치지 않는다는 뜻</div>
@@ -248,7 +248,7 @@ summary:hover { color: #2563eb; }
   </div>
 
   <!-- 구매 경험 영향 -->
-  <div class="section-label">4. 실제로 산 사람이 불편했나 <span class="tag tag-info">구매 고객 기준</span> <span class="tag tag-fact">실측</span></div>
+  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">구매 고객 기준</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">업그레이드를 실제 구매한 고객에서 특이 신호가 있었나</div>
     <div class="card-sub">노출이 아니라 실제 구매 고객이 차량 변경 과정에서 불편을 겪거나 후회했는지 확인</div>
@@ -259,7 +259,7 @@ summary:hover { color: #2563eb; }
     <div style="margin-top:12px;font-size:12px;color:#9ca3af;line-height:1.6">표본이 137건이라 통계적 단정이 아니라 방향성 참고. 현재까지 차급 변경 자체에 대한 불만은 확인되지 않음</div>
   </div>
 
-  <div class="group-label">그래서 사업적으로 이득인가 <span>이번 실험으로 답할 수 있는 것과 없는 것</span></div>
+  <div class="group-label">사업성 해석 <span>이번 실험으로 답할 수 있는 것과 없는 것</span></div>
 
   <div class="section-label">5. 사업성 <span class="tag tag-info">해석</span></div>
   <div class="card">
