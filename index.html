@@ -40,8 +40,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sa
 .mlines { display: flex; flex-direction: column; gap: 8px; }
 .mline { display: flex; align-items: center; gap: 9px; font-size: 13px; }
 .mline .mn { width: 70px; font-size: 11px; font-weight: 700; color: #64748b; }
-.mline .mv { font-weight: 800; color: #111827; font-variant-numeric: tabular-nums; }
-.mline .mt { margin-left: auto; font-size: 11px; font-weight: 700; color: #047857; background: #ecfdf5; border: 1px solid #d1fae5; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.mline .mv { min-width: 148px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums; }
+.mline .mt { font-size: 11px; font-weight: 700; color: #047857; background: #ecfdf5; border: 1px solid #d1fae5; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
 
 .concl { border: 2px solid #059669; border-radius: 14px; background: linear-gradient(135deg,#f0fdf4,#ecfdf5); padding: 22px 26px; box-shadow: 0 2px 8px rgba(5,150,105,0.12); margin-bottom: 8px; }
 .concl .lbl { font-size: 12px; font-weight: 800; color: #059669; letter-spacing: 0.04em; margin-bottom: 10px; }
@@ -176,7 +176,7 @@ summary:hover { color: #2563eb; }
           <td class="judge"><span class="ic">✓</span>제안을 봐도 취소나 문의가 늘지 않음<span class="note">양쪽 7.6만 건씩이라 작은 차이도 드러나는 규모인데 거의 같음</span></td>
         </tr>
         <tr>
-          <td class="what">실제 구매의 영향<span class="sub">업그레이드를 결제한 137건 기준 (제안을 본 사람 중 실제로 산 사람)</span></td>
+          <td class="what">실제 구매의 영향<span class="sub">업그레이드를 결제한 137건 기준 (제안을 본 고객 중 실제 구매자)</span></td>
           <td class="res">
             <div class="mlines">
               <div class="mline"><span class="mn">취소율</span><span class="mv">32% <small style="color:#94a3b8;font-weight:600">(전체 28%)</small></span><span class="mt">비슷</span></div>
@@ -184,7 +184,7 @@ summary:hover { color: #2563eb; }
             </div>
             <div style="margin-top:9px;font-size:11px;color:#9ca3af;line-height:1.5">업그레이드만 따로 취소하거나 환불한 사람 <b style="color:#047857">0명</b></div>
           </td>
-          <td class="judge"><span class="ic">✓</span>차를 바꿔 타도 불만이나 이탈 없음<span class="note">산 137건이라 정확한 수치보다 경향으로 해석</span></td>
+          <td class="judge"><span class="ic">✓</span>차를 바꿔 타도 불만이나 이탈 없음<span class="note">구매가 137건이라 정확한 수치보다 경향으로 해석</span></td>
         </tr>
       </tbody>
     </table>
@@ -265,7 +265,7 @@ summary:hover { color: #2563eb; }
   </div>
 
   <!-- 구매 경험 영향 -->
-  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">업그레이드 산 137건 기준</span> <span class="tag tag-fact">실측</span></div>
+  <div class="section-label">4. 구매 고객의 이용 경험 <span class="tag tag-info">업그레이드 구매 137건 기준</span> <span class="tag tag-fact">실측</span></div>
   <div class="card">
     <div class="card-title">차급을 바꿔 탄 고객이 취소나 문의, 환불을 더 했나</div>
     <div class="card-sub">기준: 업그레이드를 결제한 137건. 노출이 아니라 실제로 차를 바꿔 탄 고객의 경험을 전체 예약과 비교</div>
