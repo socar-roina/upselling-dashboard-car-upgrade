@@ -520,83 +520,22 @@ GROUP BY car_class ORDER BY exposed DESC
 
 <div class="wrap hero">
   <div class="concl" style="border-color:#2563eb;background:linear-gradient(135deg,#eff6ff,#f5f9ff);box-shadow:0 2px 8px rgba(37,99,235,0.12)">
-    <div class="lbl" style="color:#2563eb">요약</div>
-    <div class="body" style="color:#1e3a8a">
-      이번 실험으로 고객이 <b>돈을 더 내고 상위 차종을 사는 수요</b>가 있고, <b>기존 예약 경험도 나빠지지 않음</b>을 확인함<br>
-      남은 질문은 하나, <b>회사에 실제로 이익이 남는가(순증)</b>. 그런데 이건 회원을 반으로 나눈 지금 방식으로는 잴 수 없음<br>
-      지금 데이터로는 손실 상한(순 약 186만원)까지만 알 수 있고, 순증이 실제로 나는지는 지역을 나눠 켜고 끄는 실험이라야 나옴
-    </div>
+    <div class="lbl" style="color:#2563eb">결론</div>
+    <div class="body" style="color:#1e3a8a">이번 실험으로 <b>유료 업그레이드 수요</b>를 확인함(수락률 8.9%). 노출 A/B 취소율이 같고 CS 불만도 없어 <b>기존 예약에도 지장 없음</b></div>
     <div class="decision" style="border-top-color:#bfdbfe">
       <span class="pill" style="background:#2563eb">다음 방향</span>
-      <span class="txt" style="color:#1e40af">지역 단위 순증 검증 (손실 상한 작아 리스크 낮음)</span>
+      <span class="txt" style="color:#1e40af">지역 단위로 순증(회사 이익) 검증</span>
     </div>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="section-label">1. 이번 실험으로 확인한 것 <span class="tag tag-fact">실측 6/10~6/23</span></div>
+  <div class="section-label">왜 지역 단위 검증인가 <span class="tag tag-info">해석</span></div>
   <div class="card">
-    <div class="evidence">
-      <div class="e"><div class="n green">8.9%</div><div class="l">옵션 노출 대비 수락률<br>1,442명 중 128명</div></div>
-      <div class="e"><div class="n">차이 없음</div><div class="l">노출 A/B 예약 취소율<br>A 28.0% / B 28.3%</div></div>
-      <div class="e"><div class="n">0건</div><div class="l">차급 변경 관련<br>CS 불만</div></div>
-    </div>
-    <ul class="blist" style="margin-top:12px">
-      <li>실제 이용 차가 바뀌는 첫 업셀링인데도 옵션 본 회원의 8.9%가 9,900원 더 내고 상위 차종을 구매함 (유료 구매 수요 확인)</li>
-      <li>제안을 본 그룹과 안 본 그룹의 예약 취소율이 거의 같아(28.0%와 28.3%), 노출이 기존 예약을 흔들지 않음</li>
-      <li>차급 변경 관련 CS 불만 0건으로, 실제로 차를 바꿔 탄 고객 경험에도 문제 없음</li>
-      <li><b>이번 실험이 겨눈 수요와 안전성은 모두 확인됨</b></li>
-    </ul>
-  </div>
-
-  <div class="section-label">2. 남은 질문: 회사에 실제로 남는 이익 <span class="tag tag-info">해석</span></div>
-  <div class="card">
-    <div class="card-title">확대할 만한지는 결국 회사에 이익이 남는가(순증)에 달려 있음</div>
-    <div class="card-sub" style="margin-bottom:4px">그런데 이 질문은 이번 실험 방식으로는 답할 수 없음. 이유는 아래와 같음</div>
     <ul class="blist">
-      <li>차종UP은 같은 존에 상위 차가 놀고 있을 때만 제안하는 구조라, 고객은 9,900원만 더 내지만 회사는 차급 차액을 부담함 (건당 약 1.9만원)</li>
-      <li>따라서 이익인지 아닌지는 <b>그 상위 차가 어차피 놀았을 차인지</b>, <b>고객이 비운 하위 차가 다시 팔렸는지</b>에 달려 있음 (지역 전체의 차량 활용이 늘었는가의 문제)</li>
-      <li>이건 회원 단위 A/B로는 잴 수 없음. A군과 B군이 같은 지역의 같은 차를 나눠 쓰기 때문에, B가 상위 차를 가져가면 A는 그 차를 못 써서 두 그룹 비교가 섞여버림</li>
-      <li>실제로 인당 매출이 A군과 B군 거의 같게 나옴(약 22.4만원). 순증이 회원 단위에는 드러나지 않고 지역 단위에서만 잡히는 지표라는 증거</li>
-    </ul>
-  </div>
-
-  <div class="section-label">3. 그래서 제안하는 다음 방향 <span class="tag tag-info">제안</span></div>
-  <div class="card">
-    <div class="card-title">순증 방향은 지역을 나눠 켜고 끄는 실험이라야 나옴</div>
-    <div class="card-sub" style="margin-bottom:14px">지금 데이터로 알 수 있는 데까지 확인하고, 데이터에 없는 순증 방향은 지역 실험으로 확인</div>
-    <div class="split">
-      <div class="col ok">
-        <h5>지금 데이터로 아는 것</h5>
-        <ul>
-          <li>회사가 부담한 차액은 순 약 186만원(건당 약 1.9만원), 최악의 경우에도 이만큼이 손실 상한</li>
-          <li>업그레이드는 설계상 그 순간 상위 차가 비어 있을 때만 발생, 그 순간만큼은 노는 차를 태운 것</li>
-        </ul>
-      </div>
-      <div class="col no">
-        <h5>지역 실험이라야 아는 것</h5>
-        <ul>
-          <li>고객이 비운 하위 차가 실제로 다시 팔렸는지, 상위 차를 어차피 팔았을지 (순증 방향)</li>
-          <li>이 질문의 답은 데이터에 없어, 가동률로 우회해도 차가 존을 넘나들어 측정되지 않음</li>
-          <li>조건 비슷한 존을 짝지어 한쪽만 켜고 지역 전체 가동률과 매출 순증을 비교해야 나옴</li>
-        </ul>
-      </div>
-    </div>
-    <div class="next" style="margin-top:14px">
-      <b>권고.</b> 손실 상한이 순 약 186만원으로 작아 지역 실험을 벌일 리스크는 낮음. 노출이 많은 존에 집중해 지역 단위 순증 검증 진행
-    </div>
-    <div class="why" style="border-left-color:#f59e0b;background:#fffbeb;color:#92400e;margin-top:12px">
-      <b>유의.</b> 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 고노출 존 집중 또는 검증 기간 연장으로 표본 확보 필요
-    </div>
-  </div>
-
-  <div class="section-label">참고: 확대 시 운영 최적화 여지 <span class="tag tag-info">탐색</span></div>
-  <div class="card">
-    <div class="card-sub" style="margin-bottom:4px">방향 결정과는 별개로, 확대 시 수락률을 더 끌어올릴 수 있는 탐색 결과</div>
-    <ul class="blist">
-      <li>제안 차급 중 준대형 세단(그랜저, K8) 수락률이 14.3%로 가장 높음</li>
-      <li>반면 노출은 준중형 SUV에 가장 많이 몰려 있어, 수락률 높은 차급을 우선 제안하면 전체 수락률이 오를 여지 (상단 '실험 결과' 탭 참고)</li>
+      <li>회원 A/B는 두 그룹이 같은 차 재고를 나눠 써서, 회사 관점의 순증(실제 남는 이익)이 잡히지 않음</li>
+      <li>조건이 비슷한 존을 짝지어 한쪽만 기능을 켜고, 지역 전체의 매출과 가동률을 비교해야 순증이 드러남</li>
     </ul>
   </div>
 
