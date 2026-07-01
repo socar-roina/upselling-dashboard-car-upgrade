@@ -131,13 +131,11 @@ details { margin-bottom: 0; }
 summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #475569; padding: 10px 2px; }
 summary:hover { color: #2563eb; }
 .query-block { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; overflow-x: auto; white-space: pre; }
-/* 뷰 토글 (세그먼트 스위치) */
-.viewnav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 13px 40px; display: flex; align-items: center; gap: 14px; position: sticky; top: 0; z-index: 20; box-shadow: 0 1px 4px rgba(16,24,40,0.05); }
-.viewnav .seg { display: inline-flex; background: #eef2f7; border: 1px solid #e2e8f0; border-radius: 11px; padding: 4px; gap: 4px; }
-.viewnav .seg button { border: none; background: none; padding: 10px 24px; font-size: 14px; font-weight: 800; color: #64748b; cursor: pointer; border-radius: 8px; font-family: inherit; letter-spacing: -0.01em; transition: background .12s, color .12s; }
-.viewnav .seg button:hover { color: #334155; }
-.viewnav .seg button.active { color: #fff; background: #2563eb; box-shadow: 0 1px 3px rgba(37,99,235,0.4); }
-.viewnav .hint { font-size: 12px; color: #94a3b8; font-weight: 600; }
+/* 뷰 탭 */
+.viewtabs { position: sticky; top: 0; z-index: 20; background: #fff; border-bottom: 1px solid #e5e7eb; padding: 11px 40px; display: flex; gap: 8px; box-shadow: 0 1px 3px rgba(16,24,40,0.04); }
+.vtab { border: 1px solid #d1d5db; background: #fff; color: #64748b; font-size: 13.5px; font-weight: 800; padding: 9px 20px; border-radius: 8px; cursor: pointer; font-family: inherit; letter-spacing: -0.01em; }
+.vtab:hover { border-color: #94a3b8; color: #334155; }
+.vtab.active { background: #2563eb; border-color: #2563eb; color: #fff; }
 .flow-step { border-radius: 12px; padding: 18px 20px; }
 .flow-step.a { background: #eff6ff; border: 1px solid #bfdbfe; }
 .flow-step.b { background: #f0fdf4; border: 1px solid #bbf7d0; }
@@ -149,31 +147,33 @@ summary:hover { color: #2563eb; }
 .flow-step li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; }
 .flow-step.a li::before { background: #3b82f6; }
 .flow-step.b li::before { background: #22c55e; }
+.blist { list-style: none; margin: 2px 0 0; }
+.blist li { font-size: 13.5px; color: #374151; line-height: 1.6; padding: 9px 0 9px 18px; position: relative; border-top: 1px solid #f1f5f9; }
+.blist li:first-child { border-top: none; }
+.blist li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 5px; height: 5px; border-radius: 50%; background: #cbd5e1; }
+.blist li b { color: #111827; font-weight: 800; }
+.blist li .why-in { color: #64748b; }
 </style>
 </head>
 <body>
 
-<div class="viewnav">
-  <div class="seg">
-    <button id="tab-result" class="active" onclick="showView('result')">실험 결과</button>
-    <button id="tab-direction" onclick="showView('direction')">다음 방향 제안</button>
+<div class="top-bar">
+  <div>
+    <h1>차종 업그레이드 업셀링</h1>
+    <div class="meta">결제 직전 화면에서 같은 존 상위 차급으로 9,900원에 업그레이드를 제안하는 기능. 실험 결과와 다음 방향 제안</div>
   </div>
-  <span class="hint">탭을 눌러 화면 전환</span>
+  <div class="updated">
+    실험 기간 <b>2026-06-10 ~ 06-23</b><br>
+    <span>최종 갱신 2026-06-24 KST (실험 종료 기준 집계)</span>
+  </div>
+</div>
+
+<div class="viewtabs">
+  <button id="tab-result" class="vtab active" onclick="showView('result')">실험 결과</button>
+  <button id="tab-direction" class="vtab" onclick="showView('direction')">다음 방향 제안</button>
 </div>
 
 <div id="view-result">
-
-<div class="top-bar">
-  <div>
-    <h1>차종 업그레이드 실험 결과</h1>
-    <div class="meta">결제 직전 화면에서 같은 존 상위 차급으로 9,900원에 업그레이드를 제안하는 기능의 A/B 실험 결과</div>
-  </div>
-  <div class="updated">
-    최종 갱신 <b>2026-06-24 KST</b><br>
-    <span>실험 기간 2026-06-10 ~ 06-24 (6/24 00:00 종료)</span><br>
-    <span style="color:#9ca3af">데이터는 실험 종료 기준 집계 (실험 기간 6/10~6/23)</span>
-  </div>
-</div>
 
 <div class="wrap hero">
 
@@ -518,87 +518,84 @@ GROUP BY car_class ORDER BY exposed DESC
 
 <div id="view-direction" style="display:none">
 
-<div class="top-bar">
-  <div>
-    <h1>차종 업그레이드 다음 방향</h1>
-    <div class="meta">실험 결과를 근거로 정리한 다음 단계 방향 (미팅용). 세부 수치와 검증 쿼리는 상단 '실험 결과' 탭 참고</div>
-  </div>
-  <div class="updated">
-    실험 기간 <b>2026-06-10 ~ 06-23</b><br>
-    <span>노출 1,442명 / 수락 128명 (8.9%)</span>
-  </div>
-</div>
-
 <div class="wrap hero">
   <div class="concl" style="border-color:#2563eb;background:linear-gradient(135deg,#eff6ff,#f5f9ff);box-shadow:0 2px 8px rgba(37,99,235,0.12)">
-    <div class="lbl" style="color:#2563eb">한 장 요약</div>
-    <div class="body" style="color:#1e3a8a">이번 실험으로 <b>유료 구매 수요</b>와 <b>기존 예약에 해 없음</b>을 확인. 다음은 회사에 실제로 남는 <b>순이익(순증)</b>을 보는 차례이며, 순증은 회원 단위가 아니라 지역 단위로 봐야 잡히는 지표.</div>
+    <div class="lbl" style="color:#2563eb">요약</div>
+    <div class="body" style="color:#1e3a8a">
+      이번 실험으로 고객이 <b>돈을 더 내고 상위 차종을 사는 수요</b>가 있고, <b>기존 예약 경험도 나빠지지 않음</b>을 확인함<br>
+      남은 질문은 하나, <b>회사에 실제로 이익이 남는가(순증)</b>. 그런데 이건 회원을 반으로 나눈 지금 방식으로는 잴 수 없어 지역 단위 검증이 필요함<br>
+      다만 지역 검증은 준비가 크므로, 먼저 이미 쌓인 데이터로 순증 규모부터 가늠해 해볼 가치가 있는지 판단하는 것이 순서
+    </div>
     <div class="decision" style="border-top-color:#bfdbfe">
       <span class="pill" style="background:#2563eb">다음 방향</span>
-      <span class="txt" style="color:#1e40af">기존 데이터로 순증 규모부터 확인, 유망하면 지역 단위 검증</span>
+      <span class="txt" style="color:#1e40af">기존 데이터로 순증 규모 확인, 유망하면 지역 단위 검증</span>
     </div>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="section-label">이번 실험으로 확인한 것 <span class="tag tag-fact">실측 6/10~6/23</span></div>
+  <div class="section-label">1. 이번 실험으로 확인한 것 <span class="tag tag-fact">실측 6/10~6/23</span></div>
   <div class="card">
     <div class="evidence">
       <div class="e"><div class="n green">8.9%</div><div class="l">옵션 노출 대비 수락률<br>1,442명 중 128명</div></div>
       <div class="e"><div class="n">차이 없음</div><div class="l">노출 A/B 예약 취소율<br>A 28.0% / B 28.3%</div></div>
       <div class="e"><div class="n">0건</div><div class="l">차급 변경 관련<br>CS 불만</div></div>
     </div>
-    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.85;color:#374151">
-      실제 이용 차가 바뀌는 첫 업셀링인데도 옵션 본 10명 중 약 1명이 9,900원 더 내고 상위 차종 선택. 유료 전환 수요 확인<br>
-      노출 그룹과 미노출 그룹 간 예약 취소나 문의 차이 없음. 차급 변경 불만 0건으로 기존 예약 경험 저하 없음<br>
-      이번 실험이 겨눈 수요와 안전성 모두 확인 완료
-    </div>
+    <ul class="blist" style="margin-top:12px">
+      <li>실제 이용 차가 바뀌는 첫 업셀링인데도 옵션 본 회원의 8.9%가 9,900원 더 내고 상위 차종을 구매함 (유료 구매 수요 확인)</li>
+      <li>제안을 본 그룹과 안 본 그룹의 예약 취소율이 거의 같아(28.0%와 28.3%), 노출이 기존 예약을 흔들지 않음</li>
+      <li>차급 변경 관련 CS 불만 0건으로, 실제로 차를 바꿔 탄 고객 경험에도 문제 없음</li>
+      <li><b>이번 실험이 겨눈 수요와 안전성은 모두 확인됨</b></li>
+    </ul>
   </div>
 
-  <div class="section-label">다음으로 넘어갈 지점: 회사 순이익 <span class="tag tag-info">해석</span></div>
+  <div class="section-label">2. 남은 질문: 회사에 실제로 남는 이익 <span class="tag tag-info">해석</span></div>
   <div class="card">
-    <div class="card-title">수요와 안전성을 확인했으니, 다음은 회사에 실제로 남는 순이익(순증) 차례</div>
-    <div class="why" style="border-left-color:#3b82f6">
-      차종UP은 같은 존에 상위 차가 놀고 있을 때만 제안하는 구조. 순증은 <b>놀던 상위 차를 태워 번 9,900원</b>과 <b>고객이 비운 하위 차의 재판매</b>에서 발생<br>
-      이 순증은 회원 단위가 아니라 지역 단위로 봐야 잡히는 지표. 같은 지역 차를 두 그룹이 나눠 쓰는 구조라, 지역을 나눠 기능을 켜고 끄며 비교해야 정확 (회원 단위였던 이번 실험과 결이 다른, 다음 실험의 영역)<br>
-      실제로 회원 단위 매출은 두 그룹이 거의 동일(인당 약 22.4만원). 순증이 회원 단위에는 드러나지 않고 지역 단위에서만 잡히는 지표라는 근거
-    </div>
+    <div class="card-title">확대할 만한지는 결국 회사에 이익이 남는가(순증)에 달려 있음</div>
+    <div class="card-sub" style="margin-bottom:4px">그런데 이 질문은 이번 실험 방식으로는 답할 수 없음. 이유는 아래와 같음</div>
+    <ul class="blist">
+      <li>차종UP은 같은 존에 상위 차가 놀고 있을 때만 제안하는 구조라, 고객은 9,900원만 더 내지만 회사는 차급 차액을 부담함 (건당 약 1.9만원)</li>
+      <li>따라서 이익인지 아닌지는 <b>그 상위 차가 어차피 놀았을 차인지</b>, <b>고객이 비운 하위 차가 다시 팔렸는지</b>에 달려 있음 (지역 전체의 차량 활용이 늘었는가의 문제)</li>
+      <li>이건 회원 단위 A/B로는 잴 수 없음. A군과 B군이 같은 지역의 같은 차를 나눠 쓰기 때문에, B가 상위 차를 가져가면 A는 그 차를 못 써서 두 그룹 비교가 섞여버림</li>
+      <li>실제로 인당 매출이 A군과 B군 거의 같게 나옴(약 22.4만원). 순증이 회원 단위에는 드러나지 않고 지역 단위에서만 잡히는 지표라는 증거</li>
+    </ul>
   </div>
 
-  <div class="section-label">제안하는 다음 방향 <span class="tag tag-info">제안</span></div>
+  <div class="section-label">3. 그래서 제안하는 다음 방향 <span class="tag tag-info">제안</span></div>
   <div class="card">
     <div class="card-title">순증부터 재고, 규모가 유망하면 지역 단위로 검증</div>
+    <div class="card-sub" style="margin-bottom:14px">순증은 지역 단위로만 정확히 잴 수 있으나 그 검증은 준비가 큼. 그래서 값싼 데이터 확인을 먼저 둠</div>
     <div class="split">
       <div class="flow-step a">
         <h5>먼저: 기존 데이터로 순증 규모 확인</h5>
         <ul>
-          <li>이미 쌓인 예약 데이터로 업그레이드 1건당 회사에 실제로 남는 금액 계산</li>
-          <li>업그레이드된 상위 차의 실제 유휴 여부, 고객이 비운 하위 차의 재판매 여부 확인</li>
-          <li>신규 개발 없이 순증 규모와 손익분기 가늠. 해볼 만한지 여부 대략 판별</li>
+          <li>이미 쌓인 예약 데이터로 업그레이드 1건당 회사에 실제로 남는 금액을 계산</li>
+          <li>업그레이드된 상위 차가 정말 유휴였는지, 고객이 비운 하위 차가 재판매됐는지 확인</li>
+          <li>신규 개발 없이 순증 규모와 손익분기를 가늠해, 지역 검증까지 갈 가치가 있는지 먼저 판단</li>
         </ul>
       </div>
       <div class="flow-step b">
-        <h5>그다음: 지역 단위 순증 검증</h5>
+        <h5>그다음: 지역 단위 순증 검증 (규모가 유망하면)</h5>
         <ul>
-          <li>차량 가동률과 수요가 비슷한 존을 짝지어 한쪽만 기능을 켜고 다른 쪽은 끔</li>
-          <li>지역 전체의 차량 가동률과 매출 순증을 비교</li>
-          <li>회원 단위로는 안 잡히는 순증을 지역 단위로 측정</li>
+          <li>차량 가동률과 수요가 비슷한 존을 짝지어, 한쪽만 기능을 켜고 다른 쪽은 끔</li>
+          <li>지역 전체의 차량 가동률과 매출이 실제로 늘었는지 비교</li>
+          <li>회원 단위로는 섞여서 안 잡히던 순증을 지역 단위로 깨끗하게 측정</li>
         </ul>
       </div>
     </div>
     <div class="why" style="border-left-color:#f59e0b;background:#fffbeb;color:#92400e;margin-top:14px">
-      <b>유의.</b> 현재 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 노출이 많은 존에 집중하거나 검증 기간을 늘려 표본 확보 필요
+      <b>유의.</b> 현재 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 노출이 많은 존에 집중하거나 검증 기간을 늘려 표본을 확보해야 함
     </div>
   </div>
 
-  <div class="section-label">정규화 시 운영 최적화 여지 <span class="tag tag-info">참고</span></div>
+  <div class="section-label">참고: 확대 시 운영 최적화 여지 <span class="tag tag-info">탐색</span></div>
   <div class="card">
-    <div class="card-sub" style="margin-bottom:12px">방향 결정과 별개로, 확대 시 수락률을 더 끌어올릴 수 있는 탐색 결과</div>
-    <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.85;color:#374151">
-      제안 차급 중 준대형 세단(그랜저, K8) 제안의 수락률이 14.3%로 가장 높았으나, 노출은 준중형 SUV에 가장 많이 몰려 있음<br>
-      정규화 시 수락률 높은 차급 제안에 우선순위를 두면 전체 수락률이 오를 여지 (상단 '실험 결과' 탭 제안 차급별 수락률 참고)
-    </div>
+    <div class="card-sub" style="margin-bottom:4px">방향 결정과는 별개로, 확대 시 수락률을 더 끌어올릴 수 있는 탐색 결과</div>
+    <ul class="blist">
+      <li>제안 차급 중 준대형 세단(그랜저, K8) 수락률이 14.3%로 가장 높음</li>
+      <li>반면 노출은 준중형 SUV에 가장 많이 몰려 있어, 수락률 높은 차급을 우선 제안하면 전체 수락률이 오를 여지 (상단 '실험 결과' 탭 참고)</li>
+    </ul>
   </div>
 
 </div>
