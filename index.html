@@ -519,24 +519,36 @@ GROUP BY car_class ORDER BY exposed DESC
 <div id="view-direction" style="display:none">
 
 <div class="wrap hero">
-  <div class="concl" style="border-color:#2563eb;background:linear-gradient(135deg,#eff6ff,#f5f9ff);box-shadow:0 2px 8px rgba(37,99,235,0.12)">
-    <div class="lbl" style="color:#2563eb">결론</div>
-    <div class="body" style="color:#1e3a8a">이번 실험으로 <b>유료 업그레이드 수요</b>를 확인함(수락률 8.9%). 노출 A/B 취소율이 같고 CS 불만도 없어 <b>기존 예약에도 지장 없음</b></div>
-    <div class="decision" style="border-top-color:#bfdbfe">
-      <span class="pill" style="background:#2563eb">다음 방향</span>
-      <span class="txt" style="color:#1e40af">지역 단위로 순증(회사 이익) 검증</span>
-    </div>
+  <div class="q-card">
+    <div class="lbl">이 페이지</div>
+    <div class="q">차종 업그레이드 실험 결과를 바탕으로 <b>다음 단계 방향</b>을 정리</div>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="section-label">왜 지역 단위 검증인가 <span class="tag tag-info">해석</span></div>
+  <div class="section-label">이번 실험에서 확인한 것 <span class="tag tag-fact">실측 6/10~6/23</span></div>
   <div class="card">
+    <div class="evidence">
+      <div class="e"><div class="n green">8.9%</div><div class="l">옵션 노출 대비 수락률<br>유료 업그레이드 수요 확인</div></div>
+      <div class="e"><div class="n">차이 없음</div><div class="l">노출 A/B 예약 취소율<br>기존 예약에 지장 없음</div></div>
+      <div class="e"><div class="n">0건</div><div class="l">차급 변경 관련<br>CS 불만</div></div>
+    </div>
+  </div>
+
+  <div class="section-label">남은 질문 <span class="tag tag-info">해석</span></div>
+  <div class="card">
+    <div class="card-title">확대 여부는 회사에 순증(이익)이 나는지에 달려 있음</div>
     <ul class="blist">
-      <li>회원 A/B는 두 그룹이 같은 차 재고를 나눠 써서, 회사 관점의 순증(실제 남는 이익)이 잡히지 않음</li>
-      <li>조건이 비슷한 존을 짝지어 한쪽만 기능을 켜고, 지역 전체의 매출과 가동률을 비교해야 순증이 드러남</li>
+      <li>고객은 9,900원을 더 내지만 회사는 차급 차액을 부담하므로, 확대할지는 실제로 이익이 남는가에 달림</li>
+      <li>그런데 회원을 반으로 나눈 이번 A/B로는 순증을 잴 수 없음. 두 그룹이 같은 지역의 같은 차를 나눠 써서 효과가 섞이기 때문</li>
     </ul>
+  </div>
+
+  <div class="section-label">다음 방향 <span class="tag tag-info">제안</span></div>
+  <div class="concl" style="border-color:#2563eb;background:linear-gradient(135deg,#eff6ff,#f5f9ff);box-shadow:0 2px 8px rgba(37,99,235,0.12)">
+    <div class="lbl" style="color:#2563eb">지역 단위로 순증 검증</div>
+    <div class="body" style="color:#1e3a8a">차량 가동률과 수요가 비슷한 존을 짝지어 한쪽만 기능을 켜고, 지역 전체의 매출과 가동률이 실제로 늘었는지 비교</div>
   </div>
 
 </div>
