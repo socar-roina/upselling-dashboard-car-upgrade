@@ -523,12 +523,12 @@ GROUP BY car_class ORDER BY exposed DESC
     <div class="lbl" style="color:#2563eb">요약</div>
     <div class="body" style="color:#1e3a8a">
       이번 실험으로 고객이 <b>돈을 더 내고 상위 차종을 사는 수요</b>가 있고, <b>기존 예약 경험도 나빠지지 않음</b>을 확인함<br>
-      남은 질문은 하나, <b>회사에 실제로 이익이 남는가(순증)</b>. 그런데 이건 회원을 반으로 나눈 지금 방식으로는 잴 수 없어 지역 단위 검증이 필요함<br>
-      다만 지역 검증은 준비가 크므로, 먼저 이미 쌓인 데이터로 순증 규모부터 가늠해 해볼 가치가 있는지 판단하는 것이 순서
+      남은 질문은 하나, <b>회사에 실제로 이익이 남는가(순증)</b>. 그런데 이건 회원을 반으로 나눈 지금 방식으로는 잴 수 없음<br>
+      지금 데이터로는 손실 상한(순 약 186만원)까지만 알 수 있고, 순증이 실제로 나는지는 지역을 나눠 켜고 끄는 실험이라야 나옴
     </div>
     <div class="decision" style="border-top-color:#bfdbfe">
       <span class="pill" style="background:#2563eb">다음 방향</span>
-      <span class="txt" style="color:#1e40af">기존 데이터로 순증 규모 확인, 유망하면 지역 단위 검증</span>
+      <span class="txt" style="color:#1e40af">지역 단위 순증 검증 (손실 상한 작아 리스크 낮음)</span>
     </div>
   </div>
 </div>
@@ -564,28 +564,30 @@ GROUP BY car_class ORDER BY exposed DESC
 
   <div class="section-label">3. 그래서 제안하는 다음 방향 <span class="tag tag-info">제안</span></div>
   <div class="card">
-    <div class="card-title">순증부터 재고, 규모가 유망하면 지역 단위로 검증</div>
-    <div class="card-sub" style="margin-bottom:14px">순증은 지역 단위로만 정확히 잴 수 있으나 그 검증은 준비가 큼. 그래서 값싼 데이터 확인을 먼저 둠</div>
+    <div class="card-title">순증 방향은 지역을 나눠 켜고 끄는 실험이라야 나옴</div>
+    <div class="card-sub" style="margin-bottom:14px">지금 데이터로 알 수 있는 데까지 확인하고, 데이터에 없는 순증 방향은 지역 실험으로 확인</div>
     <div class="split">
-      <div class="flow-step a">
-        <h5>먼저: 기존 데이터로 순증 규모 확인</h5>
+      <div class="col ok">
+        <h5>지금 데이터로 아는 것</h5>
         <ul>
-          <li>이미 쌓인 예약 데이터로 업그레이드 1건당 회사에 실제로 남는 금액을 계산</li>
-          <li>업그레이드된 상위 차가 정말 유휴였는지, 고객이 비운 하위 차가 재판매됐는지 확인</li>
-          <li>신규 개발 없이 순증 규모와 손익분기를 가늠해, 지역 검증까지 갈 가치가 있는지 먼저 판단</li>
+          <li>회사가 부담한 차액은 순 약 186만원(건당 약 1.9만원), 최악의 경우에도 이만큼이 손실 상한</li>
+          <li>업그레이드는 설계상 그 순간 상위 차가 비어 있을 때만 발생, 그 순간만큼은 노는 차를 태운 것</li>
         </ul>
       </div>
-      <div class="flow-step b">
-        <h5>그다음: 지역 단위 순증 검증 (규모가 유망하면)</h5>
+      <div class="col no">
+        <h5>지역 실험이라야 아는 것</h5>
         <ul>
-          <li>차량 가동률과 수요가 비슷한 존을 짝지어, 한쪽만 기능을 켜고 다른 쪽은 끔</li>
-          <li>지역 전체의 차량 가동률과 매출이 실제로 늘었는지 비교</li>
-          <li>회원 단위로는 섞여서 안 잡히던 순증을 지역 단위로 깨끗하게 측정</li>
+          <li>고객이 비운 하위 차가 실제로 다시 팔렸는지, 상위 차를 어차피 팔았을지 (순증 방향)</li>
+          <li>이 질문의 답은 데이터에 없어, 가동률로 우회해도 차가 존을 넘나들어 측정되지 않음</li>
+          <li>조건 비슷한 존을 짝지어 한쪽만 켜고 지역 전체 가동률과 매출 순증을 비교해야 나옴</li>
         </ul>
       </div>
     </div>
-    <div class="why" style="border-left-color:#f59e0b;background:#fffbeb;color:#92400e;margin-top:14px">
-      <b>유의.</b> 현재 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 노출이 많은 존에 집중하거나 검증 기간을 늘려 표본을 확보해야 함
+    <div class="next" style="margin-top:14px">
+      <b>권고.</b> 손실 상한이 순 약 186만원으로 작아 지역 실험을 벌일 리스크는 낮음. 노출이 많은 존에 집중해 지역 단위 순증 검증 진행
+    </div>
+    <div class="why" style="border-left-color:#f59e0b;background:#fffbeb;color:#92400e;margin-top:12px">
+      <b>유의.</b> 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 고노출 존 집중 또는 검증 기간 연장으로 표본 확보 필요
     </div>
   </div>
 
