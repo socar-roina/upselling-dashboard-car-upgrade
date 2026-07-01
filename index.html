@@ -11,12 +11,12 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif; background: #f4f5f7; color: #111827; font-size: 14px; line-height: 1.5; min-width: 1100px; -webkit-font-smoothing: antialiased; }
-.top-bar { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 20px 32px; display: flex; align-items: flex-start; justify-content: space-between; }
+.top-bar { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 20px 40px; display: flex; align-items: flex-start; justify-content: space-between; }
 .top-bar h1 { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; }
 .top-bar .meta { font-size: 12px; color: #6b7280; margin-top: 7px; line-height: 1.6; max-width: 760px; }
 .top-bar .updated { font-size: 11px; color: #9ca3af; text-align: right; line-height: 1.8; }
 .top-bar .updated b { color: #111827; font-weight: 700; }
-.wrap { max-width: 1440px; margin: 0 auto; padding: 0 28px; }
+.wrap { max-width: 1860px; margin: 0 auto; padding: 0 40px; }
 
 /* 첫 화면 결론 블록 */
 .hero { margin: 22px auto 0; }
@@ -131,11 +131,13 @@ details { margin-bottom: 0; }
 summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #475569; padding: 10px 2px; }
 summary:hover { color: #2563eb; }
 .query-block { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; overflow-x: auto; white-space: pre; }
-/* 뷰 토글 */
-.viewnav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 32px; display: flex; gap: 2px; position: sticky; top: 0; z-index: 20; }
-.viewnav button { border: none; background: none; padding: 15px 20px; font-size: 14px; font-weight: 800; color: #94a3b8; cursor: pointer; border-bottom: 2px solid transparent; font-family: inherit; letter-spacing: -0.01em; }
-.viewnav button:hover { color: #475569; }
-.viewnav button.active { color: #2563eb; border-bottom-color: #2563eb; }
+/* 뷰 토글 (세그먼트 스위치) */
+.viewnav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 13px 40px; display: flex; align-items: center; gap: 14px; position: sticky; top: 0; z-index: 20; box-shadow: 0 1px 4px rgba(16,24,40,0.05); }
+.viewnav .seg { display: inline-flex; background: #eef2f7; border: 1px solid #e2e8f0; border-radius: 11px; padding: 4px; gap: 4px; }
+.viewnav .seg button { border: none; background: none; padding: 10px 24px; font-size: 14px; font-weight: 800; color: #64748b; cursor: pointer; border-radius: 8px; font-family: inherit; letter-spacing: -0.01em; transition: background .12s, color .12s; }
+.viewnav .seg button:hover { color: #334155; }
+.viewnav .seg button.active { color: #fff; background: #2563eb; box-shadow: 0 1px 3px rgba(37,99,235,0.4); }
+.viewnav .hint { font-size: 12px; color: #94a3b8; font-weight: 600; }
 .flow-step { border-radius: 12px; padding: 18px 20px; }
 .flow-step.a { background: #eff6ff; border: 1px solid #bfdbfe; }
 .flow-step.b { background: #f0fdf4; border: 1px solid #bbf7d0; }
@@ -152,8 +154,11 @@ summary:hover { color: #2563eb; }
 <body>
 
 <div class="viewnav">
-  <button id="tab-result" class="active" onclick="showView('result')">실험 결과</button>
-  <button id="tab-direction" onclick="showView('direction')">다음 방향</button>
+  <div class="seg">
+    <button id="tab-result" class="active" onclick="showView('result')">실험 결과</button>
+    <button id="tab-direction" onclick="showView('direction')">다음 방향 제안</button>
+  </div>
+  <span class="hint">탭을 눌러 화면 전환</span>
 </div>
 
 <div id="view-result">
