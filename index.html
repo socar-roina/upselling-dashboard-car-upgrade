@@ -131,9 +131,32 @@ details { margin-bottom: 0; }
 summary { cursor: pointer; font-size: 13px; font-weight: 700; color: #475569; padding: 10px 2px; }
 summary:hover { color: #2563eb; }
 .query-block { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 14px 16px; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+/* 뷰 토글 */
+.viewnav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 32px; display: flex; gap: 2px; position: sticky; top: 0; z-index: 20; }
+.viewnav button { border: none; background: none; padding: 15px 20px; font-size: 14px; font-weight: 800; color: #94a3b8; cursor: pointer; border-bottom: 2px solid transparent; font-family: inherit; letter-spacing: -0.01em; }
+.viewnav button:hover { color: #475569; }
+.viewnav button.active { color: #2563eb; border-bottom-color: #2563eb; }
+.flow-step { border-radius: 12px; padding: 18px 20px; }
+.flow-step.a { background: #eff6ff; border: 1px solid #bfdbfe; }
+.flow-step.b { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.flow-step h5 { font-size: 13px; font-weight: 800; margin-bottom: 10px; }
+.flow-step.a h5 { color: #1d4ed8; }
+.flow-step.b h5 { color: #15803d; }
+.flow-step ul { list-style: none; }
+.flow-step li { font-size: 13px; color: #374151; line-height: 1.55; padding: 5px 0 5px 16px; position: relative; }
+.flow-step li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; }
+.flow-step.a li::before { background: #3b82f6; }
+.flow-step.b li::before { background: #22c55e; }
 </style>
 </head>
 <body>
+
+<div class="viewnav">
+  <button id="tab-result" class="active" onclick="showView('result')">실험 결과</button>
+  <button id="tab-direction" onclick="showView('direction')">다음 방향</button>
+</div>
+
+<div id="view-result">
 
 <div class="top-bar">
   <div>
@@ -486,8 +509,104 @@ GROUP BY car_class ORDER BY exposed DESC
   </details>
 
 </div>
+</div><!-- /view-result -->
+
+<div id="view-direction" style="display:none">
+
+<div class="top-bar">
+  <div>
+    <h1>차종 업그레이드 다음 방향</h1>
+    <div class="meta">실험 결과를 근거로 정리한 다음 단계 방향 (미팅용). 세부 수치와 검증 쿼리는 상단 '실험 결과' 탭 참고</div>
+  </div>
+  <div class="updated">
+    실험 기간 <b>2026-06-10 ~ 06-23</b><br>
+    <span>노출 1,442명 / 수락 128명 (8.9%)</span>
+  </div>
+</div>
+
+<div class="wrap hero">
+  <div class="concl" style="border-color:#2563eb;background:linear-gradient(135deg,#eff6ff,#f5f9ff);box-shadow:0 2px 8px rgba(37,99,235,0.12)">
+    <div class="lbl" style="color:#2563eb">한 장 요약</div>
+    <div class="body" style="color:#1e3a8a">이번 실험으로 <b>유료 구매 수요</b>와 <b>기존 예약에 해 없음</b>을 확인. 다음은 회사에 실제로 남는 <b>순이익(순증)</b>을 보는 차례이며, 순증은 회원 단위가 아니라 지역 단위로 봐야 잡히는 지표.</div>
+    <div class="decision" style="border-top-color:#bfdbfe">
+      <span class="pill" style="background:#2563eb">다음 방향</span>
+      <span class="txt" style="color:#1e40af">기존 데이터로 순증 규모부터 확인, 유망하면 지역 단위 검증</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="section-label">이번 실험으로 확인한 것 <span class="tag tag-fact">실측 6/10~6/23</span></div>
+  <div class="card">
+    <div class="evidence">
+      <div class="e"><div class="n green">8.9%</div><div class="l">옵션 노출 대비 수락률<br>1,442명 중 128명</div></div>
+      <div class="e"><div class="n">차이 없음</div><div class="l">노출 A/B 예약 취소율<br>A 28.0% / B 28.3%</div></div>
+      <div class="e"><div class="n">0건</div><div class="l">차급 변경 관련<br>CS 불만</div></div>
+    </div>
+    <div style="margin-top:14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.85;color:#374151">
+      실제 이용 차가 바뀌는 첫 업셀링인데도 옵션 본 10명 중 약 1명이 9,900원 더 내고 상위 차종 선택. 유료 전환 수요 확인<br>
+      노출 그룹과 미노출 그룹 간 예약 취소나 문의 차이 없음. 차급 변경 불만 0건으로 기존 예약 경험 저하 없음<br>
+      이번 실험이 겨눈 수요와 안전성 모두 확인 완료
+    </div>
+  </div>
+
+  <div class="section-label">다음으로 넘어갈 지점: 회사 순이익 <span class="tag tag-info">해석</span></div>
+  <div class="card">
+    <div class="card-title">수요와 안전성을 확인했으니, 다음은 회사에 실제로 남는 순이익(순증) 차례</div>
+    <div class="why" style="border-left-color:#3b82f6">
+      차종UP은 같은 존에 상위 차가 놀고 있을 때만 제안하는 구조. 순증은 <b>놀던 상위 차를 태워 번 9,900원</b>과 <b>고객이 비운 하위 차의 재판매</b>에서 발생<br>
+      이 순증은 회원 단위가 아니라 지역 단위로 봐야 잡히는 지표. 같은 지역 차를 두 그룹이 나눠 쓰는 구조라, 지역을 나눠 기능을 켜고 끄며 비교해야 정확 (회원 단위였던 이번 실험과 결이 다른, 다음 실험의 영역)<br>
+      실제로 회원 단위 매출은 두 그룹이 거의 동일(인당 약 22.4만원). 순증이 회원 단위에는 드러나지 않고 지역 단위에서만 잡히는 지표라는 근거
+    </div>
+  </div>
+
+  <div class="section-label">제안하는 다음 방향 <span class="tag tag-info">제안</span></div>
+  <div class="card">
+    <div class="card-title">순증부터 재고, 규모가 유망하면 지역 단위로 검증</div>
+    <div class="split">
+      <div class="flow-step a">
+        <h5>먼저: 기존 데이터로 순증 규모 확인</h5>
+        <ul>
+          <li>이미 쌓인 예약 데이터로 업그레이드 1건당 회사에 실제로 남는 금액 계산</li>
+          <li>업그레이드된 상위 차의 실제 유휴 여부, 고객이 비운 하위 차의 재판매 여부 확인</li>
+          <li>신규 개발 없이 순증 규모와 손익분기 가늠. 해볼 만한지 여부 대략 판별</li>
+        </ul>
+      </div>
+      <div class="flow-step b">
+        <h5>그다음: 지역 단위 순증 검증</h5>
+        <ul>
+          <li>차량 가동률과 수요가 비슷한 존을 짝지어 한쪽만 기능을 켜고 다른 쪽은 끔</li>
+          <li>지역 전체의 차량 가동률과 매출 순증을 비교</li>
+          <li>회원 단위로는 안 잡히는 순증을 지역 단위로 측정</li>
+        </ul>
+      </div>
+    </div>
+    <div class="why" style="border-left-color:#f59e0b;background:#fffbeb;color:#92400e;margin-top:14px">
+      <b>유의.</b> 현재 노출량이 많지 않아(14일간 1,442명) 지역별로 쪼개면 표본이 얇아짐. 노출이 많은 존에 집중하거나 검증 기간을 늘려 표본 확보 필요
+    </div>
+  </div>
+
+  <div class="section-label">정규화 시 운영 최적화 여지 <span class="tag tag-info">참고</span></div>
+  <div class="card">
+    <div class="card-sub" style="margin-bottom:12px">방향 결정과 별개로, 확대 시 수락률을 더 끌어올릴 수 있는 탐색 결과</div>
+    <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.85;color:#374151">
+      제안 차급 중 준대형 세단(그랜저, K8) 제안의 수락률이 14.3%로 가장 높았으나, 노출은 준중형 SUV에 가장 많이 몰려 있음<br>
+      정규화 시 수락률 높은 차급 제안에 우선순위를 두면 전체 수락률이 오를 여지 (상단 '실험 결과' 탭 제안 차급별 수락률 참고)
+    </div>
+  </div>
+
+</div>
+</div><!-- /view-direction -->
 
 <script>
+function showView(v){
+  document.getElementById('view-result').style.display = v==='direction' ? 'none' : '';
+  document.getElementById('view-direction').style.display = v==='direction' ? '' : 'none';
+  document.getElementById('tab-result').classList.toggle('active', v!=='direction');
+  document.getElementById('tab-direction').classList.toggle('active', v==='direction');
+  window.scrollTo(0,0);
+}
 const ctx = document.getElementById('dailyChart');
 new Chart(ctx, {
   type: 'bar',
